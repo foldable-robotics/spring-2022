@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>
+Drag in Granular Media | Foldable Robotics
+</title>
+
+    <link href="/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+
+
+<link href="/css/blog.css" rel="stylesheet">
+<link href="/css/features.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/hugo-cite.css" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/manifest.json">
+
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <header class="blog-header py-3">
+  <div class="row flex-nowrap justify-content-between align-items-center">
+    <div class="col-2 pt-1">
+    </div>
+    <div class="col-8 text-center">
+      <a class="blog-header-logo text-dark" href="/">Foldable Robotics</a>
+    </div>
+    <div class="col-2 d-flex justify-content-end align-items-center">
+    </div>
+  </div>
+</header>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Course Topics
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/introduction/">Introduction</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/python/">Python</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/biomechanics/">Biomechanics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/project/">Project</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/kinematics/">Kinematics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/dynamics/">Dynamics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/optimization/">Optimization</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/compliance/">Mechanics and Compliance</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/manufacturing/">Prototyping &amp; Manufacturing</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/validation/">Experimental Validation</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/integration/">Integration</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/misc/">Misc</a>
+            
+          </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://foldable-robotics.github.io/assignments/">Assignments</a>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Documents
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/all-documents/">All Documents</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/syllabus/">Syllabus</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/submission-best-practices/">Submission Best Practices</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/software-list/">Software List</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/course-calendar/">Course Calendar</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/suggested-materials-list/">Suggested Materials List</a>
+            
+          </div>
+        </li>
+        
+        
+        
+      </ul>
+      <span class="navbar-text">
+        
+      </span>
+
+        <form action="https://foldable-robotics.github.io//search" class="d-flex">
+        <input class="form-control me-2"  id="search-query"  name="s" type="s" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary"  type="submit">Search</button>
+      </form>
+      
+    </div>
+  </div>
+</nav>
+
+
+    </div>
+
+    
+<main class="container">
+
+  
+
+
+
+
+
+<div class="text-center">
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+
+
+
+<li class="breadcrumb-item"><a href="/modules">modules</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/dynamics">dynamics</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/dynamics/generated">generated</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/dynamics/generated/drag-in-granular-media">drag-in-granular-media</a></li>
+
+
+
+
+<li class="breadcrumb-item active"  aria-current="page">index</li>
+
+  </ol>
+</nav>
+</div>
+
+
+  <article>
+  <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">pynamics</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.frame</span> <span style="color:#f92672">import</span> <span style="color:#111">Frame</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.variable_types</span> <span style="color:#f92672">import</span> <span style="color:#111">Differentiable</span><span style="color:#111">,</span><span style="color:#111">Constant</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.system</span> <span style="color:#f92672">import</span> <span style="color:#111">System</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.body</span> <span style="color:#f92672">import</span> <span style="color:#111">Body</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.dyadic</span> <span style="color:#f92672">import</span> <span style="color:#111">Dyadic</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.output</span> <span style="color:#f92672">import</span> <span style="color:#111">Output</span><span style="color:#111">,</span><span style="color:#111">PointsOutput</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.constraint</span> <span style="color:#f92672">import</span> <span style="color:#111">AccelerationConstraint</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.particle</span> <span style="color:#f92672">import</span> <span style="color:#111">Particle</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">pynamics.integration</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">logging</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">sympy</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#import sympy</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">numpy</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">matplotlib.pyplot</span> <span style="color:#00a8c8">as</span> <span style="color:#111">plt</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">math</span> <span style="color:#f92672">import</span> <span style="color:#111">pi</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">scipy</span> <span style="color:#f92672">import</span> <span style="color:#111">optimize</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">sympy</span> <span style="color:#f92672">import</span> <span style="color:#111">sin</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">pynamics.tanh</span> <span style="color:#00a8c8">as</span> <span style="color:#111">tanh</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">time</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">drag_direction</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">fit_vel</span><span style="color:#f92672">=</span><span style="color:#ae81ff">.25</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">f1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">f2</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#111">g_k</span><span style="color:#111">,</span><span style="color:#111">g_b_damping</span><span style="color:#111">,</span><span style="color:#111">g_b_damping1</span><span style="color:#f92672">=</span>  <span style="color:#111">[</span><span style="color:#ae81ff">0.30867935</span><span style="color:#111">,</span> <span style="color:#ae81ff">1.42946955</span><span style="color:#111">,</span> <span style="color:#ae81ff">1.08464536</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">system</span> <span style="color:#f92672">=</span> <span style="color:#111">System</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pynamics</span><span style="color:#f92672">.</span><span style="color:#111">set_system</span><span style="color:#111">(</span><span style="color:#111">__name__</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">global_q</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">True</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">lO</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">7</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span><span style="color:#111">,</span><span style="color:#d88200">&#39;lO&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">lA</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">33</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span><span style="color:#111">,</span><span style="color:#d88200">&#39;lA&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">lB</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">33</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span><span style="color:#111">,</span><span style="color:#d88200">&#39;lB&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">lC</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">33</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span><span style="color:#111">,</span><span style="color:#d88200">&#39;lC&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">mO</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">10</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span><span style="color:#111">,</span><span style="color:#d88200">&#39;mA&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">mA</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">2.89</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span><span style="color:#111">,</span><span style="color:#d88200">&#39;mA&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">mB</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">2.89</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span><span style="color:#111">,</span><span style="color:#d88200">&#39;mB&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">mC</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">2.89</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span><span style="color:#111">,</span><span style="color:#d88200">&#39;mC&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">k</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#111">g_k</span><span style="color:#111">,</span><span style="color:#d88200">&#39;k&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">k1</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">0.4</span><span style="color:#111">,</span><span style="color:#d88200">&#39;k1&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">friction_perp</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#111">f1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;f_perp&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">friction_par</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#111">f2</span><span style="color:#111">,</span><span style="color:#d88200">&#39;f_par&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">b_damping</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#111">g_b_damping</span><span style="color:#111">,</span><span style="color:#d88200">&#39;b_damping&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">b_damping1</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#111">g_b_damping1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;b_damping1&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">preload0</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#111">pi</span><span style="color:#f92672">/</span><span style="color:#ae81ff">180</span><span style="color:#111">,</span><span style="color:#d88200">&#39;preload0&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">preload1</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#111">pi</span><span style="color:#f92672">/</span><span style="color:#ae81ff">180</span><span style="color:#111">,</span><span style="color:#d88200">&#39;preload1&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">preload2</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#111">pi</span><span style="color:#f92672">/</span><span style="color:#ae81ff">180</span><span style="color:#111">,</span><span style="color:#d88200">&#39;preload2&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">preload3</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#111">pi</span><span style="color:#f92672">/</span><span style="color:#ae81ff">180</span><span style="color:#111">,</span><span style="color:#d88200">&#39;preload3&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Ixx_O</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Ixx_O&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Iyy_O</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Iyy_O&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Izz_O</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Izz_O&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Ixx_A</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Ixx_A&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Iyy_A</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Iyy_A&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Izz_A</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Izz_A&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Ixx_B</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Ixx_B&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Iyy_B</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Iyy_B&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Izz_B</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Izz_B&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Ixx_C</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Ixx_C&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Iyy_C</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Iyy_C&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Izz_C</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Izz_C&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">y</span><span style="color:#111">,</span><span style="color:#111">y_d</span><span style="color:#111">,</span><span style="color:#111">y_dd</span> <span style="color:#f92672">=</span> <span style="color:#111">Differentiable</span><span style="color:#111">(</span><span style="color:#d88200">&#39;y&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">qO</span><span style="color:#111">,</span><span style="color:#111">qO_d</span><span style="color:#111">,</span><span style="color:#111">qO_dd</span> <span style="color:#f92672">=</span> <span style="color:#111">Differentiable</span><span style="color:#111">(</span><span style="color:#d88200">&#39;qO&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">qA</span><span style="color:#111">,</span><span style="color:#111">qA_d</span><span style="color:#111">,</span><span style="color:#111">qA_dd</span> <span style="color:#f92672">=</span> <span style="color:#111">Differentiable</span><span style="color:#111">(</span><span style="color:#d88200">&#39;qA&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">qB</span><span style="color:#111">,</span><span style="color:#111">qB_d</span><span style="color:#111">,</span><span style="color:#111">qB_dd</span> <span style="color:#f92672">=</span> <span style="color:#111">Differentiable</span><span style="color:#111">(</span><span style="color:#d88200">&#39;qB&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">qC</span><span style="color:#111">,</span><span style="color:#111">qC_d</span><span style="color:#111">,</span><span style="color:#111">qC_dd</span> <span style="color:#f92672">=</span> <span style="color:#111">Differentiable</span><span style="color:#111">(</span><span style="color:#d88200">&#39;qC&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#fit_states = initial_states</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span> <span style="color:#f92672">=</span> <span style="color:#111">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">y</span><span style="color:#111">]</span>    <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">y_d</span><span style="color:#111">]</span>  <span style="color:#f92672">=</span> <span style="color:#ae81ff">.1</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">qO</span><span style="color:#111">]</span>   <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">qO_d</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">qA</span><span style="color:#111">]</span>   <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">qA_d</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">qB</span><span style="color:#111">]</span>   <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">qB_d</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">qC</span><span style="color:#111">]</span>   <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">qC_d</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">statevariables</span> <span style="color:#f92672">=</span> <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">get_state_variables</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">ini</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">item</span><span style="color:#111">]</span> <span style="color:#00a8c8">for</span> <span style="color:#111">item</span> <span style="color:#f92672">in</span> <span style="color:#111">statevariables</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">N</span> <span style="color:#f92672">=</span> <span style="color:#111">Frame</span><span style="color:#111">(</span><span style="color:#d88200">&#39;N&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">O</span> <span style="color:#f92672">=</span> <span style="color:#111">Frame</span><span style="color:#111">(</span><span style="color:#d88200">&#39;O&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">A</span> <span style="color:#f92672">=</span> <span style="color:#111">Frame</span><span style="color:#111">(</span><span style="color:#d88200">&#39;A&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">B</span> <span style="color:#f92672">=</span> <span style="color:#111">Frame</span><span style="color:#111">(</span><span style="color:#d88200">&#39;B&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">C</span> <span style="color:#f92672">=</span> <span style="color:#111">Frame</span><span style="color:#111">(</span><span style="color:#d88200">&#39;C&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">set_newtonian</span><span style="color:#111">(</span><span style="color:#111">N</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#f92672">not</span> <span style="color:#111">global_q</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">O</span><span style="color:#f92672">.</span><span style="color:#111">rotate_fixed_axis</span><span style="color:#111">(</span><span style="color:#111">N</span><span style="color:#111">,[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span><span style="color:#111">qO</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">rotate_fixed_axis</span><span style="color:#111">(</span><span style="color:#111">O</span><span style="color:#111">,[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span><span style="color:#111">qA</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">rotate_fixed_axis</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">,[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span><span style="color:#111">qB</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">C</span><span style="color:#f92672">.</span><span style="color:#111">rotate_fixed_axis</span><span style="color:#111">(</span><span style="color:#111">B</span><span style="color:#111">,[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span><span style="color:#111">qC</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">O</span><span style="color:#f92672">.</span><span style="color:#111">rotate_fixed_axis</span><span style="color:#111">(</span><span style="color:#111">N</span><span style="color:#111">,[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span><span style="color:#111">qO</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">rotate_fixed_axis</span><span style="color:#111">(</span><span style="color:#111">N</span><span style="color:#111">,[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span><span style="color:#111">qA</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">rotate_fixed_axis</span><span style="color:#111">(</span><span style="color:#111">N</span><span style="color:#111">,[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span><span style="color:#111">qB</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">C</span><span style="color:#f92672">.</span><span style="color:#111">rotate_fixed_axis</span><span style="color:#111">(</span><span style="color:#111">N</span><span style="color:#111">,[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span><span style="color:#111">qC</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pNO</span><span style="color:#f92672">=</span>    <span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">x</span> <span style="color:#f92672">+</span> <span style="color:#111">y</span><span style="color:#f92672">*</span><span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">y</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pOA</span><span style="color:#f92672">=</span>    <span style="color:#111">lO</span><span style="color:#f92672">*</span><span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">x</span> <span style="color:#f92672">+</span> <span style="color:#111">y</span><span style="color:#f92672">*</span><span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">y</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pAB</span><span style="color:#f92672">=</span>    <span style="color:#111">pOA</span><span style="color:#f92672">+</span><span style="color:#111">lA</span><span style="color:#f92672">*</span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pBC</span> <span style="color:#f92672">=</span>   <span style="color:#111">pAB</span> <span style="color:#f92672">+</span> <span style="color:#111">lB</span><span style="color:#f92672">*</span><span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pCtip</span> <span style="color:#f92672">=</span> <span style="color:#111">pBC</span> <span style="color:#f92672">+</span> <span style="color:#111">lC</span><span style="color:#f92672">*</span><span style="color:#111">C</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pOcm</span><span style="color:#f92672">=</span> <span style="color:#111">pNO</span> <span style="color:#f92672">+</span><span style="color:#111">lO</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pAcm</span><span style="color:#f92672">=</span> <span style="color:#111">pOA</span><span style="color:#f92672">+</span><span style="color:#111">lA</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pBcm</span><span style="color:#f92672">=</span> <span style="color:#111">pAB</span><span style="color:#f92672">+</span><span style="color:#111">lB</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pCcm</span><span style="color:#f92672">=</span> <span style="color:#111">pBC</span><span style="color:#f92672">+</span><span style="color:#111">lC</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#111">C</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">wNO</span> <span style="color:#f92672">=</span> <span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">get_w_to</span><span style="color:#111">(</span><span style="color:#111">O</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">wOA</span> <span style="color:#f92672">=</span> <span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">get_w_to</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">wAB</span> <span style="color:#f92672">=</span> <span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">get_w_to</span><span style="color:#111">(</span><span style="color:#111">B</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">wBC</span> <span style="color:#f92672">=</span> <span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">get_w_to</span><span style="color:#111">(</span><span style="color:#111">C</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">IO</span> <span style="color:#f92672">=</span> <span style="color:#111">Dyadic</span><span style="color:#f92672">.</span><span style="color:#111">build</span><span style="color:#111">(</span><span style="color:#111">O</span><span style="color:#111">,</span><span style="color:#111">Ixx_O</span><span style="color:#111">,</span><span style="color:#111">Iyy_O</span><span style="color:#111">,</span><span style="color:#111">Izz_O</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">IA</span> <span style="color:#f92672">=</span> <span style="color:#111">Dyadic</span><span style="color:#f92672">.</span><span style="color:#111">build</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">,</span><span style="color:#111">Ixx_A</span><span style="color:#111">,</span><span style="color:#111">Iyy_A</span><span style="color:#111">,</span><span style="color:#111">Izz_A</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">IB</span> <span style="color:#f92672">=</span> <span style="color:#111">Dyadic</span><span style="color:#f92672">.</span><span style="color:#111">build</span><span style="color:#111">(</span><span style="color:#111">B</span><span style="color:#111">,</span><span style="color:#111">Ixx_B</span><span style="color:#111">,</span><span style="color:#111">Iyy_B</span><span style="color:#111">,</span><span style="color:#111">Izz_B</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">IC</span> <span style="color:#f92672">=</span> <span style="color:#111">Dyadic</span><span style="color:#f92672">.</span><span style="color:#111">build</span><span style="color:#111">(</span><span style="color:#111">C</span><span style="color:#111">,</span><span style="color:#111">Ixx_C</span><span style="color:#111">,</span><span style="color:#111">Iyy_C</span><span style="color:#111">,</span><span style="color:#111">Izz_C</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">BodyO</span> <span style="color:#f92672">=</span> <span style="color:#111">Body</span><span style="color:#111">(</span><span style="color:#d88200">&#39;BodyO&#39;</span><span style="color:#111">,</span><span style="color:#111">O</span><span style="color:#111">,</span><span style="color:#111">pOcm</span><span style="color:#111">,</span><span style="color:#111">mO</span><span style="color:#111">,</span><span style="color:#111">IO</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">BodyA</span> <span style="color:#f92672">=</span> <span style="color:#111">Body</span><span style="color:#111">(</span><span style="color:#d88200">&#39;BodyA&#39;</span><span style="color:#111">,</span><span style="color:#111">A</span><span style="color:#111">,</span><span style="color:#111">pAcm</span><span style="color:#111">,</span><span style="color:#111">mA</span><span style="color:#111">,</span><span style="color:#111">IA</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">BodyB</span> <span style="color:#f92672">=</span> <span style="color:#111">Body</span><span style="color:#111">(</span><span style="color:#d88200">&#39;BodyB&#39;</span><span style="color:#111">,</span><span style="color:#111">B</span><span style="color:#111">,</span><span style="color:#111">pBcm</span><span style="color:#111">,</span><span style="color:#111">mB</span><span style="color:#111">,</span><span style="color:#111">IB</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">BodyC</span> <span style="color:#f92672">=</span> <span style="color:#111">Body</span><span style="color:#111">(</span><span style="color:#d88200">&#39;BodyC&#39;</span><span style="color:#111">,</span><span style="color:#111">C</span><span style="color:#111">,</span><span style="color:#111">pCcm</span><span style="color:#111">,</span><span style="color:#111">mC</span><span style="color:#111">,</span><span style="color:#111">IC</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">vAcm</span> <span style="color:#f92672">=</span> <span style="color:#111">pAcm</span><span style="color:#f92672">.</span><span style="color:#111">time_derivative</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">vBcm</span> <span style="color:#f92672">=</span> <span style="color:#111">pBcm</span><span style="color:#f92672">.</span><span style="color:#111">time_derivative</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">vCcm</span> <span style="color:#f92672">=</span> <span style="color:#111">pCcm</span><span style="color:#f92672">.</span><span style="color:#111">time_derivative</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">add_spring_force1</span><span style="color:#111">(</span><span style="color:#111">k1</span><span style="color:#f92672">+</span><span style="color:#ae81ff">10000</span><span style="color:#f92672">*</span><span style="color:#111">(</span><span style="color:#111">qA</span><span style="color:#f92672">+</span><span style="color:#111">abs</span><span style="color:#111">(</span><span style="color:#111">qA</span><span style="color:#111">)),(</span><span style="color:#111">qA</span><span style="color:#f92672">-</span><span style="color:#111">qO</span><span style="color:#f92672">-</span><span style="color:#111">preload1</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">z</span><span style="color:#111">,</span><span style="color:#111">wOA</span><span style="color:#111">)</span> 
+</span></span><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">add_spring_force1</span><span style="color:#111">(</span><span style="color:#111">k</span><span style="color:#f92672">+</span><span style="color:#ae81ff">10000</span><span style="color:#f92672">*</span><span style="color:#111">(</span><span style="color:#111">qB</span><span style="color:#f92672">+</span><span style="color:#111">abs</span><span style="color:#111">(</span><span style="color:#111">qB</span><span style="color:#111">)),(</span><span style="color:#111">qB</span><span style="color:#f92672">-</span><span style="color:#111">qA</span><span style="color:#f92672">-</span><span style="color:#111">preload2</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">z</span><span style="color:#111">,</span><span style="color:#111">wAB</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">add_spring_force1</span><span style="color:#111">(</span><span style="color:#111">k</span><span style="color:#f92672">+</span><span style="color:#ae81ff">10000</span><span style="color:#f92672">*</span><span style="color:#111">(</span><span style="color:#111">qC</span><span style="color:#f92672">+</span><span style="color:#111">abs</span><span style="color:#111">(</span><span style="color:#111">qC</span><span style="color:#111">)),(</span><span style="color:#111">qC</span><span style="color:#f92672">-</span><span style="color:#111">qB</span><span style="color:#f92672">-</span><span style="color:#111">preload3</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">z</span><span style="color:#111">,</span><span style="color:#111">wBC</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#new Method use nJoint</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">nvAcm</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#111">vAcm</span><span style="color:#f92672">.</span><span style="color:#111">length</span><span style="color:#111">()</span><span style="color:#f92672">*</span><span style="color:#111">vAcm</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">nvBcm</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#111">vBcm</span><span style="color:#f92672">.</span><span style="color:#111">length</span><span style="color:#111">()</span><span style="color:#f92672">*</span><span style="color:#111">vBcm</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">nvCcm</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#111">vCcm</span><span style="color:#f92672">.</span><span style="color:#111">length</span><span style="color:#111">()</span><span style="color:#f92672">*</span><span style="color:#111">vCcm</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">vSoil</span> <span style="color:#f92672">=</span> <span style="color:#111">drag_direction</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1</span><span style="color:#f92672">*</span><span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">y</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">nSoil</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#111">vSoil</span><span style="color:#f92672">.</span><span style="color:#111">length</span><span style="color:#111">()</span><span style="color:#f92672">*</span><span style="color:#111">vSoil</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#111">fit_vel</span> <span style="color:#f92672">==</span><span style="color:#ae81ff">0</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">vSoil</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1</span><span style="color:#f92672">*</span><span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">y</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">nSoil</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#111">vSoil</span><span style="color:#f92672">.</span><span style="color:#111">length</span><span style="color:#111">()</span><span style="color:#f92672">*</span><span style="color:#111">vSoil</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">faperp</span>  <span style="color:#f92672">=</span> <span style="color:#111">friction_perp</span><span style="color:#f92672">*</span><span style="color:#111">nSoil</span><span style="color:#f92672">.</span><span style="color:#111">dot</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">y</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">y</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">fapar</span>   <span style="color:#f92672">=</span> <span style="color:#111">friction_par</span><span style="color:#f92672">*</span><span style="color:#111">nSoil</span><span style="color:#f92672">.</span><span style="color:#111">dot</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">x</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">addforce</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#111">(</span><span style="color:#111">faperp</span><span style="color:#f92672">+</span><span style="color:#111">fapar</span><span style="color:#111">),</span><span style="color:#111">vAcm</span><span style="color:#111">)</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">fbperp</span> <span style="color:#f92672">=</span> <span style="color:#111">friction_perp</span><span style="color:#f92672">*</span><span style="color:#111">nSoil</span><span style="color:#f92672">.</span><span style="color:#111">dot</span><span style="color:#111">(</span><span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">y</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">y</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">fbpar</span>  <span style="color:#f92672">=</span> <span style="color:#111">friction_par</span><span style="color:#f92672">*</span><span style="color:#111">nSoil</span><span style="color:#f92672">.</span><span style="color:#111">dot</span><span style="color:#111">(</span><span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">x</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">addforce</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#111">(</span><span style="color:#111">fbperp</span><span style="color:#f92672">+</span><span style="color:#111">fbpar</span><span style="color:#111">),</span><span style="color:#111">vBcm</span><span style="color:#111">)</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">fcperp</span> <span style="color:#f92672">=</span> <span style="color:#111">friction_perp</span><span style="color:#f92672">*</span><span style="color:#111">nSoil</span><span style="color:#f92672">.</span><span style="color:#111">dot</span><span style="color:#111">(</span><span style="color:#111">C</span><span style="color:#f92672">.</span><span style="color:#111">y</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">C</span><span style="color:#f92672">.</span><span style="color:#111">y</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">fcpar</span>  <span style="color:#f92672">=</span> <span style="color:#111">friction_par</span><span style="color:#f92672">*</span><span style="color:#111">nSoil</span><span style="color:#f92672">.</span><span style="color:#111">dot</span><span style="color:#111">(</span><span style="color:#111">C</span><span style="color:#f92672">.</span><span style="color:#111">x</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">C</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">addforce</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#111">(</span><span style="color:#111">fcperp</span><span style="color:#f92672">+</span><span style="color:#111">fcpar</span><span style="color:#111">),</span><span style="color:#111">vCcm</span><span style="color:#111">)</span>  
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">faperp</span>  <span style="color:#f92672">=</span> <span style="color:#111">friction_perp</span><span style="color:#f92672">*</span><span style="color:#111">nvAcm</span><span style="color:#f92672">.</span><span style="color:#111">dot</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">y</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">y</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">fapar</span>   <span style="color:#f92672">=</span> <span style="color:#111">friction_par</span><span style="color:#f92672">*</span><span style="color:#111">nvAcm</span><span style="color:#f92672">.</span><span style="color:#111">dot</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">x</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">addforce</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#111">(</span><span style="color:#111">faperp</span><span style="color:#f92672">+</span><span style="color:#111">fapar</span><span style="color:#111">),</span><span style="color:#111">vAcm</span><span style="color:#111">)</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">fbperp</span> <span style="color:#f92672">=</span> <span style="color:#111">friction_perp</span><span style="color:#f92672">*</span><span style="color:#111">nvBcm</span><span style="color:#f92672">.</span><span style="color:#111">dot</span><span style="color:#111">(</span><span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">y</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">y</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">fbpar</span>  <span style="color:#f92672">=</span> <span style="color:#111">friction_par</span><span style="color:#f92672">*</span><span style="color:#111">nvBcm</span><span style="color:#f92672">.</span><span style="color:#111">dot</span><span style="color:#111">(</span><span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">x</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">addforce</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#111">(</span><span style="color:#111">fbperp</span><span style="color:#f92672">+</span><span style="color:#111">fbpar</span><span style="color:#111">),</span><span style="color:#111">vBcm</span><span style="color:#111">)</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">fcperp</span> <span style="color:#f92672">=</span> <span style="color:#111">friction_perp</span><span style="color:#f92672">*</span><span style="color:#111">nvCcm</span><span style="color:#f92672">.</span><span style="color:#111">dot</span><span style="color:#111">(</span><span style="color:#111">C</span><span style="color:#f92672">.</span><span style="color:#111">y</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">C</span><span style="color:#f92672">.</span><span style="color:#111">y</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">fcpar</span>  <span style="color:#f92672">=</span> <span style="color:#111">friction_par</span><span style="color:#f92672">*</span><span style="color:#111">nvCcm</span><span style="color:#f92672">.</span><span style="color:#111">dot</span><span style="color:#111">(</span><span style="color:#111">C</span><span style="color:#f92672">.</span><span style="color:#111">x</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">C</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">addforce</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#111">(</span><span style="color:#111">fcperp</span><span style="color:#f92672">+</span><span style="color:#111">fcpar</span><span style="color:#111">),</span><span style="color:#111">vCcm</span><span style="color:#111">)</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">addforce</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#111">b_damping1</span><span style="color:#f92672">*</span><span style="color:#111">wOA</span><span style="color:#111">,</span><span style="color:#111">wOA</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">addforce</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#111">b_damping</span><span style="color:#f92672">*</span><span style="color:#111">wAB</span><span style="color:#111">,</span><span style="color:#111">wAB</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">addforce</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#111">b_damping</span><span style="color:#f92672">*</span><span style="color:#111">wBC</span><span style="color:#111">,</span><span style="color:#111">wBC</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq</span> <span style="color:#f92672">=</span> <span style="color:#111">[]</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq_d</span><span style="color:#f92672">=</span><span style="color:#111">[(</span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">derivative</span><span style="color:#111">(</span><span style="color:#111">item</span><span style="color:#111">))</span> <span style="color:#00a8c8">for</span> <span style="color:#111">item</span> <span style="color:#f92672">in</span> <span style="color:#111">eq</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq_d</span><span style="color:#f92672">.</span><span style="color:#111">append</span><span style="color:#111">(</span><span style="color:#111">y_d</span><span style="color:#f92672">-</span><span style="color:#111">fit_vel</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq_dd</span><span style="color:#f92672">=</span><span style="color:#111">[(</span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">derivative</span><span style="color:#111">(</span><span style="color:#111">item</span><span style="color:#111">))</span> <span style="color:#00a8c8">for</span> <span style="color:#111">item</span> <span style="color:#f92672">in</span> <span style="color:#111">eq_d</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">ac</span> <span style="color:#f92672">=</span> <span style="color:#111">AccelerationConstraint</span><span style="color:#111">(</span><span style="color:#111">eq_dd</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">add_constraint</span><span style="color:#111">(</span><span style="color:#111">ac</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">f</span><span style="color:#111">,</span><span style="color:#111">ma</span> <span style="color:#f92672">=</span> <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">getdynamics</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">func1</span> <span style="color:#f92672">=</span> <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">state_space_post_invert</span><span style="color:#111">(</span><span style="color:#111">f</span><span style="color:#111">,</span><span style="color:#111">ma</span><span style="color:#111">,</span><span style="color:#111">constants</span> <span style="color:#f92672">=</span> <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">constant_values</span><span style="color:#111">)</span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">points</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">pNO</span><span style="color:#111">,</span><span style="color:#111">pOA</span><span style="color:#111">,</span><span style="color:#111">pAB</span><span style="color:#111">,</span><span style="color:#111">pBC</span><span style="color:#111">,</span><span style="color:#111">pCtip</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#constants = system.constant_values</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">tinitial</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">tstep</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">tfinal</span><span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">t</span> <span style="color:#f92672">=</span> <span style="color:#111">numpy</span><span style="color:#f92672">.</span><span style="color:#111">r_</span><span style="color:#111">[</span><span style="color:#111">tinitial</span><span style="color:#111">:</span><span style="color:#111">tfinal</span><span style="color:#111">:</span><span style="color:#111">tstep</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">states</span><span style="color:#f92672">=</span><span style="color:#111">pynamics</span><span style="color:#f92672">.</span><span style="color:#111">integration</span><span style="color:#f92672">.</span><span style="color:#111">integrate_odeint</span><span style="color:#111">(</span><span style="color:#111">func1</span><span style="color:#111">,</span><span style="color:#111">ini</span><span style="color:#111">,</span><span style="color:#111">t</span><span style="color:#111">,</span> <span style="color:#111">args</span><span style="color:#f92672">=</span><span style="color:#111">({},))</span>
+</span></span></code></pre></div><pre><code>2022-06-21 06:52:13,457 - pynamics.system - INFO - getting dynamic equations
+2022-06-21 06:52:13,734 - pynamics.system - INFO - solving a = f/m and creating function
+2022-06-21 06:52:19,247 - pynamics.system - INFO - substituting constrained in Ma-f.
+2022-06-21 06:52:19,589 - pynamics.system - INFO - done solving a = f/m and creating function
+2022-06-21 06:52:19,595 - pynamics.integration - INFO - beginning integration
+2022-06-21 06:52:19,596 - pynamics.system - INFO - integration at time 0000.00
+2022-06-21 06:52:19,805 - pynamics.integration - INFO - finished integration
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">points_output</span> <span style="color:#f92672">=</span> <span style="color:#111">PointsOutput</span><span style="color:#111">(</span><span style="color:#111">points</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">,</span><span style="color:#111">constant_values</span> <span style="color:#f92672">=</span> <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">constant_values</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">y</span> <span style="color:#f92672">=</span> <span style="color:#111">points_output</span><span style="color:#f92672">.</span><span style="color:#111">calc</span><span style="color:#111">(</span><span style="color:#111">states</span><span style="color:#111">,</span><span style="color:#111">t</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">final</span> <span style="color:#f92672">=</span> <span style="color:#111">numpy</span><span style="color:#f92672">.</span><span style="color:#111">asarray</span><span style="color:#111">(</span><span style="color:#111">states</span><span style="color:#111">[</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">,:])</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">time1</span> <span style="color:#f92672">=</span> <span style="color:#111">time</span><span style="color:#f92672">.</span><span style="color:#111">time</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">points_output</span><span style="color:#f92672">.</span><span style="color:#111">animate</span><span style="color:#111">(</span><span style="color:#111">fps</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span><span style="color:#111">,</span><span style="color:#111">movie_name</span> <span style="color:#f92672">=</span> <span style="color:#111">str</span><span style="color:#111">(</span><span style="color:#111">time1</span><span style="color:#111">)</span><span style="color:#f92672">+</span><span style="color:#d88200">&#39;video_1.mp4&#39;</span><span style="color:#111">,</span><span style="color:#111">lw</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#111">marker</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;o&#39;</span><span style="color:#111">,</span><span style="color:#111">color</span><span style="color:#f92672">=</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">),</span><span style="color:#111">linestyle</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;-&#39;</span><span style="color:#111">)</span>
+</span></span></code></pre></div><pre><code>2022-06-21 06:52:19,825 - pynamics.output - INFO - calculating outputs
+2022-06-21 06:52:19,830 - pynamics.output - INFO - done calculating outputs
+
+
+
+
+
+&lt;AxesSubplot:&gt;
+</code></pre>
+<p><div class="text-center">
+  <a href="output_4_2.png"><img src="output_4_2.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">matplotlib</span> <span style="color:#f92672">import</span> <span style="color:#111">animation</span><span style="color:#111">,</span> <span style="color:#111">rc</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">IPython.display</span> <span style="color:#f92672">import</span> <span style="color:#111">HTML</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">HTML</span><span style="color:#111">(</span><span style="color:#111">points_output</span><span style="color:#f92672">.</span><span style="color:#111">anim</span><span style="color:#f92672">.</span><span style="color:#111">to_html5_video</span><span style="color:#111">())</span>
+</span></span></code></pre></div><video width="432" height="288" controls autoplay loop>
+  <source type="video/mp4" src="data:video/mp4;base64,AAAAIGZ0eXBNNFYgAAACAE00ViBpc29taXNvMmF2YzEAAAAIZnJlZQAAN3BtZGF0AAACrgYF//+q
+3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2MyByMzA2MCA1ZGI2YWE2IC0gSC4yNjQvTVBF
+Ry00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAyMSAtIGh0dHA6Ly93d3cudmlkZW9sYW4u
+b3JnL3gyNjQuaHRtbCAtIG9wdGlvbnM6IGNhYmFjPTEgcmVmPTMgZGVibG9jaz0xOjA6MCBhbmFs
+eXNlPTB4MzoweDExMyBtZT1oZXggc3VibWU9NyBwc3k9MSBwc3lfcmQ9MS4wMDowLjAwIG1peGVk
+X3JlZj0xIG1lX3JhbmdlPTE2IGNocm9tYV9tZT0xIHRyZWxsaXM9MSA4eDhkY3Q9MSBjcW09MCBk
+ZWFkem9uZT0yMSwxMSBmYXN0X3Bza2lwPTEgY2hyb21hX3FwX29mZnNldD0tMiB0aHJlYWRzPTkg
+bG9va2FoZWFkX3RocmVhZHM9MSBzbGljZWRfdGhyZWFkcz0wIG5yPTAgZGVjaW1hdGU9MSBpbnRl
+cmxhY2VkPTAgYmx1cmF5X2NvbXBhdD0wIGNvbnN0cmFpbmVkX2ludHJhPTAgYmZyYW1lcz0zIGJf
+cHlyYW1pZD0yIGJfYWRhcHQ9MSBiX2JpYXM9MCBkaXJlY3Q9MSB3ZWlnaHRiPTEgb3Blbl9nb3A9
+MCB3ZWlnaHRwPTIga2V5aW50PTI1MCBrZXlpbnRfbWluPTI1IHNjZW5lY3V0PTQwIGludHJhX3Jl
+ZnJlc2g9MCByY19sb29rYWhlYWQ9NDAgcmM9Y3JmIG1idHJlZT0xIGNyZj0yMy4wIHFjb21wPTAu
+NjAgcXBtaW49MCBxcG1heD02OSBxcHN0ZXA9NCBpcF9yYXRpbz0xLjQwIGFxPTE6MS4wMACAAAAE
+mGWIhAA3//728P4FNjuY0JcRzeidMx+/Fbi6NDe9zgAAAwAAN9zmRP7KkwbmwAAC4AoloIZif/mA
+Z09Sct8jMgUxMa7lSSOFQEJvnfYQUvP9fuBiwMqcGdG7NQ3m0XeQjYr1mY8YPhnR6ynDMXcEDG/X
+f7AeslbHCdXwhgECkP7Bc1fjoIt48/ceuWbULoWIrMbQCTjv/x8MCOmvUhvQEyUkgsxjZ20mtivw
+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
+AAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAe/c3RibAAAALdzdHNk
+AAAAAAAAAAEAAACnYXZjMQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAGwASAASAAAAEgAAAAAAAAA
+AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABj//wAAADVhdmNDAWQAFf/hABhnZAAV
+rNlBsJaEAAADAAQAAAMA8DxYtlgBAAZo6+PLIsD9+PgAAAAAHHV1aWRraEDyXyRPxbo5pRvPAyPz
+AAAAAAAAABhzdHRzAAAAAAAAAAEAAACWAAACAAAAABRzdHNzAAAAAAAAAAEAAAABAAAEOGN0dHMA
+AAAAAAAAhQAAAAEAAAQAAAAAAQAACgAAAAABAAAEAAAAAAEAAAAAAAAAAQAAAgAAAAABAAAIAAAA
+AAIAAAIAAAAAAQAACgAAAAABAAAEAAAAAAEAAAAAAAAAAQAAAgAAAAABAAAKAAAAAAEAAAQAAAAA
+AQAAAAAAAAABAAACAAAAAAEAAAoAAAAAAQAABAAAAAABAAAAAAAAAAEAAAIAAAAAAQAACgAAAAAB
+AAAEAAAAAAEAAAAAAAAAAQAAAgAAAAABAAAKAAAAAAEAAAQAAAAAAQAAAAAAAAABAAACAAAAAAEA
+AAoAAAAAAQAABAAAAAABAAAAAAAAAAEAAAIAAAAAAQAACgAAAAABAAAEAAAAAAEAAAAAAAAAAQAA
+AgAAAAABAAAKAAAAAAEAAAQAAAAAAQAAAAAAAAABAAACAAAAAAEAAAgAAAAAAgAAAgAAAAABAAAK
+AAAAAAEAAAQAAAAAAQAAAAAAAAABAAACAAAAAAEAAAoAAAAAAQAABAAAAAABAAAAAAAAAAEAAAIA
+AAAAAQAACgAAAAABAAAEAAAAAAEAAAAAAAAAAQAAAgAAAAABAAAKAAAAAAEAAAQAAAAAAQAAAAAA
+AAABAAACAAAAAAEAAAgAAAAAAgAAAgAAAAABAAAKAAAAAAEAAAQAAAAAAQAAAAAAAAABAAACAAAA
+AAEAAAoAAAAAAQAABAAAAAABAAAAAAAAAAEAAAIAAAAAAQAACAAAAAACAAACAAAAAAEAAAgAAAAA
+AgAAAgAAAAABAAAKAAAAAAEAAAQAAAAAAQAAAAAAAAABAAACAAAAAAEAAAoAAAAAAQAABAAAAAAB
+AAAAAAAAAAEAAAIAAAAAAQAABgAAAAABAAACAAAAAAEAAAYAAAAAAQAAAgAAAAABAAAKAAAAAAEA
+AAQAAAAAAQAAAAAAAAABAAACAAAAAAEAAAoAAAAAAQAABAAAAAABAAAAAAAAAAEAAAIAAAAAAQAA
+BAAAAAABAAAKAAAAAAEAAAQAAAAAAQAAAAAAAAABAAACAAAAAAEAAAoAAAAAAQAABAAAAAABAAAA
+AAAAAAEAAAIAAAAAAQAACgAAAAABAAAEAAAAAAEAAAAAAAAAAQAAAgAAAAABAAAKAAAAAAEAAAQA
+AAAAAQAAAAAAAAABAAACAAAAAAEAAAoAAAAAAQAABAAAAAABAAAAAAAAAAEAAAIAAAAAAQAACAAA
+AAACAAACAAAAAAEAAAYAAAAAAQAAAgAAAAABAAAIAAAAAAIAAAIAAAAAAQAABgAAAAABAAACAAAA
+AAEAAAoAAAAAAQAABAAAAAABAAAAAAAAAAEAAAIAAAAAAQAACAAAAAACAAACAAAAAAEAAAoAAAAA
+AQAABAAAAAABAAAAAAAAAAEAAAIAAAAAAQAACAAAAAACAAACAAAAAAkAAAQAAAAAHHN0c2MAAAAA
+AAAAAQAAAAEAAACWAAAAAQAAAmxzdHN6AAAAAAAAAAAAAACWAAAHTgAAAXMAAACmAAAAbAAAAGsA
+AAC4AAAARwAAADoAAADfAAAAPQAAAEUAAAA3AAAAYAAAAEEAAABDAAAANQAAAI8AAABRAAAARQAA
+AEIAAAC6AAAAOAAAADAAAAA3AAAAcwAAAD4AAAAoAAAAPAAAAJQAAABDAAAAOQAAADsAAACGAAAA
+PQAAADYAAABCAAAAvgAAADsAAAA0AAAALgAAAEMAAAA7AAAALQAAAEoAAAA+AAAANAAAADUAAACU
+AAAAMwAAADAAAAA6AAAAYQAAAD8AAAA1AAAAOwAAAH4AAABOAAAAPQAAAD4AAACcAAAANwAAAEoA
+AACnAAAASwAAADUAAAA2AAAAmQAAAD8AAAAzAAAALgAAAG8AAAAwAAAAKQAAAGkAAAA7AAAAPAAA
+AHoAAAA2AAAAPAAAADYAAABmAAAAQQAAACgAAAAtAAAAjgAAAEAAAACHAAAAPwAAAKYAAABNAAAA
+QQAAADUAAACmAAAAOAAAADcAAAAvAAAAZAAAAIAAAAA2AAAAKgAAADMAAACIAAAANgAAADsAAAAn
+AAAAdgAAADUAAAAqAAAAJwAAAJIAAAAyAAAAIwAAACwAAABvAAAARAAAADEAAAAtAAAAigAAAEEA
+AAA5AAAAhgAAADsAAACZAAAASQAAADgAAACIAAAAPwAAAHcAAAAzAAAAMwAAACUAAABoAAAAMQAA
+ADMAAAB4AAAAOAAAADkAAAAwAAAAQgAAACYAAAA1AAAAawAAAGwAAABfAAAAaAAAAIcAAAB2AAAA
+bwAAAGIAAABfAAAAFHN0Y28AAAAAAAAAAQAAADAAAABidWR0YQAAAFptZXRhAAAAAAAAACFoZGxy
+AAAAAAAAAABtZGlyYXBwbAAAAAAAAAAAAAAAAC1pbHN0AAAAJal0b28AAAAdZGF0YQAAAAEAAAAA
+TGF2ZjU4Ljc2LjEwMA==
+">
+  Your browser does not support the video tag.
+</video>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div>
+  </article>
+</main>
+
+
+    
+    <footer class="blog-footer">
+      <p>Copyright &copy; 2022 Daniel M. Aukes.  All rights reserved.</p>
+      <p><a href="#">Back to top</a></p>
+    </footer>
+    
+
+<script src="/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://foldable-robotics.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/fuse.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/jquery.mark.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/search.js"></script>
+
+  </body>
+</html>

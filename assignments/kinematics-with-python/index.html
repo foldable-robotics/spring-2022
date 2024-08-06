@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>
+Kinematics with Python | Foldable Robotics
+</title>
+
+    <link href="/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+
+
+<link href="/css/blog.css" rel="stylesheet">
+<link href="/css/features.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/hugo-cite.css" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/manifest.json">
+
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <header class="blog-header py-3">
+  <div class="row flex-nowrap justify-content-between align-items-center">
+    <div class="col-2 pt-1">
+    </div>
+    <div class="col-8 text-center">
+      <a class="blog-header-logo text-dark" href="/">Foldable Robotics</a>
+    </div>
+    <div class="col-2 d-flex justify-content-end align-items-center">
+    </div>
+  </div>
+</header>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Course Topics
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/introduction/">Introduction</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/python/">Python</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/biomechanics/">Biomechanics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/project/">Project</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/kinematics/">Kinematics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/dynamics/">Dynamics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/optimization/">Optimization</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/compliance/">Mechanics and Compliance</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/manufacturing/">Prototyping &amp; Manufacturing</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/validation/">Experimental Validation</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/integration/">Integration</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/misc/">Misc</a>
+            
+          </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://foldable-robotics.github.io/assignments/">Assignments</a>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Documents
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/all-documents/">All Documents</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/syllabus/">Syllabus</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/submission-best-practices/">Submission Best Practices</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/software-list/">Software List</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/course-calendar/">Course Calendar</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/suggested-materials-list/">Suggested Materials List</a>
+            
+          </div>
+        </li>
+        
+        
+        
+      </ul>
+      <span class="navbar-text">
+        
+      </span>
+
+        <form action="https://foldable-robotics.github.io//search" class="d-flex">
+        <input class="form-control me-2"  id="search-query"  name="s" type="s" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary"  type="submit">Search</button>
+      </form>
+      
+    </div>
+  </div>
+</nav>
+
+
+    </div>
+
+    
+<main class="container">
+
+  
+
+
+
+
+
+<div class="text-center">
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+
+
+
+<li class="breadcrumb-item"><a href="/assignments">assignments</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/assignments/kinematics-with-python">kinematics-with-python</a></li>
+
+
+
+
+<li class="breadcrumb-item active"  aria-current="page">index</li>
+
+  </ol>
+</nav>
+</div>
+
+
+  <article>
+  <div style="text-align:center;">
+  <h1>Kinematics with Python</h1>
+  <p><em>Individual Assignment</em></p>
+  </div>
+  <h2 id="assignment-overview">Assignment Overview</h2>
+<p>The purpose of this assignment is to get you comfortable using the computational capabilities of Python and Sympy to start estimating the performance of your design.</p>
+<h2 id="rubric">Rubric</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Description</th>
+<th style="text-align:right">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1.</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">2.</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">3.</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">4.</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">5.</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">6.</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">7.</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">8.</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">9.</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">10.</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">11.</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">12.</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">13.</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">14.</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">15.</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:left">Discussion</td>
+<td style="text-align:right">50</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Total</strong></td>
+<td style="text-align:right">200</td>
+</tr>
+</tbody>
+</table>
+<h2 id="resources">Resources</h2>
+<h2 id="instructions">Instructions</h2>
+<p><div class="text-center">
+  <a href="arm.png"><img src="arm.png" alt=""  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<ol>
+<li>
+<p>Create a new jupyter/colab notebook.  In the first cell, paste in this version of the code you worked on in class:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">%</span><span style="color:#111">matplotlib</span> <span style="color:#111">inline</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#import required packages</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">pynamics</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.frame</span> <span style="color:#f92672">import</span> <span style="color:#111">Frame</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.system</span> <span style="color:#f92672">import</span> <span style="color:#111">System</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">numpy</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">sympy</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">matplotlib.pyplot</span> <span style="color:#00a8c8">as</span> <span style="color:#111">plt</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">ion</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">math</span> <span style="color:#f92672">import</span> <span style="color:#111">pi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#-----------------------</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a Pynamics System</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">system</span> <span style="color:#f92672">=</span> <span style="color:#111">System</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pynamics</span><span style="color:#f92672">.</span><span style="color:#111">set_system</span><span style="color:#111">(</span><span style="color:#111">__name__</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#-----------------------</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Import Variable Types</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.variable_types</span> <span style="color:#f92672">import</span> <span style="color:#111">Differentiable</span><span style="color:#111">,</span><span style="color:#111">Constant</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create Constants</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">lA</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;lA&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">lB</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;lB&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">constant_values</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create Differentiable State Variables</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">qA</span><span style="color:#111">,</span><span style="color:#111">qA_d</span><span style="color:#111">,</span><span style="color:#111">qA_dd</span> <span style="color:#f92672">=</span> <span style="color:#111">Differentiable</span><span style="color:#111">(</span><span style="color:#d88200">&#39;qA&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">qB</span><span style="color:#111">,</span><span style="color:#111">qB_d</span><span style="color:#111">,</span><span style="color:#111">qB_dd</span> <span style="color:#f92672">=</span> <span style="color:#111">Differentiable</span><span style="color:#111">(</span><span style="color:#d88200">&#39;qB&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#-----------------------</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Define A Configuration</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">state1</span> <span style="color:#f92672">=</span> <span style="color:#111">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">state1</span><span style="color:#111">[</span><span style="color:#111">qA</span><span style="color:#111">]</span><span style="color:#f92672">=</span><span style="color:#ae81ff">15</span><span style="color:#f92672">*</span><span style="color:#111">pi</span><span style="color:#f92672">/</span><span style="color:#ae81ff">180</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">state1</span><span style="color:#111">[</span><span style="color:#111">qB</span><span style="color:#111">]</span><span style="color:#f92672">=</span><span style="color:#ae81ff">15</span><span style="color:#f92672">*</span><span style="color:#111">pi</span><span style="color:#f92672">/</span><span style="color:#ae81ff">180</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#-----------------------</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#Define Frames</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">N</span> <span style="color:#f92672">=</span> <span style="color:#111">Frame</span><span style="color:#111">(</span><span style="color:#d88200">&#39;N&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">A</span> <span style="color:#f92672">=</span> <span style="color:#111">Frame</span><span style="color:#111">(</span><span style="color:#d88200">&#39;A&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">B</span> <span style="color:#f92672">=</span> <span style="color:#111">Frame</span><span style="color:#111">(</span><span style="color:#d88200">&#39;B&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Define &#34;N&#34; as the Newtonian Frame</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">set_newtonian</span><span style="color:#111">(</span><span style="color:#111">N</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Rotate A from N about their shared z axis by amount &#34;qA&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">rotate_fixed_axis</span><span style="color:#111">(</span><span style="color:#111">N</span><span style="color:#111">,[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span><span style="color:#111">qA</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Rotate B from A about their shared z axis by amount &#34;qB&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">rotate_fixed_axis</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">,[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span><span style="color:#111">qB</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#----------------------- </span>
+</span></span></code></pre></div></li>
+<li>
+<p>Make a new cell.  create a new dictionary, <code>state2</code>, in the same way  <code>state1</code> is defined.</p>
+<ol>
+<li>Select your own values for the positions of $q_A$ and $q_B$ for <code>state2</code>.</li>
+</ol>
+</li>
+<li>
+<p>Create a new vector to describe the origin, $\vec{p}^{NA}$, which is equal to $\vec{p}^{NA} = 0 \hat{n}_x+0 \hat{n}_y+0 \hat{n}_z$.</p>
+<p><em>it is necessary to describe it in this way so you are creating a vector $\vec{0}$ rather than a scalar $0$</em></p>
+</li>
+<li>
+<p>Create a new vector to describe the point between the A link and the B link, $\vec{p}^{AB}$, which is equal to $\vec{p}^{AB} = \vec{p}^{NA}+l_A\hat{a}_x$</p>
+</li>
+<li>
+<p>Create a new vector for the end effector, $\vec{p}^{B_{tip}}$, which is equal to $\vec{p}^{B_{tip}} = \vec{p}^{AB}+l_B\hat{b}_x$</p>
+</li>
+<li>
+<p>Create a python <code>list()</code> named <code>points</code> of $\vec{p}^{NA}$,$\vec{p}^{AB}$,$\vec{p}^{B_{tip}}$</p>
+<ol>
+<li>
+<p>Using the <code>for</code> keyword in Python, iterate through <code>points</code> and dot each element with $\hat{n}_x$, saving the new list as <code>px</code></p>
+<p><em>Hint: look up Python &ldquo;list comprehensions&rdquo; to do this efficiently.</em></p>
+<ol>
+<li>Using the <code>.subs()</code> method, substitute out all symbolic variables using the <code>system.constant_values</code> and <code>state1</code> dictionaries, saving the list as px1.  This list should contain values of literal numbers with no symbols.</li>
+<li>Using the <code>.subs()</code> method, substitute out all symbolic variables using the <code>system.constant_values</code> and <code>state2</code> dictionaries, saving the list as px2.  This list should contain values of literal numbers with no symbols.</li>
+</ol>
+</li>
+<li>
+<p>Repeat step 6.1 with $\hat{n}_y$, saving the lists as <code>py</code>,<code>py1</code>,and <code>py2</code></p>
+</li>
+</ol>
+</li>
+<li>
+<p>In the same figure, plot <code>px1</code> vs <code>py1</code> in blue and <code>px2</code> vs <code>py2</code> in red, using the <code>plt.plot()</code> function</p>
+<ul>
+<li>Set the axes to equal proportion using the method from your first Python assignment.</li>
+</ul>
+</li>
+<li>
+<p>use the <code>.time_derivative()</code> method of $\vec{p}^{B_{tip}}$ to take the time derivative of $\vec{p}^{B_{tip}}$ to obtain $\vec{v}^{B_{tip}}$, where:</p>
+<p>$$\vec{v}^{B_{tip}}=\dot{\vec{p}}^{B_{tip}} = \frac{d^{N}(\vec{p}^{B_{tip}})}{dt}$$</p>
+<p>with reference to the Newtonian frame, $N$. In the above expression, the $d^N$ denotes the derivative with reference to the $N$ frame.</p>
+<p><strong>Note:</strong> the <code>.time_derivative()</code> method takes two optional keyword variables: first, the frame of reference you are taking the derivative in (it default&rsquo;s to the declared Newtonian frame), and second, the current pynamics system.  You may keep these optional terms blank in this case.</p>
+</li>
+<li>
+<p>Obtain the scalar components of $\vec{v}^{B_{tip}}$ in the $\hat{n}_x$ and $\hat{n}_y$
+directions, and save as $v^{B{tip}}_x,v^{B{tip}}_y.</p>
+</li>
+<li>
+<p>Use the <code>sympy.Matrix()</code> function to create a 2x1 matrix $\textbf{v}$, where $$\textbf{v}=\left[\begin{array}{c} v^{B{tip}}_x \\ v^{B{tip}}_y \end{array}\right]$$</p>
+</li>
+<li>
+<p>Use the <code>sympy.Matrix()</code> function to create a 2x1 matrix $\dot{\textbf{q}}$ (or <code>q_d</code> in python), where</p>
+<p>$$\dot{\textbf{q}}=\left[\begin{array}{c} \dot{q}_A \\ \dot{q}_B \end{array}\right]$$</p>
+</li>
+<li>
+<p>Use the <code>.jacobian()</code> method of $\textbf{v}$ to compute its Jacobian $\textbf{J}$ with respect to $\dot{\textbf{q}}$.  (This should result in a 2x2 matrix).</p>
+</li>
+<li>
+<p>Using the <code>.subs()</code> method of $\textbf{J}$, identify the numerical value of new variables  $\textbf{J}_1$ and $\textbf{J}_2$, by substituting <code>system.constant_values</code> and then either <code>state1</code> or <code>state2</code>.  This will result in two new 2x2 arrays with number literals (rather than a symbolic expression).</p>
+</li>
+<li>
+<p>Using $\textbf{J}_1$, $\textbf{J}_2$, and $\dot{\textbf{q}}=\left[\begin{array}{c}3.3 \\ 2.4\end{array}\right]$, identify $\textbf{v}_1$ and $\textbf{v}_2$</p>
+</li>
+<li>
+<p>Now, assume that a force $\vec{f}$, formulated as a <code>sympy.Matrix()</code>, where</p>
+<p>$$\textbf{f}=\left[\begin{array}{c}1.4 \\ 2.6\end{array}\right]$$
+is applied to the end-effector.  Compute the torques at the robot&rsquo;s joints at both <code>state1</code> and <code>state2</code>.</p>
+</li>
+</ol>
+<h2 id="discussion">Discussion</h2>
+<ol>
+<li>Why are $\textbf{J}_1$ and  $\textbf{J}_2$ different?</li>
+<li>Why is possible to determine the torques on each joint of the mechanism due to $\vec{f}$, but not to arbitrarily apply any 3D force vector on the world given the kinematics described above in your code?</li>
+<li>What about the structure or content of $\textbf{J}$ tells you this?</li>
+<li>What is the meaning of a row of zeros in  $\textbf{J}$?</li>
+<li>What is the meaning of a column of zeros in  $\textbf{J}$?</li>
+</ol>
+<h3 id="final-submission">Final Submission</h3>
+<p>Please include a Jupyter notebook and pdf with the following:</p>
+<ol>
+<li>Detailed description of the completed steps above (included as blocks alongside chunks of related code)</li>
+<li>Code used in solving the problem (inline in the report in code blocks), along with descriptions detailing your approach.</li>
+<li>Detailed answers to the discussion questions, included at the bottom.</li>
+</ol>
+<p>Please follow the &ldquo;Submission Best Practices&rdquo; document posted on Canvas.  This assignment should be submitted to canvas as a .pdf document as well as a jupyter notebook (.ipynb).  If submitted as a notebook, make sure it is fully compiled.  This can be done by opening the file in the jupyter browser and in the top jupyter menu selecting &ldquo;Kernel&rdquo; &ndash;&gt; &ldquo;Restart and Run All&rdquo;.</p>
+  </article>
+</main>
+
+
+    
+    <footer class="blog-footer">
+      <p>Copyright &copy; 2022 Daniel M. Aukes.  All rights reserved.</p>
+      <p><a href="#">Back to top</a></p>
+    </footer>
+    
+
+<script src="/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://foldable-robotics.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/fuse.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/jquery.mark.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/search.js"></script>
+
+  </body>
+</html>

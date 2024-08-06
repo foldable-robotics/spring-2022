@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>
+Manufacturing Computation for Multi-layer Devices | Foldable Robotics
+</title>
+
+    <link href="/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+
+
+<link href="/css/blog.css" rel="stylesheet">
+<link href="/css/features.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/hugo-cite.css" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/manifest.json">
+
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <header class="blog-header py-3">
+  <div class="row flex-nowrap justify-content-between align-items-center">
+    <div class="col-2 pt-1">
+    </div>
+    <div class="col-8 text-center">
+      <a class="blog-header-logo text-dark" href="/">Foldable Robotics</a>
+    </div>
+    <div class="col-2 d-flex justify-content-end align-items-center">
+    </div>
+  </div>
+</header>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Course Topics
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/introduction/">Introduction</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/python/">Python</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/biomechanics/">Biomechanics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/project/">Project</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/kinematics/">Kinematics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/dynamics/">Dynamics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/optimization/">Optimization</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/compliance/">Mechanics and Compliance</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/manufacturing/">Prototyping &amp; Manufacturing</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/validation/">Experimental Validation</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/integration/">Integration</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/misc/">Misc</a>
+            
+          </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://foldable-robotics.github.io/assignments/">Assignments</a>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Documents
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/all-documents/">All Documents</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/syllabus/">Syllabus</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/submission-best-practices/">Submission Best Practices</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/software-list/">Software List</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/course-calendar/">Course Calendar</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/suggested-materials-list/">Suggested Materials List</a>
+            
+          </div>
+        </li>
+        
+        
+        
+      </ul>
+      <span class="navbar-text">
+        
+      </span>
+
+        <form action="https://foldable-robotics.github.io//search" class="d-flex">
+        <input class="form-control me-2"  id="search-query"  name="s" type="s" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary"  type="submit">Search</button>
+      </form>
+      
+    </div>
+  </div>
+</nav>
+
+
+    </div>
+
+    
+<main class="container">
+  <h1>Manufacturing Computation for Multi-layer Devices</h1>
+  
+  
+
+
+
+
+
+<div class="text-center">
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+
+
+
+<li class="breadcrumb-item"><a href="/modules">modules</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/manufacturing">manufacturing</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/manufacturing/generated">generated</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/manufacturing/generated/manufacturing_planning">manufacturing_planning</a></li>
+
+
+
+
+<li class="breadcrumb-item active"  aria-current="page">index</li>
+
+  </ol>
+</nav>
+</div>
+
+  
+  <article>
+  <h1 id="manufacturing-computation-for-multi-layer-devices">Manufacturing Computation for Multi-layer Devices</h1>
+<h3 id="hinge-width-laminate-thickness-and-range-of-motion">Hinge width, laminate thickness, and range of motion</h3>
+<p>The first thing to think about is how the thickness of your laminate will impact and alter the ideal kinematics you have been assuming up to this point. Let&rsquo;s first discuss hinges</p>
+<p>A multilayer hinge typically is made by exposing a softer layer of material which is embedded in a multilayer laminate. IT is typically exposed along a straight line, and the cut away materail usually spans a straight line across the width of a material. In this way, once exposed, the soft material may bend and flex easily along an axis defined by that imaginary line.</p>
+<p><div class="text-center">
+  <a href="/figures/design/rom_comparison.png"><img src="/figures/design/rom_comparison.png" alt="Range of Motion Comparision"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div>
+<div class="text-center">
+  <a href="../../../../static/figures/design/rom_comparison.png"><img src="../../../../static/figures/design/rom_comparison.png" alt="Range of Motion Comparision"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">%</span><span style="color:#111">matplotlib</span> <span style="color:#111">inline</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">foldable_robotics</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">foldable_robotics.layer</span> <span style="color:#f92672">import</span> <span style="color:#111">Layer</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">foldable_robotics.laminate</span> <span style="color:#f92672">import</span> <span style="color:#111">Laminate</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">shapely.geometry</span> <span style="color:#00a8c8">as</span> <span style="color:#111">sg</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">foldable_robotics</span><span style="color:#f92672">.</span><span style="color:#111">resolution</span><span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
+</span></span></code></pre></div><p>The first assumption we make for narrow hinges is that the hinge actually rotates about one line. This is not necessarily a valid assumption in all cases, because by exposing an area of soft material we have essentially formed a cantilever beam which bends along its entire length. However, when the length of a hinge is small in comparison to other design geometries, it makes the computation of kinematics much simpler. So whenever possible we make that assumption. Some have attempted to create models which account for this behavior 
+
+
+
+
+<span class="hugo-cite-intext"
+        itemprop="citation">(<span class="hugo-cite-group">
+
+          <a href="#odhner2012a"><span class="visually-hidden">Citation: </span><span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="givenName" content="Lael U."><span itemprop="familyName">Odhner</span></span>&#32;&amp;&#32;<span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="givenName" content="Aaron M."><span itemprop="familyName">Dollar</span></span>,&#32;<span itemprop="datePublished">2012</span></a><span class="hugo-cite-citation"> 
+
+
+
+
+
+
+
+
+
+
+<span itemscope
+      itemtype="https://schema.org/Article"
+      data-type="article"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Odhner</span>,&#32;
+    <meta itemprop="givenName" content="Lael U." />
+    L.</span>&#32;&amp;&#32;<span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Dollar</span>,&#32;
+    <meta itemprop="givenName" content="Aaron M." />
+    A.</span>
+  &#32;
+    (<span itemprop="datePublished">2012</span>).
+  &#32;<span itemprop="name"><span class="nocase">The Smooth Curvature Model: An Efficient Representation of Euler–Bernoulli Flexures as Robot Joints</span></span>.<i>
+    <span itemprop="about">IEEE Transactions on Robotics</span>,&#32;28(4)</i>.&#32;<span itemprop="pagination">761–772</span>.
+  <a href="https://doi.org/10.1109/TRO.2012.2193232"
+     itemprop="identifier"
+     itemtype="https://schema.org/URL">https://doi.org/10.1109/TRO.2012.2193232</a></span>
+
+
+
+
+</span></span>)</span>
+ in similar flexure joints.</p>
+<p>The second problem is that the thickness of the material can interfere with itself at and around joints. Figure X highlights the problem. As the material rotates about a virtual joint defined by the midpoint of the flexure material, it can come into contact with itself much earlier than anticipated by the ideal, infinitely thin assumption. To determine the needed hinge length given a desired range of motion(b) and laminate thickness(t), you can use the equation (<!--\ref{eqn:lengthrule}-->), or conversely, (<!--\ref{eqn:rotationrule}-->).</p>
+<p><div class="text-center">
+  <a href="../../../../static/figures/design/thickness_rom_calc.png"><img src="../../../../static/figures/design/thickness_rom_calc.png" alt="Thickness to Range of Motion Calc"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div>
+<div class="text-center">
+  <a href="/figures/design/thickness_rom_calc.png"><img src="/figures/design/thickness_rom_calc.png" alt="Thickness to Range of Motion Calc"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>\begin{align}
+\tan a &amp;= \frac{\frac{t}{2}}{\frac{l}{2}} = \frac{t}{l}\
+a&amp;=\tan^{-1} \left(\frac{t}{l}\right)\
+2a+\theta&amp;=\pi\
+\theta&amp;=\pi-2a\
+\theta&amp;=\pi-2\tan^{-1} \left(\frac{t}{l}\right)\
+l&amp;=\frac{t}{\tan(a)}\
+l&amp;=\frac{t}{\tan\left(\frac{\pi-\theta}{2}\right)}
+\end{align}</p>
+<!--\label{eqn:rotationrule} \label{eqn:lengthrule}-->
+<h4 id="selective-reinforcement">Selective reinforcement</h4>
+<p>This is really the simplest form of mitigation you can do. Use a thin material and reinforce as needed with extra material. This is an entirely customized process though, and assumes your original design was good enough to get you close enough to see what elements needed reinforcing.</p>
+<p>You can reinforce in a couple ways. You can glue reinforcing material, from a coffee stirrer or piece of hand-cut balsa, to creating a fiberglass or carbon fiber reinforcement which gets laminated on</p>
+<p>One of the benefits of this method is that you only have to reinforce where you need it. This is more of a guess and check strategy, and not too formulaic, which may not be too efficient, and for the novice, might</p>
+<h4 id="castellated-hinges">&ldquo;Castellated&rdquo; hinges</h4>
+<p>Castellated hinges address the material conflict issue by removing alternating portions of material near the joint so the radius of curvature remains small.  This only works with stiff rigid materials that are strong enough not to bend or break under the added stress of such small bend radii.  It does not typicallly work for cardboard.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">foldable_robotics.parts.castellated_hinge1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">hinge</span> <span style="color:#f92672">=</span> <span style="color:#111">foldable_robotics</span><span style="color:#f92672">.</span><span style="color:#111">parts</span><span style="color:#f92672">.</span><span style="color:#111">castellated_hinge1</span><span style="color:#f92672">.</span><span style="color:#111">generate</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">hinge</span> <span style="color:#f92672">=</span> <span style="color:#111">hinge</span><span style="color:#f92672">.</span><span style="color:#111">scale</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">.1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">hinge</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_4_0.png"><img src="output_4_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<h4 id="alternating-hinge-locations">Alternating Hinge locations</h4>
+<p><div class="text-center">
+  <a href="/figures/design/alternating_hinges.png"><img src="/figures/design/alternating_hinges.png" alt="Alternating Hinges"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>One way to address the problem of material thickness is to have joints which are asymmetrically located in the laminate stack. By having joints on the outer edges, rather than the inner edges of the laminate, you can make your laminate flat foldable at both 0 and 180 degrees. There are some underlying problems to this technique, however. Having your soft hinge material on the outside of your rigid material is an invitiation for delamination &ndash; the material will just peel away unless you have sufficiently bonded your layers. If you are doing this in one material and simply scored the material from one side or another, this may help but you have also potentially created a stress concentration. A good way of doing this strategy would be via molding, where you can build in good flexure design practices ala howell in order to minimize stress while also locating a hinge along the top or bottom of a thick link. But then if you&rsquo;re doing that, hopefully you have exhausted your other, cheaper and easier options first.</p>
+<h3 id="dxf-creation">DXF creation</h3>
+<p>The benefit of prototyping in paper is that the design can be easily extracted from the pattern which is folded. One straightforward process to sketch a device involves highlighting each hinge of a paper mockup, and drawing that hinge pattern in a 2d sketching program. Two such programs, inkscape and draftsight, may be used interchangeably for this step. Many commercial and open-source programs permit dimensioning or defining 2d patterns, and we do not advocate or insist on any one in particular, rather the one you are comfortable with. If dimensions are important, you may need a CAD program in order to get it right. If you are at the sketching step simply looking to recreate a topology to be optimized later, any will work. Certain functionality, like being able to define and use layers and line colors will help later, and are recommended features to utilize during the sketching phase. While there are many potential exchange formats, we recommend finding a program which can output dxf&rsquo;s, specifically more modern ascii formats(R2013 ascii format will work fine.)</p>
+<p>A foldable sketch consists of several elements. First, you must define the material layers. This may be accomplished by creating a closed shape. Material inside the shape indicates where material exists. Material outside the shape indicates where material isn&rsquo;t. DXF files provide several sometimes overlapping functionalities for drawing polygons or what look like polygons. The LWpolyline is a more recent addition to the dxf specification, and provides the ability to draw both lines and arcs within the same shape, and to indicate a &ldquo;closed&rdquo; polygon. The scripting language supports lw polylines, and can interpret arc segments as well, (even though it discretizes them as line segments for computation).</p>
+<p>polylines are abstract implementations which do not always produce valid shapes for indicating the presence of material(closed area), so it is important to always draw with a few remembered rules. First, there is no computation of &ldquo;inside&rdquo; or &ldquo;outside&rdquo;. While you can draw polylines where lines intersect or two vertices meet, these shapes are not valid for the purposes of specifiying material. Polylines do not keep track of &ldquo;inside&rdquo; or &ldquo;outside&rdquo; a shape so it is your job to, or to supply your import routine with the proper handling of self-contacting and self-intersecting shapes.</p>
+<p>Secondly, there is no definition of a hole when drawing a polyline. Material with holes or cuts in it must be defined by multiple separate polylines. We will discuss how to gracefully compute this in a few lines of code, but for now, keep in mind that you should try to (for your own sake) make sure polylines don&rsquo;t intersect each other. There are ways to handle this, but there are multiple way sto handle it, and so the best way is to avoid the problem in the first place. Figure x shows two different representations for the same computed shape. Isn&rsquo;t it just easier to keep self-intersections to a minimum?</p>
+<p>Another type of geometry which is required for foldable robotics is the definition of where hinges go. Think about a hinge. While the geometry required to actually fabricate a hinge may involve many layers and many shapes, it&rsquo;s placement in space often boils down to a straight line between two vertices. Create a layer called &ldquo;hinges&rdquo; and draw separate lines indicating the placement of each hinge.</p>
+<p>Another type of geometry you may want to define separately is a cut. Cuts may be complex polylines, individual line segments, etc, but are different from the holes supplied in the material layer. Why? They typically indicate cut paths not areas. It is sometimes usefull to treat these things separately in your code. So make another layer called &ldquo;cutlines&rdquo; and draw any lines arcs, polylines, etc.</p>
+<p>Another type of geometry with sometimes different requirements is circular holes.</p>
+<p>Again, the above suggestions are simply that: suggestions for a sketching workflow which will help you organize your computations later. You can always put different geometries in different layers; you just need to then modify your script to handle all of them.</p>
+<h3 id="manufacturing-planning">Manufacturing Planning</h3>
+<p>This section summarizes recent work towards the development of a scriptable CAM environment which permits robots to be designed and built quickly using a suite of scripts which make the process seamless and repeatable. From a basic set of user assumptions, this scripting environment provides the rest while letting the user drive their design forward with</p>
+<p>The goal of being able to rapidly develop a robot in the span of an hour or day has become more realistic as rapid prototyping tools have become more advanced.</p>
+<h3 id="material">Material</h3>
+<p>Import all the polylines from the material layer into a list of shapes. These shapes may be approximated as a set of polygons. The final shape s may be computed as</p>
+<p>$$s = \prod_{i = = 1}^{n}{}s_{i}$$</p>
+<p>Where the $\prod_{}^{}{}$ operator</p>
+<h3 id="layer">Layer</h3>
+<p>A layer is a space in 2d which can define the allocation of material. Any regular shape can exist on it, including primitives like prisms, circles, ellipses, etc, but I like to think more in terms of polygons, or polyonal approximations of other things. Why? Polygons are easy to triangulate and to study. If you want to make a circle, make instead a circular polygon with many vertices. If you are willing to take the tolerance errors in that approximation, then you can take advantage of a suite of tools well suited to polygons.</p>
+<p>Most importantly is the concept that a layer defines where material is or isn&rsquo;t. Inside a polygon there is material. Outside there isn&rsquo;t. That means on a layer of one material you can&rsquo;t have</p>
+<ul>
+<li>
+<p>Overlapping polygons</p>
+</li>
+<li>
+<p>Standalone lines or polylines.</p>
+</li>
+<li>
+<p>Complex or self-intersecting geometries.</p>
+</li>
+</ul>
+<p>All of these things need to either be simplified to a simple polygonal representation or eliminated from a layer.</p>
+<p>Another assumption which arises from this assumption is that layers are not interesting in the third dimension; this is not always true with laser cutters, water-jet cutters, etc. Sometimes they are capable of producing high draft angles (the profiles they cut are not perfectly straight in the z direction) A layer cannot account for that on its own. Additionally, a layer does not know or care what the thickness of the layer is. Nor does it matter.</p>
+<p>For the purposes of the next exercise, we will introduce two geometries, a circle and a triangle</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">circle</span> <span style="color:#f92672">=</span> <span style="color:#111">Layer</span><span style="color:#111">(</span><span style="color:#111">sg</span><span style="color:#f92672">.</span><span style="color:#111">Point</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">))</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">.5</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">circle</span> <span style="color:#f92672">=</span> <span style="color:#111">circle</span><span style="color:#f92672">.</span><span style="color:#111">translate</span><span style="color:#111">(</span><span style="color:#ae81ff">.3</span><span style="color:#111">,</span><span style="color:#ae81ff">.3</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">circle</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_6_0.png"><img src="output_6_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">triangle</span> <span style="color:#f92672">=</span> <span style="color:#111">Layer</span><span style="color:#111">(</span><span style="color:#111">sg</span><span style="color:#f92672">.</span><span style="color:#111">Polygon</span><span style="color:#111">([(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">),(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">),(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">)]))</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">triangle</span> <span style="color:#f92672">=</span> <span style="color:#111">triangle</span><span style="color:#f92672">.</span><span style="color:#111">translate</span><span style="color:#111">(</span><span style="color:#ae81ff">.3</span><span style="color:#111">,</span><span style="color:#ae81ff">.3</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">triangle</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_7_0.png"><img src="output_7_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">square</span> <span style="color:#f92672">=</span> <span style="color:#111">Layer</span><span style="color:#111">(</span><span style="color:#111">sg</span><span style="color:#f92672">.</span><span style="color:#111">Polygon</span><span style="color:#111">([(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">),(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">),(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">),(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">)]))</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">square</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_8_0.png"><img src="output_8_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Transformations</p>
+<h4 id="operations">Operations</h4>
+<p>Union</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">circle</span> <span style="color:#f92672">|</span> <span style="color:#111">triangle</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_12_0.png"><img src="output_12_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Unary Union</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">circle</span><span style="color:#f92672">.</span><span style="color:#111">unary_union</span><span style="color:#111">(</span><span style="color:#111">triangle</span><span style="color:#111">,</span><span style="color:#111">square</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_14_0.png"><img src="output_14_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Intersection</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">circle</span> <span style="color:#f92672">&amp;</span> <span style="color:#111">triangle</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_16_0.png"><img src="output_16_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Symmetric Difference</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">circle</span> <span style="color:#f92672">^</span> <span style="color:#111">triangle</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_18_0.png"><img src="output_18_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Difference</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">circle</span> <span style="color:#f92672">-</span> <span style="color:#111">triangle</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_20_0.png"><img src="output_20_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">triangle</span> <span style="color:#f92672">-</span> <span style="color:#111">circle</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_21_0.png"><img src="output_21_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Transformations</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">triangle</span> <span style="color:#f92672">|</span> <span style="color:#111">triangle</span><span style="color:#f92672">.</span><span style="color:#111">translate</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_23_0.png"><img src="output_23_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">triangle</span> <span style="color:#f92672">|</span><span style="color:#111">triangle</span><span style="color:#f92672">.</span><span style="color:#111">translate</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">rotate</span><span style="color:#111">(</span><span style="color:#ae81ff">30</span><span style="color:#111">,(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_24_0.png"><img src="output_24_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Transformations</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">square</span> <span style="color:#f92672">|</span> <span style="color:#111">square</span><span style="color:#f92672">.</span><span style="color:#111">affine_transform</span><span style="color:#111">([</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">.1</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">])</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_26_0.png"><img src="output_26_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">square</span> <span style="color:#f92672">|</span> <span style="color:#111">square</span><span style="color:#f92672">.</span><span style="color:#111">affine_transform</span><span style="color:#111">([</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">.1</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">])</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_27_0.png"><img src="output_27_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Dilation</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">triangle</span> <span style="color:#f92672">|</span> <span style="color:#111">(</span><span style="color:#111">triangle</span><span style="color:#f92672">.</span><span style="color:#111">translate</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">)</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">.1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_29_0.png"><img src="output_29_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Erosion</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">triangle</span> <span style="color:#f92672">|</span> <span style="color:#111">(</span><span style="color:#111">triangle</span><span style="color:#f92672">.</span><span style="color:#111">translate</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">)</span> <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">.1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_31_0.png"><img src="output_31_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<h3 id="laminate">Laminate</h3>
+<p>A Laminate is a collection of layers. A laminate enforces a particular ordering of layers, and a particular number of layers. This is established as a geometric ordering, rather than a time based ordering, etc. Therefore two polygons which overlap at the same x, y point, and exist the same layer in two laminates of the same size are assumed to be , thus can be operated upon. This means that laminates of idfferent numbers o flayers produce indeterminate results, thus there are no operations defined for them.</p>
+<p>Laminates don&rsquo;t on their own hold</p>
+<p>Thickness</p>
+<p>Material type</p>
+<p>Sequence of addition</p>
+<p>This means that a laminate representation cannot represent complex laminates in which layers change their thickness, change their z-elevation, have multiple materials on the same layer, etc.</p>
+<p>You can create an empty laminate of an arbitrary number by joining several empty layers together. You can augment an existing laminate with empty layers to make it operable against a laminate of a different size. You can eliminate layers to make it smaller and operable against a smaller laminate.</p>
+<p>Laminate specific operations</p>
+<p>Create</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">circle_lam</span> <span style="color:#f92672">=</span> <span style="color:#111">Laminate</span><span style="color:#111">(</span><span style="color:#111">circle</span><span style="color:#111">,</span><span style="color:#111">circle</span><span style="color:#111">,</span><span style="color:#111">circle</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">circle_lam</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_35_0.png"><img src="output_35_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">triangle_lam</span> <span style="color:#f92672">=</span> <span style="color:#111">Laminate</span><span style="color:#111">(</span><span style="color:#111">triangle</span><span style="color:#111">,</span><span style="color:#111">triangle</span><span style="color:#111">,</span><span style="color:#111">triangle</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">triangle_lam</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_36_0.png"><img src="output_36_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">square_lam</span> <span style="color:#f92672">=</span> <span style="color:#111">Laminate</span><span style="color:#111">(</span><span style="color:#111">square</span><span style="color:#111">,</span><span style="color:#111">square</span><span style="color:#111">,</span><span style="color:#111">square</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">square_lam</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_37_0.png"><img src="output_37_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Select</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#111">type</span><span style="color:#111">(</span><span style="color:#111">circle_lam</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">]))</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">circle_lam</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">]</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><pre><code>&lt;class 'foldable_robotics.layer.Layer'&gt;
+</code></pre>
+<p><div class="text-center">
+  <a href="output_39_1.png"><img src="output_39_1.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>All layer operations can be applied to laminates. This includes</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">circle_lam</span><span style="color:#f92672">|</span><span style="color:#111">triangle_lam</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_41_0.png"><img src="output_41_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Append / Expand</p>
+<p>Layer-specific extensions</p>
+<p>Unary operations</p>
+<p>Binary operations</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">lam</span> <span style="color:#f92672">=</span> <span style="color:#111">Laminate</span><span style="color:#111">(</span><span style="color:#111">circle</span><span style="color:#111">,</span><span style="color:#111">triangle</span><span style="color:#111">,</span><span style="color:#111">square</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">lam</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_46_0.png"><img src="output_46_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Shift Up</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">Laminate</span><span style="color:#111">(</span><span style="color:#111">Layer</span><span style="color:#111">(),</span><span style="color:#f92672">*</span><span style="color:#111">lam</span><span style="color:#111">[:</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">])</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_48_0.png"><img src="output_48_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Shift Down</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">Laminate</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">lam</span><span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">:],</span><span style="color:#111">Layer</span><span style="color:#111">())</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_50_0.png"><img src="output_50_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Rotate Up</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">Laminate</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">lam</span><span style="color:#111">[:</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span><span style="color:#f92672">*</span><span style="color:#111">lam</span><span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">:])</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_52_0.png"><img src="output_52_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Rotate Down</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">Laminate</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">lam</span><span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">:],</span><span style="color:#f92672">*</span><span style="color:#111">lam</span><span style="color:#111">[:</span><span style="color:#ae81ff">1</span><span style="color:#111">])</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">result</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_54_0.png"><img src="output_54_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<h2 id="bibliography">Bibliography</h2>
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+<section class="hugo-cite-bibliography">
+  <dl>
+    
+
+      <div id="odhner2012a">
+        <dt>
+          Odhner&#32;&amp;&#32;Dollar
+
+          
+          (2012)</dt>
+
+        <dd>
+          
+
+
+
+
+
+
+
+
+
+
+<span itemscope
+      itemtype="https://schema.org/Article"
+      data-type="article"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Odhner</span>,&#32;
+    <meta itemprop="givenName" content="Lael U." />
+    L.</span>&#32;&amp;&#32;<span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Dollar</span>,&#32;
+    <meta itemprop="givenName" content="Aaron M." />
+    A.</span>
+  &#32;
+    (<span itemprop="datePublished">2012</span>).
+  &#32;<span itemprop="name"><span class="nocase">The Smooth Curvature Model: An Efficient Representation of Euler–Bernoulli Flexures as Robot Joints</span></span>.<i>
+    <span itemprop="about">IEEE Transactions on Robotics</span>,&#32;28(4)</i>.&#32;<span itemprop="pagination">761–772</span>.
+  <a href="https://doi.org/10.1109/TRO.2012.2193232"
+     itemprop="identifier"
+     itemtype="https://schema.org/URL">https://doi.org/10.1109/TRO.2012.2193232</a></span>
+
+
+
+
+</dd>
+
+      </div>
+  </dl>
+</section>
+
+
+
+
+  </article>
+</main>
+
+
+    
+    <footer class="blog-footer">
+      <p>Copyright &copy; 2022 Daniel M. Aukes.  All rights reserved.</p>
+      <p><a href="#">Back to top</a></p>
+    </footer>
+    
+
+<script src="/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://foldable-robotics.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/fuse.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/jquery.mark.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/search.js"></script>
+
+  </body>
+</html>

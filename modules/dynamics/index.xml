@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dynamics on Foldable Robotics</title>
+    <link>https://foldable-robotics.github.io/modules/dynamics/</link>
+    <description>Recent content in Dynamics on Foldable Robotics</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="https://foldable-robotics.github.io/modules/dynamics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Derivatives and the Golden Rule</title>
+      <link>https://foldable-robotics.github.io/modules/dynamics/generated/05-derivatives-and-the-golden-rule/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/dynamics/generated/05-derivatives-and-the-golden-rule/</guid>
+      <description>$$ \frac{ {}^N{d\vec{v}}}{dt} = \frac{ {}^A{d\vec{v}}}{dt} + {}^N{\vec{w}}^{A} \times \vec{v} $$</description>
+    </item>
+    <item>
+      <title>Drag in Granular Media</title>
+      <link>https://foldable-robotics.github.io/modules/dynamics/generated/drag-in-granular-media/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/dynamics/generated/drag-in-granular-media/</guid>
+      <description>import pynamics from pynamics.frame import Frame from pynamics.variable_types import Differentiable,Constant from pynamics.</description>
+    </item>
+    <item>
+      <title>Dyads, Dyadics, and Inertia</title>
+      <link>https://foldable-robotics.github.io/modules/dynamics/generated/04-dyads-dyadics-and-inertia/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/dynamics/generated/04-dyads-dyadics-and-inertia/</guid>
+      <description>Dyads Dyads and dyadics are a difficult concept to understand, initially.</description>
+    </item>
+    <item>
+      <title>Falling Rod Example</title>
+      <link>https://foldable-robotics.github.io/modules/dynamics/generated/09-falling-rod-example/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/dynamics/generated/09-falling-rod-example/</guid>
+      <description>This example shows how to implement contact and friction using a penalty method and damping</description>
+    </item>
+    <item>
+      <title>Forces and Torques</title>
+      <link>https://foldable-robotics.github.io/modules/dynamics/generated/06-forces-and-torques/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/dynamics/generated/06-forces-and-torques/</guid>
+      <description>Introduction Non-Conservative Forces Damping $$\vec{f} = -b\vec{v}$$&#xA;Friction Friction is typically formulated as the forces acting between two bodies $A$ and $B$</description>
+    </item>
+    <item>
+      <title>Four Bar Dynamics with unit Scaling</title>
+      <link>https://foldable-robotics.github.io/modules/dynamics/generated/four-bar-dynamics-with-scaling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/dynamics/generated/four-bar-dynamics-with-scaling/</guid>
+      <description>%matplotlib inline &amp;#34;&amp;#34;&amp;#34; Written by Daniel M. Aukes Email: danaukes&amp;lt;at&amp;gt;gmail.com Please see LICENSE for full license.</description>
+    </item>
+    <item>
+      <title>Frames, Basis Vectors, and Vectors</title>
+      <link>https://foldable-robotics.github.io/modules/dynamics/generated/02-vectors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/dynamics/generated/02-vectors/</guid>
+      <description>Frames When analyzing a system, sometimes it&amp;rsquo;s convenient or simple to represent a system in a specific way.</description>
+    </item>
+    <item>
+      <title>Inertias for common shapes</title>
+      <link>https://foldable-robotics.github.io/modules/dynamics/inertias-for-common-shapes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/dynamics/inertias-for-common-shapes/</guid>
+      <description>Rectangular parallelepiped/prism (a box) with length $a$, width $b$, height $c$</description>
+    </item>
+    <item>
+      <title>Kane&#39;s method</title>
+      <link>https://foldable-robotics.github.io/modules/dynamics/generated/07-kanes-method/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/dynamics/generated/07-kanes-method/</guid>
+      <description>Frames Frame A&#xA;$$ {}^{N}{}{\vec{\omega}}^{A}{} = \dot{\theta} \hat{n}_z= \dot{\theta} \hat{a}_z $$</description>
+    </item>
+    <item>
+      <title>Rotations</title>
+      <link>https://foldable-robotics.github.io/modules/dynamics/generated/01-rotations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/dynamics/generated/01-rotations/</guid>
+      <description>Introduction While there may be many ways to navigate and describe the same three-dimensional space using reference frames, it is also necessary and desireable to be able to change representations; this can be useful for interpreting motion from a differet perspective, for adding forces or torques to a system using dirctional components which are a more natural description, or in order to perform mathematical operations between vectors which are represented by different basis vectors.</description>
+    </item>
+    <item>
+      <title>Triple Pendulum Example</title>
+      <link>https://foldable-robotics.github.io/modules/dynamics/generated/08-triple-pendulum-example/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/dynamics/generated/08-triple-pendulum-example/</guid>
+      <description>%matplotlib inline Try running with this variable set to true and to false and see the difference in the resulting equations of motion</description>
+    </item>
+    <item>
+      <title>Unit Scaling</title>
+      <link>https://foldable-robotics.github.io/modules/dynamics/generated/07-unit-scaling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/dynamics/generated/07-unit-scaling/</guid>
+      <description>import idealab_tools.units idealab_tools.units.force kilogram*meter/second^2 idealab_tools.units.force.base_units {&#39;kilogram&#39;: 1, &#39;meter&#39;: 1, &#39;second&#39;: -2} idealab_tools.</description>
+    </item>
+    <item>
+      <title>Variable Types</title>
+      <link>https://foldable-robotics.github.io/modules/dynamics/generated/03-variable-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/dynamics/generated/03-variable-types/</guid>
+      <description>Variables in pynamics may be grouped into different categories, and used for different things.</description>
+    </item>
+  </channel>
+</rss>

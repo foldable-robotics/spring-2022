@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prototyping &amp; Manufacturing on Foldable Robotics</title>
+    <link>https://foldable-robotics.github.io/modules/manufacturing/</link>
+    <description>Recent content in Prototyping &amp; Manufacturing on Foldable Robotics</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="https://foldable-robotics.github.io/modules/manufacturing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cutting over Wifi</title>
+      <link>https://foldable-robotics.github.io/modules/manufacturing/vinyl-cutter-over-wifi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/manufacturing/vinyl-cutter-over-wifi/</guid>
+      <description>Instructions Connect to classroom intranet&#xA;SSID: IDEAlab&#xA;password: posted in class</description>
+    </item>
+    <item>
+      <title>Full Design Pipeline</title>
+      <link>https://foldable-robotics.github.io/modules/manufacturing/generated/full-workflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/manufacturing/generated/full-workflow/</guid>
+      <description>%matplotlib inline import foldable_robotics import foldable_robotics.dxf import numpy import shapely.geometry as sg from foldable_robotics.</description>
+    </item>
+    <item>
+      <title>Hinges</title>
+      <link>https://foldable-robotics.github.io/modules/manufacturing/generated/hinges/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/manufacturing/generated/hinges/</guid>
+      <description>Hinges import shapely.geometry as sg from foldable_robotics.layer import Layer from foldable_robotics.</description>
+    </item>
+    <item>
+      <title>Lecture 22 Code</title>
+      <link>https://foldable-robotics.github.io/modules/manufacturing/generated/lec22_example/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/manufacturing/generated/lec22_example/</guid>
+      <description>import shapely.geometry as sg from foldable_robotics.layer import Layer from foldable_robotics.laminate import Laminate a = sg.</description>
+    </item>
+    <item>
+      <title>Manufacturing Computation for Multi-layer Devices</title>
+      <link>https://foldable-robotics.github.io/modules/manufacturing/generated/manufacturing_planning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/manufacturing/generated/manufacturing_planning/</guid>
+      <description>Manufacturing Computation for Multi-layer Devices Hinge width, laminate thickness, and range of motion The first thing to think about is how the thickness of your laminate will impact and alter the ideal kinematics you have been assuming up to this point.</description>
+    </item>
+    <item>
+      <title>Manufacturing Tutorial Video</title>
+      <link>https://foldable-robotics.github.io/modules/manufacturing/manufacturing-tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/manufacturing/manufacturing-tutorial/</guid>
+      <description> </description>
+    </item>
+    <item>
+      <title>Skeletonizing an image</title>
+      <link>https://foldable-robotics.github.io/modules/manufacturing/generated/skeletonizing-an-image/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/manufacturing/generated/skeletonizing-an-image/</guid>
+      <description>Introduction External References https://scikit-image.org/docs/stable/index.html https://datacarpentry.org/image-processing/aio/index.html # -*- coding: utf-8 -*- &amp;#34;&amp;#34;&amp;#34; Created on Wed Aug 18 14:24:17 2021 @author: danaukes &amp;#34;&amp;#34;&amp;#34; &#39;\nCreated on Wed Aug 18 14:24:17 2021\n\n@author: danaukes\n&#39; import skimage import skimage.</description>
+    </item>
+    <item>
+      <title>Spring 2022 Shapely &amp; Foldable Robotics Example</title>
+      <link>https://foldable-robotics.github.io/modules/manufacturing/generated/sp-22-class-example/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/manufacturing/generated/sp-22-class-example/</guid>
+      <description>import shapely.geometry as sg from foldable_robotics.layer import Layer from foldable_robotics.laminate import Laminate a = sg.</description>
+    </item>
+    <item>
+      <title>The Fabrication Process</title>
+      <link>https://foldable-robotics.github.io/modules/manufacturing/the-fabrication-process/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/manufacturing/the-fabrication-process/</guid>
+      <description>5-Layer Design A typical five layer design consists of</description>
+    </item>
+  </channel>
+</rss>

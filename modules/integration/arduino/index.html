@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>
+Arduino IDE and Pro Trinket Setup | Foldable Robotics
+</title>
+
+    <link href="/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+
+
+<link href="/css/blog.css" rel="stylesheet">
+<link href="/css/features.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/hugo-cite.css" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/manifest.json">
+
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <header class="blog-header py-3">
+  <div class="row flex-nowrap justify-content-between align-items-center">
+    <div class="col-2 pt-1">
+    </div>
+    <div class="col-8 text-center">
+      <a class="blog-header-logo text-dark" href="/">Foldable Robotics</a>
+    </div>
+    <div class="col-2 d-flex justify-content-end align-items-center">
+    </div>
+  </div>
+</header>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Course Topics
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/introduction/">Introduction</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/python/">Python</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/biomechanics/">Biomechanics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/project/">Project</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/kinematics/">Kinematics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/dynamics/">Dynamics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/optimization/">Optimization</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/compliance/">Mechanics and Compliance</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/manufacturing/">Prototyping &amp; Manufacturing</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/validation/">Experimental Validation</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/integration/">Integration</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/misc/">Misc</a>
+            
+          </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://foldable-robotics.github.io/assignments/">Assignments</a>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Documents
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/all-documents/">All Documents</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/syllabus/">Syllabus</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/submission-best-practices/">Submission Best Practices</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/software-list/">Software List</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/course-calendar/">Course Calendar</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/suggested-materials-list/">Suggested Materials List</a>
+            
+          </div>
+        </li>
+        
+        
+        
+      </ul>
+      <span class="navbar-text">
+        
+      </span>
+
+        <form action="https://foldable-robotics.github.io//search" class="d-flex">
+        <input class="form-control me-2"  id="search-query"  name="s" type="s" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary"  type="submit">Search</button>
+      </form>
+      
+    </div>
+  </div>
+</nav>
+
+
+    </div>
+
+    
+<main class="container">
+
+  
+
+
+
+
+
+<div class="text-center">
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+
+
+
+<li class="breadcrumb-item"><a href="/modules">modules</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/integration">integration</a></li>
+
+
+
+
+<li class="breadcrumb-item active"  aria-current="page">arduino</li>
+
+  </ol>
+</nav>
+</div>
+
+  
+  <article>
+  <p>Refer to the <a href="https://www.adafruit.com/product/2000">website</a> for all the documentation and files</p>
+<ol>
+<li>Install the <a href="https://www.arduino.cc/">Arduino IDE</a></li>
+<li>Install Adafruit <a href="https://learn.adafruit.com/adafruit-arduino-ide-setup/windows-setup">windows drivers</a>(if applicable)</li>
+<li>Add repository
+<ul>
+<li>file &ndash;&gt; preferences</li>
+<li>in &ldquo;additional board managers&rdquo;, type &ldquo;<a href="https://adafruit.github.io/arduino-board-index/package_adafruit_index.json%22">https://adafruit.github.io/arduino-board-index/package_adafruit_index.json&quot;</a></li>
+</ul>
+</li>
+<li>Add adafruit boards manager
+<ul>
+<li>tools &ndash;&gt; board &ndash;&gt; board manager&hellip;</li>
+<li>search for adafruit, select, and install.</li>
+</ul>
+</li>
+</ol>
+<h3 id="usb-bootloader-settings">USB Bootloader Settings</h3>
+<ol>
+<li>Plug in USB Bootloader</li>
+<li>Select Board:
+<ul>
+<li>ProTrinket5V/16MHz(USB)</li>
+</ul>
+</li>
+<li>Select Programmer:
+<ul>
+<li>USBTinyISP</li>
+</ul>
+</li>
+<li>upload</li>
+</ol>
+<h3 id="usbserial-cable-settings">USB/Serial Cable Settings</h3>
+<ol>
+<li>Plug in USB/Serial Cable to the six pins at the end of the adafruit pro trinket</li>
+<li>If necessary, install <a href="http://www.ftdichip.com/Drivers/VCP.htm">ftdi drivers</a></li>
+<li>Select Board:
+<ul>
+<li>ProTrinket5V/16MHz(FTDI)</li>
+</ul>
+</li>
+<li>Select Port (use device manager to identify)</li>
+<li>Select Programmer:
+<ul>
+<li>AVR ISP</li>
+</ul>
+</li>
+<li>upload</li>
+</ol>
+<h2 id="working-with-serial">Working with serial</h2>
+<h3 id="serial-echo">Serial Echo</h3>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#00a8c8">void</span> <span style="color:#75af00">setup</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">Serial</span><span style="color:#111">.</span><span style="color:#75af00">begin</span><span style="color:#111">(</span><span style="color:#ae81ff">9600</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">void</span> <span style="color:#75af00">loop</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">Serial</span><span style="color:#111">.</span><span style="color:#75af00">available</span><span style="color:#111">())</span> <span style="color:#111">{</span>      <span style="color:#75715e">// If anything comes in Serial (USB),
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">Serial</span><span style="color:#111">.</span><span style="color:#75af00">read</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">Serial</span><span style="color:#111">.</span><span style="color:#75af00">write</span><span style="color:#111">(</span><span style="color:#d88200">&#34;x&#34;</span><span style="color:#111">);</span>   <span style="color:#75715e">// read it and send it out Serial1 (pins 0 &amp; 1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div>
+  </article>
+</main>
+
+
+    
+    <footer class="blog-footer">
+      <p>Copyright &copy; 2022 Daniel M. Aukes.  All rights reserved.</p>
+      <p><a href="#">Back to top</a></p>
+    </footer>
+    
+
+<script src="/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://foldable-robotics.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/fuse.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/jquery.mark.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/search.js"></script>
+
+  </body>
+</html>

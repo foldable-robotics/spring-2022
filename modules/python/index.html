@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>
+Python | Foldable Robotics
+</title>
+
+    <link href="/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+
+
+<link href="/css/blog.css" rel="stylesheet">
+<link href="/css/features.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/hugo-cite.css" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/manifest.json">
+
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <header class="blog-header py-3">
+  <div class="row flex-nowrap justify-content-between align-items-center">
+    <div class="col-2 pt-1">
+    </div>
+    <div class="col-8 text-center">
+      <a class="blog-header-logo text-dark" href="/">Foldable Robotics</a>
+    </div>
+    <div class="col-2 d-flex justify-content-end align-items-center">
+    </div>
+  </div>
+</header>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Course Topics
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/introduction/">Introduction</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/python/">Python</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/biomechanics/">Biomechanics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/project/">Project</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/kinematics/">Kinematics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/dynamics/">Dynamics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/optimization/">Optimization</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/compliance/">Mechanics and Compliance</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/manufacturing/">Prototyping &amp; Manufacturing</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/validation/">Experimental Validation</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/integration/">Integration</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/misc/">Misc</a>
+            
+          </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://foldable-robotics.github.io/assignments/">Assignments</a>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Documents
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/all-documents/">All Documents</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/syllabus/">Syllabus</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/submission-best-practices/">Submission Best Practices</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/software-list/">Software List</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/course-calendar/">Course Calendar</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/suggested-materials-list/">Suggested Materials List</a>
+            
+          </div>
+        </li>
+        
+        
+        
+      </ul>
+      <span class="navbar-text">
+        
+      </span>
+
+        <form action="https://foldable-robotics.github.io//search" class="d-flex">
+        <input class="form-control me-2"  id="search-query"  name="s" type="s" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary"  type="submit">Search</button>
+      </form>
+      
+    </div>
+  </div>
+</nav>
+
+
+    </div>
+
+    
+
+<main class="container">
+<h1>Python</h1>
+
+
+
+
+
+
+<h2>Submodules</h2>
+<div class="row g-3">
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Intro to Jupyter Notebook and Pynamics</h3>
+    <p class="card-text">import pynamics from pynamics.system import System from pynamics.frame import Frame import sympy system = System() pynamics.</p>
+    <a href="/modules/python/generated/intro-to-jupyter-notebook-and-pynamics/" class="btn btn-outline-primary mt-auto">Go to Intro to Jupyter Notebook and Pynamics</a>
+  </div>
+</div>
+</div>      
+  
+</div>
+
+
+
+<h2>Tutorials</h2>
+<div class="row g-3">
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Course-specific Python Packages</h3>
+    <p class="card-text">Install additional software packages. In Windows, go to the search bar and type &ldquo;anaconda&rdquo;.</p>
+    <a href="/modules/python/course-specific-packages/" class="btn btn-outline-primary mt-auto">Go to Course-specific Python Packages</a>
+  </div>
+</div>
+</div>      
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Download and Link to Python Packages</h3>
+    <p class="card-text">Say you want to run a python package from source using a git repository.</p>
+    <a href="/modules/python/download-and-link-to-python-packages/" class="btn btn-outline-primary mt-auto">Go to Download and Link to Python Packages</a>
+  </div>
+</div>
+</div>      
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Google Colab Documentation</h3>
+    <p class="card-text">Resources Introduction to Colab and Python Getting Started with Google Colab External data: Local Files, Drive, Sheets, and Cloud Storage How to Connect Google Colab with Google Drive Embedding your image in google colab markdown What is Google Colab &ldquo;Colaboratory is a free Jupyter notebook environment that requires no setup and runs entirely in the cloud.</p>
+    <a href="/modules/python/google-colab-tutorial/" class="btn btn-outline-primary mt-auto">Go to Google Colab Documentation</a>
+  </div>
+</div>
+</div>      
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Installing Anaconda</h3>
+    <p class="card-text">Introduction Anaconda is a distribution of Python that includes the ability to manage packages using the conda package manager as well as the ability to create and manage environments, or collections of packages that work together.</p>
+    <a href="/modules/python/installing-anaconda-python/" class="btn btn-outline-primary mt-auto">Go to Installing Anaconda</a>
+  </div>
+</div>
+</div>      
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Sympy Example</h3>
+    <p class="card-text">import sympy a = sympy.Symbol(&#39;a&#39;) b = sympy.Symbol(&#39;b&#39;) x = sympy.</p>
+    <a href="/modules/python/generated/sympy-example/" class="btn btn-outline-primary mt-auto">Go to Sympy Example</a>
+  </div>
+</div>
+</div>      
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Using Jupyter Notebook</h3>
+    <p class="card-text">About Jupyter Jupyter notebook is a useful browser-based IPython editor that provides inline documentation via markdown and inline plotting functionality for a one-stop-shop coding and documentation experience.</p>
+    <a href="/modules/python/using-jupyter-notebook/" class="btn btn-outline-primary mt-auto">Go to Using Jupyter Notebook</a>
+  </div>
+</div>
+</div>      
+  
+</div>
+
+
+
+
+
+<h2>Others</h2>
+
+<div class="row g-3">
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Advanced Data Types</h3>
+    <p class="card-text">There are a number of advanced data types native to Python.</p>
+    <a href="/modules/python/generated/advanced-data-types/" class="btn btn-outline-primary mt-auto">Go to Advanced Data Types</a>
+  </div>
+</div>
+</div>      
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Basic Data Types</h3>
+    <p class="card-text">A &ldquo;literal&rdquo; value is one that is typed into code. Think &ldquo;4.</p>
+    <a href="/modules/python/generated/basic-data-types/" class="btn btn-outline-primary mt-auto">Go to Basic Data Types</a>
+  </div>
+</div>
+</div>      
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Conditional Statements</h3>
+    <p class="card-text">Conditional Statements use the keywords if, then, and else to perform different logic depending on the statements that are evaluated.</p>
+    <a href="/modules/python/generated/conditionals/" class="btn btn-outline-primary mt-auto">Go to Conditional Statements</a>
+  </div>
+</div>
+</div>      
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">functions and arguments</h3>
+    <p class="card-text">Functions The structure of a function is:
+def my_function_1(my_variable_1,my_variable_2): result = my_variable_1+my_variable_2 return result Where my_function_1 is the function, and my_variable_1 and my_variable_2 are the &ldquo;arguments&rdquo;.</p>
+    <a href="/modules/python/generated/functions/" class="btn btn-outline-primary mt-auto">Go to functions and arguments</a>
+  </div>
+</div>
+</div>      
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Intro to Python</h3>
+    <p class="card-text">One thing I really like about python is that it is based on good programming practice .</p>
+    <a href="/modules/python/why-python/" class="btn btn-outline-primary mt-auto">Go to Intro to Python</a>
+  </div>
+</div>
+</div>      
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Loops</h3>
+    <p class="card-text">Introduction Loops are used to repeat code over a fixed number of cycles, or indefinitely based on logic.</p>
+    <a href="/modules/python/generated/loops/" class="btn btn-outline-primary mt-auto">Go to Loops</a>
+  </div>
+</div>
+</div>      
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Operators &amp; Operations</h3>
+    <p class="card-text">Basic Operators Operators in Python are just symbols that &ldquo;operate&rdquo; on one or more values.</p>
+    <a href="/modules/python/generated/operators-and-operations/" class="btn btn-outline-primary mt-auto">Go to Operators &amp; Operations</a>
+  </div>
+</div>
+</div>      
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Packages in Python</h3>
+    <p class="card-text">Introduction The most important packages that I use when creating python code are those packages which make a python more Matlab-like.</p>
+    <a href="/modules/python/packages/" class="btn btn-outline-primary mt-auto">Go to Packages in Python</a>
+  </div>
+</div>
+</div>      
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Plotting in 3D</h3>
+    <p class="card-text">%matplotlib inline Visit this matplotlib tutorial on 3d Plotting Another useful reference import matplotlib.</p>
+    <a href="/modules/python/generated/3d-plotting/" class="btn btn-outline-primary mt-auto">Go to Plotting in 3D</a>
+  </div>
+</div>
+</div>      
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Python Development</h3>
+    <p class="card-text">Now What? More Python Making your programs for others Releasing your code Licensing Collaborating Testing / Building Imports Imports should always be written at the top of the file, after any module comments and docstrings.</p>
+    <a href="/modules/python/python-development/" class="btn btn-outline-primary mt-auto">Go to Python Development</a>
+  </div>
+</div>
+</div>      
+  
+  <div class="feature col-md-4">
+<div class="card h-100" >
+<div class="text-center">
+  
+  
+</div>
+  <div class="card-body d-flex flex-column">
+    <h3 class="card-title">Updating Python Packages</h3>
+    <p class="card-text">There are several Python packages that are in active development for the purposes of this class.</p>
+    <a href="/modules/python/updating-python-packages/" class="btn btn-outline-primary mt-auto">Go to Updating Python Packages</a>
+  </div>
+</div>
+</div>      
+  
+</div>
+
+
+<h2 id="main-python-references">Main Python References</h2>
+<p><a href="https://docs.python-guide.org/#">The Hitchiker&rsquo;s guide to Python</a></p>
+<h2 id="important-topics-for-this-class">Important Topics for This Class</h2>
+<ul>
+<li>Python Style: <a href="https://docs.python-guide.org/writing/style/">https://docs.python-guide.org/writing/style/</a></li>
+<li>Classes
+<ul>
+<li><a href="https://docs.python.org/3/tutorial/classes.html">https://docs.python.org/3/tutorial/classes.html</a></li>
+<li><a href="https://www.w3schools.com/python/python_classes.asp">https://www.w3schools.com/python/python_classes.asp</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="module-specific-references">Module-Specific References</h2>
+<ul>
+<li>Plotting with <a href="https://matplotlib.org">Matplotlib</a>
+<ul>
+<li><a href="https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py">pyplot tutorial</a> for the basics of plotting similarly to matlab.</li>
+<li><a href="https://matplotlib.org/tutorials/introductory/usage.html#sphx-glr-tutorials-introductory-usage-py">overview of plotting paradigms</a></li>
+</ul>
+</li>
+<li>Numpy has amazing <a href="https://numpy.org/devdocs/user/index.html">documentation</a>.  The highlights include a <a href="https://numpy.org/devdocs/user/quickstart.html">quickstart guide</a> with the bare essentials, a <a href="https://numpy.org/devdocs/user/basics.html">more complete overview</a>, and a handy guide for <a href="https://numpy.org/devdocs/user/numpy-for-matlab-users.html">matlab pros</a> who want to know how to convert their matlab knowledge.</li>
+<li>Scipy <a href="https://docs.scipy.org/doc/scipy/reference/">documentation</a></li>
+<li>Sympy <a href="https://docs.sympy.org/latest/index.html">documentation</a></li>
+</ul>
+<h2 id="jupyter">Jupyter</h2>
+<ul>
+<li>Nature: <a href="https://www.nature.com/articles/d41586-018-07196-1">Why Jupyter is data scientists’ computational notebook of choice</a></li>
+<li><a href="https://towardsdatascience.com/how-to-set-up-anaconda-and-jupyter-notebook-the-right-way-de3b7623ea4a">https://towardsdatascience.com/how-to-set-up-anaconda-and-jupyter-notebook-the-right-way-de3b7623ea4a</a></li>
+</ul>
+
+
+</main>
+
+
+
+    
+    <footer class="blog-footer">
+      <p>Copyright &copy; 2022 Daniel M. Aukes.  All rights reserved.</p>
+      <p><a href="#">Back to top</a></p>
+    </footer>
+    
+
+<script src="/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://foldable-robotics.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/fuse.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/jquery.mark.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/search.js"></script>
+
+  </body>
+</html>

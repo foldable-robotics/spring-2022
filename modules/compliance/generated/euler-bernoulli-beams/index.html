@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>
+Euler-Bernoulli Beams | Foldable Robotics
+</title>
+
+    <link href="/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+
+
+<link href="/css/blog.css" rel="stylesheet">
+<link href="/css/features.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/hugo-cite.css" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/manifest.json">
+
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <header class="blog-header py-3">
+  <div class="row flex-nowrap justify-content-between align-items-center">
+    <div class="col-2 pt-1">
+    </div>
+    <div class="col-8 text-center">
+      <a class="blog-header-logo text-dark" href="/">Foldable Robotics</a>
+    </div>
+    <div class="col-2 d-flex justify-content-end align-items-center">
+    </div>
+  </div>
+</header>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Course Topics
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/introduction/">Introduction</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/python/">Python</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/biomechanics/">Biomechanics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/project/">Project</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/kinematics/">Kinematics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/dynamics/">Dynamics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/optimization/">Optimization</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/compliance/">Mechanics and Compliance</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/manufacturing/">Prototyping &amp; Manufacturing</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/validation/">Experimental Validation</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/integration/">Integration</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/misc/">Misc</a>
+            
+          </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://foldable-robotics.github.io/assignments/">Assignments</a>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Documents
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/all-documents/">All Documents</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/syllabus/">Syllabus</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/submission-best-practices/">Submission Best Practices</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/software-list/">Software List</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/course-calendar/">Course Calendar</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/suggested-materials-list/">Suggested Materials List</a>
+            
+          </div>
+        </li>
+        
+        
+        
+      </ul>
+      <span class="navbar-text">
+        
+      </span>
+
+        <form action="https://foldable-robotics.github.io//search" class="d-flex">
+        <input class="form-control me-2"  id="search-query"  name="s" type="s" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary"  type="submit">Search</button>
+      </form>
+      
+    </div>
+  </div>
+</nav>
+
+
+    </div>
+
+    
+<main class="container">
+  <h1>Euler-Bernoulli Beams</h1>
+  
+  
+
+
+
+
+
+<div class="text-center">
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+
+
+
+<li class="breadcrumb-item"><a href="/modules">modules</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/compliance">compliance</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/compliance/generated">generated</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/compliance/generated/euler-bernoulli-beams">euler-bernoulli-beams</a></li>
+
+
+
+
+<li class="breadcrumb-item active"  aria-current="page">index</li>
+
+  </ol>
+</nav>
+</div>
+
+  
+  <article>
+  <p>The relationship between the bending moment and the radius of curvature($\rho$) for a beam of Young&rsquo;s modulus $E$ and cross-sectional moment of inertia(second moment of area) $I$ is given by</p>
+<p>$$
+M=-\frac{EI}{\rho}
+$$</p>
+<p>Now let&rsquo;s say $\omega(x)$ describes the deflection of a beam in the z direction as a function of its length, $x$.  When deflections are small &ndash; assumed in the Euler-Bernoulli model, then the second derivative can serve as an approximate the radius of curvature (using the small angle approximation $\sin{\theta}=\theta$), making</p>
+<p>$$\frac{1}{\rho} = \frac{\delta^2\omega}{\delta x^2}$$</p>
+<p>and</p>
+<p>$$M = -EI\frac{\delta^2 \omega(x)}{\delta x^2}$$</p>
+<p>$$\frac{\delta^2}{\delta x^2}\left(EI\frac{\delta^2 \omega(x)}{\delta x^2}\right) = p(x)$$</p>
+<p>where $p$ is a distributed load, $E$ is Young&rsquo;s Modulus, and $I$ is the</p>
+<p>$$\frac{\delta^2 \omega}{\delta x^2} =\frac{M}{EI}$$</p>
+<p>where $M$ is the moment,</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">%</span><span style="color:#111">matplotlib</span> <span style="color:#111">inline</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+</span></span><span style="display:flex;"><span><span style="color:#d88200">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">copyright 2016-2017 Dan Aukes
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">matplotlib.pyplot</span> <span style="color:#00a8c8">as</span> <span style="color:#111">plt</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">sympy</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">numpy</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">sympy</span> <span style="color:#f92672">import</span> <span style="color:#111">pi</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">b</span><span style="color:#111">,</span><span style="color:#111">h</span><span style="color:#111">,</span><span style="color:#111">theta</span><span style="color:#111">,</span><span style="color:#111">P</span><span style="color:#111">,</span><span style="color:#111">L</span><span style="color:#111">,</span><span style="color:#111">E</span><span style="color:#111">,</span><span style="color:#111">I</span><span style="color:#111">,</span><span style="color:#111">x</span><span style="color:#111">,</span><span style="color:#111">w</span><span style="color:#111">,</span><span style="color:#111">M</span><span style="color:#111">,</span><span style="color:#111">q</span><span style="color:#111">,</span><span style="color:#111">p</span><span style="color:#111">,</span><span style="color:#111">A</span><span style="color:#111">,</span><span style="color:#111">B</span><span style="color:#111">,</span><span style="color:#111">C</span><span style="color:#111">,</span><span style="color:#111">D</span><span style="color:#111">,</span><span style="color:#111">p0</span><span style="color:#111">,</span><span style="color:#111">M0</span><span style="color:#f92672">=</span><span style="color:#111">sympy</span><span style="color:#f92672">.</span><span style="color:#111">symbols</span><span style="color:#111">(</span><span style="color:#d88200">&#39;b,h,theta,P,L,E,I,x,w,M,q,p,A,B,C,D,p0,M0&#39;</span><span style="color:#111">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">plot_x</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#111">,</span><span style="color:#111">subs1</span><span style="color:#f92672">=</span><span style="color:#00a8c8">None</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">subs1</span> <span style="color:#f92672">=</span> <span style="color:#111">subs1</span> <span style="color:#f92672">or</span> <span style="color:#111">{}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">w</span> <span style="color:#f92672">=</span> <span style="color:#111">w</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">(</span><span style="color:#111">subs1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">unit</span> <span style="color:#f92672">=</span> <span style="color:#111">dict</span><span style="color:#111">([(</span><span style="color:#111">item</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span> <span style="color:#00a8c8">for</span> <span style="color:#111">item</span> <span style="color:#f92672">in</span> <span style="color:#111">w</span><span style="color:#f92672">.</span><span style="color:#111">atoms</span><span style="color:#111">(</span><span style="color:#111">sympy</span><span style="color:#f92672">.</span><span style="color:#111">Symbol</span><span style="color:#111">)</span> <span style="color:#00a8c8">if</span> <span style="color:#111">item</span><span style="color:#f92672">!=</span><span style="color:#111">x</span><span style="color:#111">])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">unit</span><span style="color:#f92672">.</span><span style="color:#111">update</span><span style="color:#111">(</span><span style="color:#111">subs1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">w_num</span> <span style="color:#f92672">=</span> <span style="color:#111">w</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">(</span><span style="color:#111">unit</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">f_w</span> <span style="color:#f92672">=</span> <span style="color:#111">sympy</span><span style="color:#f92672">.</span><span style="color:#111">lambdify</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span><span style="color:#111">w_num</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">xn</span> <span style="color:#f92672">=</span> <span style="color:#111">numpy</span><span style="color:#f92672">.</span><span style="color:#111">r_</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">:</span><span style="color:#111">unit</span><span style="color:#111">[</span><span style="color:#111">L</span><span style="color:#111">]:</span><span style="color:#ae81ff">100</span><span style="color:#111">j</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">yn</span> <span style="color:#f92672">=</span> <span style="color:#111">f_w</span><span style="color:#111">(</span><span style="color:#111">xn</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">(</span><span style="color:#111">xn</span><span style="color:#111">,</span><span style="color:#111">yn</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">axis</span><span style="color:#111">(</span><span style="color:#d88200">&#39;equal&#39;</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>First we need to compute $M(x)$, the moment on the beam as a function of the loading.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">M_dd</span> <span style="color:#f92672">=</span> <span style="color:#111">p</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">M_d</span> <span style="color:#f92672">=</span> <span style="color:#111">sympy</span><span style="color:#f92672">.</span><span style="color:#111">integrate</span><span style="color:#111">(</span><span style="color:#111">M_dd</span><span style="color:#111">,(</span><span style="color:#111">x</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#111">x</span><span style="color:#111">))</span> <span style="color:#f92672">+</span> <span style="color:#111">A</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">M_d</span>
+</span></span></code></pre></div><p>$\displaystyle A + p x$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">M</span> <span style="color:#f92672">=</span> <span style="color:#111">sympy</span><span style="color:#f92672">.</span><span style="color:#111">integrate</span><span style="color:#111">(</span><span style="color:#111">M_d</span><span style="color:#111">,(</span><span style="color:#111">x</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#111">x</span><span style="color:#111">))</span> <span style="color:#f92672">+</span> <span style="color:#111">B</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">M</span>
+</span></span></code></pre></div><p>$\displaystyle A x + B + \frac{p x^{2}}{2}$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w_d</span> <span style="color:#f92672">=</span> <span style="color:#111">sympy</span><span style="color:#f92672">.</span><span style="color:#111">integrate</span><span style="color:#111">(</span><span style="color:#111">M</span><span style="color:#f92672">/</span><span style="color:#111">E</span><span style="color:#f92672">/</span><span style="color:#111">I</span><span style="color:#111">,(</span><span style="color:#111">x</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#111">x</span><span style="color:#111">))</span> <span style="color:#f92672">+</span> <span style="color:#111">C</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">w_d</span>
+</span></span></code></pre></div><p>$\displaystyle \frac{A x^{2}}{2 E I} + \frac{B x}{E I} + C + \frac{p x^{3}}{6 E I}$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w</span> <span style="color:#f92672">=</span> <span style="color:#111">sympy</span><span style="color:#f92672">.</span><span style="color:#111">integrate</span><span style="color:#111">(</span><span style="color:#111">w_d</span><span style="color:#111">,(</span><span style="color:#111">x</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#111">x</span><span style="color:#111">))</span> <span style="color:#f92672">+</span> <span style="color:#111">D</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">w</span>
+</span></span></code></pre></div><p>$\displaystyle \frac{A x^{3}}{6 E I} + \frac{B x^{2}}{2 E I} + C x + D + \frac{p x^{4}}{24 E I}$</p>
+<p>For a point load $P$ exerted on a beam at length ($x=l$), the moment can be expressed as:</p>
+<p>$$M(x) = P(l-x)$$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">eq1</span> <span style="color:#f92672">=</span> <span style="color:#111">M_d</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">({</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#111">L</span><span style="color:#111">})</span> <span style="color:#f92672">-</span> <span style="color:#111">P</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq2</span> <span style="color:#f92672">=</span> <span style="color:#111">M</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">({</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#111">L</span><span style="color:#111">})</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq3</span> <span style="color:#f92672">=</span> <span style="color:#111">w_d</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">({</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#ae81ff">0</span><span style="color:#111">})</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq4</span> <span style="color:#f92672">=</span> <span style="color:#111">w</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">({</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#ae81ff">0</span><span style="color:#111">})</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq5</span> <span style="color:#f92672">=</span> <span style="color:#111">M_dd</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">sol</span> <span style="color:#f92672">=</span><span style="color:#111">sympy</span><span style="color:#f92672">.</span><span style="color:#111">solve</span><span style="color:#111">([</span><span style="color:#111">eq1</span><span style="color:#111">,</span><span style="color:#111">eq2</span><span style="color:#111">,</span><span style="color:#111">eq3</span><span style="color:#111">,</span><span style="color:#111">eq4</span><span style="color:#111">,</span><span style="color:#111">eq5</span><span style="color:#111">],(</span><span style="color:#111">A</span><span style="color:#111">,</span><span style="color:#111">B</span><span style="color:#111">,</span><span style="color:#111">C</span><span style="color:#111">,</span><span style="color:#111">D</span><span style="color:#111">,</span><span style="color:#111">p</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">sol</span>
+</span></span></code></pre></div><pre><code>{A: P, B: -L*P, C: 0, D: 0, p: 0}
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w2</span> <span style="color:#f92672">=</span> <span style="color:#111">w</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">(</span><span style="color:#111">sol</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">w2</span><span style="color:#f92672">.</span><span style="color:#111">simplify</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p>$\displaystyle \frac{P x^{2} \left(- 3 L + x\right)}{6 E I}$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w_d2</span> <span style="color:#f92672">=</span> <span style="color:#111">w_d</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">(</span><span style="color:#111">sol</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">w_d2</span><span style="color:#f92672">.</span><span style="color:#111">simplify</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p>$\displaystyle \frac{P x \left(- 2 L + x\right)}{2 E I}$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">M2</span><span style="color:#f92672">=</span><span style="color:#111">M</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">(</span><span style="color:#111">sol</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">M2</span><span style="color:#f92672">.</span><span style="color:#111">simplify</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p>$\displaystyle P \left(- L + x\right)$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w_max</span> <span style="color:#f92672">=</span> <span style="color:#111">w2</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">({</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#111">L</span><span style="color:#111">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">w_max</span><span style="color:#f92672">.</span><span style="color:#111">simplify</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p>$\displaystyle - \frac{L^{3} P}{3 E I}$</p>
+<p>Now we can turn this process into a function</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">calc_beam_equations</span><span style="color:#111">(</span><span style="color:#111">pp</span><span style="color:#111">,</span><span style="color:#111">E</span><span style="color:#111">,</span><span style="color:#111">I</span><span style="color:#111">,</span><span style="color:#111">eq</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">M_dd</span> <span style="color:#f92672">=</span> <span style="color:#111">pp</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">M_d</span> <span style="color:#f92672">=</span> <span style="color:#111">sympy</span><span style="color:#f92672">.</span><span style="color:#111">integrate</span><span style="color:#111">(</span><span style="color:#111">M_dd</span><span style="color:#111">,(</span><span style="color:#111">x</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#111">x</span><span style="color:#111">))</span> <span style="color:#f92672">+</span> <span style="color:#111">A</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">M</span> <span style="color:#f92672">=</span> <span style="color:#111">sympy</span><span style="color:#f92672">.</span><span style="color:#111">integrate</span><span style="color:#111">(</span><span style="color:#111">M_d</span><span style="color:#111">,(</span><span style="color:#111">x</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#111">x</span><span style="color:#111">))</span> <span style="color:#f92672">+</span> <span style="color:#111">B</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">w_d</span> <span style="color:#f92672">=</span> <span style="color:#111">sympy</span><span style="color:#f92672">.</span><span style="color:#111">integrate</span><span style="color:#111">(</span><span style="color:#111">M</span><span style="color:#f92672">/</span><span style="color:#111">E</span><span style="color:#f92672">/</span><span style="color:#111">I</span><span style="color:#111">,(</span><span style="color:#111">x</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#111">x</span><span style="color:#111">))</span> <span style="color:#f92672">+</span> <span style="color:#111">C</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">w</span> <span style="color:#f92672">=</span> <span style="color:#111">sympy</span><span style="color:#f92672">.</span><span style="color:#111">integrate</span><span style="color:#111">(</span><span style="color:#111">w_d</span><span style="color:#111">,(</span><span style="color:#111">x</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#111">x</span><span style="color:#111">))</span> <span style="color:#f92672">+</span> <span style="color:#111">D</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">eq1</span> <span style="color:#f92672">=</span> <span style="color:#111">M_d</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">(</span><span style="color:#111">eq</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">][</span><span style="color:#ae81ff">0</span><span style="color:#111">])</span> <span style="color:#f92672">-</span> <span style="color:#111">eq</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">][</span><span style="color:#ae81ff">1</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">eq2</span> <span style="color:#f92672">=</span> <span style="color:#111">M</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">(</span><span style="color:#111">eq</span><span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">][</span><span style="color:#ae81ff">0</span><span style="color:#111">])</span> <span style="color:#f92672">-</span> <span style="color:#111">eq</span><span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">][</span><span style="color:#ae81ff">1</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">eq3</span> <span style="color:#f92672">=</span> <span style="color:#111">w_d</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">(</span><span style="color:#111">eq</span><span style="color:#111">[</span><span style="color:#ae81ff">2</span><span style="color:#111">][</span><span style="color:#ae81ff">0</span><span style="color:#111">])</span> <span style="color:#f92672">-</span> <span style="color:#111">eq</span><span style="color:#111">[</span><span style="color:#ae81ff">2</span><span style="color:#111">][</span><span style="color:#ae81ff">1</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">eq4</span> <span style="color:#f92672">=</span> <span style="color:#111">w</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">(</span><span style="color:#111">eq</span><span style="color:#111">[</span><span style="color:#ae81ff">3</span><span style="color:#111">][</span><span style="color:#ae81ff">0</span><span style="color:#111">])</span> <span style="color:#f92672">-</span> <span style="color:#111">eq</span><span style="color:#111">[</span><span style="color:#ae81ff">3</span><span style="color:#111">][</span><span style="color:#ae81ff">1</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">eq</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">eq1</span><span style="color:#111">,</span><span style="color:#111">eq2</span><span style="color:#111">,</span><span style="color:#111">eq3</span><span style="color:#111">,</span><span style="color:#111">eq4</span><span style="color:#111">]</span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#111">sol</span> <span style="color:#f92672">=</span><span style="color:#111">sympy</span><span style="color:#f92672">.</span><span style="color:#111">solve</span><span style="color:#111">(</span><span style="color:#111">eq</span><span style="color:#111">,(</span><span style="color:#111">A</span><span style="color:#111">,</span><span style="color:#111">B</span><span style="color:#111">,</span><span style="color:#111">C</span><span style="color:#111">,</span><span style="color:#111">D</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">w2</span> <span style="color:#f92672">=</span> <span style="color:#111">w</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">(</span><span style="color:#111">sol</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">w2</span> <span style="color:#f92672">=</span> <span style="color:#111">w2</span><span style="color:#f92672">.</span><span style="color:#111">simplify</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">w_d2</span> <span style="color:#f92672">=</span> <span style="color:#111">w_d</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">(</span><span style="color:#111">sol</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">w_d2</span> <span style="color:#f92672">=</span> <span style="color:#111">w_d2</span><span style="color:#f92672">.</span><span style="color:#111">simplify</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">M2</span><span style="color:#f92672">=</span><span style="color:#111">M</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">(</span><span style="color:#111">sol</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">M2</span> <span style="color:#f92672">=</span> <span style="color:#111">M2</span><span style="color:#f92672">.</span><span style="color:#111">simplify</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">w2</span><span style="color:#111">,</span><span style="color:#111">w_d2</span><span style="color:#111">,</span><span style="color:#111">M2</span>
+</span></span></code></pre></div><p>Repeating the point load</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">eq1</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#111">L</span><span style="color:#111">},</span><span style="color:#111">P</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq2</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#111">L</span><span style="color:#111">},</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq3</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#ae81ff">0</span><span style="color:#111">},</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq4</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#ae81ff">0</span><span style="color:#111">},</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">eq1</span><span style="color:#111">,</span><span style="color:#111">eq2</span><span style="color:#111">,</span><span style="color:#111">eq3</span><span style="color:#111">,</span><span style="color:#111">eq4</span><span style="color:#111">]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w</span><span style="color:#111">,</span><span style="color:#111">w_d</span><span style="color:#111">,</span><span style="color:#111">M</span> <span style="color:#f92672">=</span> <span style="color:#111">calc_beam_equations</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#111">E</span><span style="color:#111">,</span><span style="color:#111">I</span><span style="color:#111">,</span><span style="color:#111">eq</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plot_x</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_20_0.png"><img src="output_20_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>For a distibuted load $p(x)$,</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">eq1</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#111">L</span><span style="color:#111">},</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq2</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#111">L</span><span style="color:#111">},</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq3</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#ae81ff">0</span><span style="color:#111">},</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq4</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#ae81ff">0</span><span style="color:#111">},</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">eq1</span><span style="color:#111">,</span><span style="color:#111">eq2</span><span style="color:#111">,</span><span style="color:#111">eq3</span><span style="color:#111">,</span><span style="color:#111">eq4</span><span style="color:#111">]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w</span><span style="color:#111">,</span><span style="color:#111">w_d</span><span style="color:#111">,</span><span style="color:#111">M</span> <span style="color:#f92672">=</span> <span style="color:#111">calc_beam_equations</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#111">p</span><span style="color:#111">,</span><span style="color:#111">E</span><span style="color:#111">,</span><span style="color:#111">I</span><span style="color:#111">,</span><span style="color:#111">eq</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plot_x</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_23_0.png"><img src="output_23_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w</span>
+</span></span></code></pre></div><p>$\displaystyle \frac{p x^{2} \left(- 6 L^{2} + 4 L x - x^{2}\right)}{24 E I}$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w_d</span>
+</span></span></code></pre></div><p>$\displaystyle \frac{p x \left(- 3 L^{2} + 3 L x - x^{2}\right)}{6 E I}$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">M</span>
+</span></span></code></pre></div><p>$\displaystyle \frac{p \left(- L^{2} + 2 L x - x^{2}\right)}{2}$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w_max</span> <span style="color:#f92672">=</span> <span style="color:#111">w</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">({</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#111">L</span><span style="color:#111">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">w_max</span><span style="color:#f92672">.</span><span style="color:#111">simplify</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p>$\displaystyle - \frac{L^{4} p}{8 E I}$</p>
+<p>For a distributed load where $p = p_0\frac{L-x}{L}$, the boundary conditions stay the same but the function is different</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w</span><span style="color:#111">,</span><span style="color:#111">w_d</span><span style="color:#111">,</span><span style="color:#111">M</span> <span style="color:#f92672">=</span> <span style="color:#111">calc_beam_equations</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#111">(</span><span style="color:#111">p0</span><span style="color:#f92672">/</span><span style="color:#111">L</span><span style="color:#f92672">*</span><span style="color:#111">(</span><span style="color:#111">L</span><span style="color:#f92672">-</span><span style="color:#111">x</span><span style="color:#111">)),</span><span style="color:#111">E</span><span style="color:#111">,</span><span style="color:#111">I</span><span style="color:#111">,</span><span style="color:#111">eq</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plot_x</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_29_0.png"><img src="output_29_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w</span>
+</span></span></code></pre></div><p>$\displaystyle \frac{p_{0} x^{2} \left(5 L \left(- 2 L^{2} + 2 L x - x^{2}\right) + x^{3}\right)}{120 E I L}$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w_d</span>
+</span></span></code></pre></div><p>$\displaystyle \frac{p_{0} x \left(2 L \left(- 2 L^{2} + 3 L x - 2 x^{2}\right) + x^{3}\right)}{24 E I L}$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">M</span>
+</span></span></code></pre></div><p>$\displaystyle \frac{p_{0} \left(L \left(- L^{2} + 3 L x - 3 x^{2}\right) + x^{3}\right)}{6 L}$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w_max</span> <span style="color:#f92672">=</span> <span style="color:#111">w</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">({</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#111">L</span><span style="color:#111">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">w_max</span><span style="color:#f92672">.</span><span style="color:#111">simplify</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p>$\displaystyle - \frac{L^{4} p_{0}}{30 E I}$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">eq1</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#111">L</span><span style="color:#111">},</span><span style="color:#111">P</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq2</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#111">L</span><span style="color:#111">},</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq3</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#ae81ff">0</span><span style="color:#111">},</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq4</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#ae81ff">0</span><span style="color:#111">},</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">eq1</span><span style="color:#111">,</span><span style="color:#111">eq2</span><span style="color:#111">,</span><span style="color:#111">eq3</span><span style="color:#111">,</span><span style="color:#111">eq4</span><span style="color:#111">]</span>
+</span></span></code></pre></div><p>Now what about a cross sectional area that changes as a function of x?  As we know, the cross sectional moment of inertia $I$ for a rectangular beam of width $b$ and thickness $h$ is $$I=\frac{bh^3}{12}$$.  If we make b a function of x, for example $b(x)=L-x$, what happens to the curvature?</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">b2</span><span style="color:#f92672">=</span><span style="color:#111">(</span><span style="color:#111">L</span><span style="color:#f92672">-</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">I2</span> <span style="color:#f92672">=</span> <span style="color:#111">b2</span><span style="color:#f92672">*</span><span style="color:#111">h</span><span style="color:#f92672">**</span><span style="color:#ae81ff">3</span><span style="color:#f92672">/</span><span style="color:#ae81ff">12</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w</span><span style="color:#111">,</span><span style="color:#111">w_d</span><span style="color:#111">,</span><span style="color:#111">M</span> <span style="color:#f92672">=</span> <span style="color:#111">calc_beam_equations</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#111">E</span><span style="color:#111">,</span><span style="color:#111">I2</span><span style="color:#111">,</span><span style="color:#111">eq</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plot_x</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#111">,{</span><span style="color:#111">P</span><span style="color:#111">:</span><span style="color:#ae81ff">.1</span><span style="color:#111">,</span><span style="color:#111">L</span><span style="color:#111">:</span><span style="color:#ae81ff">1</span><span style="color:#111">})</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_37_0.png"><img src="output_37_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w</span>
+</span></span></code></pre></div><p>$\displaystyle - \frac{6 P x^{2}}{E h^{3}}$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w_d</span>
+</span></span></code></pre></div><p>$\displaystyle - \frac{12 P x}{E h^{3}}$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">M</span>
+</span></span></code></pre></div><p>$\displaystyle P \left(- L + x\right)$</p>
+<p>As you can see it grows linearly as a function of x.  Therefore, a cross section that decreases linearly is good at equalizing the radius of curvature (and the stresses) in a beam</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">eq1</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#111">L</span><span style="color:#111">},</span><span style="color:#111">P</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq2</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#111">L</span><span style="color:#111">},</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq3</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#ae81ff">0</span><span style="color:#111">},</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq4</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#ae81ff">0</span><span style="color:#111">},</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">eq</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">eq1</span><span style="color:#111">,</span><span style="color:#111">eq2</span><span style="color:#111">,</span><span style="color:#111">eq3</span><span style="color:#111">,</span><span style="color:#111">eq4</span><span style="color:#111">]</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">I2</span> <span style="color:#f92672">=</span> <span style="color:#111">b</span><span style="color:#f92672">*</span><span style="color:#111">h</span><span style="color:#f92672">**</span><span style="color:#ae81ff">3</span><span style="color:#f92672">/</span><span style="color:#ae81ff">12</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w</span><span style="color:#111">,</span><span style="color:#111">w_d</span><span style="color:#111">,</span><span style="color:#111">M</span> <span style="color:#f92672">=</span> <span style="color:#111">calc_beam_equations</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#111">E</span><span style="color:#111">,</span><span style="color:#111">I2</span><span style="color:#111">,</span><span style="color:#111">eq</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">subs1</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">b</span><span style="color:#111">:</span><span style="color:#ae81ff">.01</span><span style="color:#111">,</span><span style="color:#111">h</span><span style="color:#111">:</span><span style="color:#ae81ff">.01</span><span style="color:#111">,</span><span style="color:#111">E</span><span style="color:#111">:</span><span style="color:#ae81ff">1e7</span><span style="color:#111">,</span><span style="color:#111">L</span><span style="color:#111">:</span><span style="color:#ae81ff">.1</span><span style="color:#111">,</span><span style="color:#111">P</span><span style="color:#111">:</span><span style="color:#ae81ff">.1</span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">w</span> <span style="color:#f92672">=</span> <span style="color:#111">w</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">(</span><span style="color:#111">subs1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">w</span>
+</span></span></code></pre></div><p>$\displaystyle 2.0 x^{2} \left(x - 0.3\right)$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">w_max</span> <span style="color:#f92672">=</span> <span style="color:#111">w</span><span style="color:#f92672">.</span><span style="color:#111">subs</span><span style="color:#111">({</span><span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#ae81ff">.1</span><span style="color:#111">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">w_max</span>
+</span></span></code></pre></div><p>$\displaystyle -0.004$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">plot_x</span><span style="color:#111">(</span><span style="color:#111">w</span><span style="color:#111">,</span><span style="color:#111">subs1</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p><div class="text-center">
+  <a href="output_46_0.png"><img src="output_46_0.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div>
+  </article>
+</main>
+
+
+    
+    <footer class="blog-footer">
+      <p>Copyright &copy; 2022 Daniel M. Aukes.  All rights reserved.</p>
+      <p><a href="#">Back to top</a></p>
+    </footer>
+    
+
+<script src="/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://foldable-robotics.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/fuse.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/jquery.mark.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/search.js"></script>
+
+  </body>
+</html>

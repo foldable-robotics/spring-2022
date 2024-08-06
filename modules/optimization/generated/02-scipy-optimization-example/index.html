@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>
+Scipy Optimization Example | Foldable Robotics
+</title>
+
+    <link href="/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+
+
+<link href="/css/blog.css" rel="stylesheet">
+<link href="/css/features.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/hugo-cite.css" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/manifest.json">
+
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <header class="blog-header py-3">
+  <div class="row flex-nowrap justify-content-between align-items-center">
+    <div class="col-2 pt-1">
+    </div>
+    <div class="col-8 text-center">
+      <a class="blog-header-logo text-dark" href="/">Foldable Robotics</a>
+    </div>
+    <div class="col-2 d-flex justify-content-end align-items-center">
+    </div>
+  </div>
+</header>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Course Topics
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/introduction/">Introduction</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/python/">Python</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/biomechanics/">Biomechanics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/project/">Project</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/kinematics/">Kinematics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/dynamics/">Dynamics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/optimization/">Optimization</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/compliance/">Mechanics and Compliance</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/manufacturing/">Prototyping &amp; Manufacturing</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/validation/">Experimental Validation</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/integration/">Integration</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/misc/">Misc</a>
+            
+          </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://foldable-robotics.github.io/assignments/">Assignments</a>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Documents
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/all-documents/">All Documents</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/syllabus/">Syllabus</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/submission-best-practices/">Submission Best Practices</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/software-list/">Software List</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/course-calendar/">Course Calendar</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/suggested-materials-list/">Suggested Materials List</a>
+            
+          </div>
+        </li>
+        
+        
+        
+      </ul>
+      <span class="navbar-text">
+        
+      </span>
+
+        <form action="https://foldable-robotics.github.io//search" class="d-flex">
+        <input class="form-control me-2"  id="search-query"  name="s" type="s" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary"  type="submit">Search</button>
+      </form>
+      
+    </div>
+  </div>
+</nav>
+
+
+    </div>
+
+    
+<main class="container">
+  <h1>Scipy Optimization Example</h1>
+  
+  
+
+
+
+
+
+<div class="text-center">
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+
+
+
+<li class="breadcrumb-item"><a href="/modules">modules</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/optimization">optimization</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/optimization/generated">generated</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/optimization/generated/02-scipy-optimization-example">02-scipy-optimization-example</a></li>
+
+
+
+
+<li class="breadcrumb-item active"  aria-current="page">index</li>
+
+  </ol>
+</nav>
+</div>
+
+  
+  <article>
+  <p>This short example shows you how to use the scipy minimize function to identify model parameters.  This example is set up similarly to the linear least squares example for consistency.  Being able to define pretty much anything in a python function, however, gives you great power to customize this, as opposed to a specific approach like linear least squares.</p>
+<p>First, we import all the necessary modules</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">%</span><span style="color:#111">matplotlib</span> <span style="color:#111">inline</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">numpy</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">numpy.random</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">matplotlib.pyplot</span> <span style="color:#00a8c8">as</span> <span style="color:#111">plt</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">numpy.linalg</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">scipy.optimize</span>
+</span></span></code></pre></div><p>Next create the x matrix</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">numpy</span><span style="color:#f92672">.</span><span style="color:#111">r_</span><span style="color:#111">[</span><span style="color:#f92672">-</span><span style="color:#ae81ff">10</span><span style="color:#111">:</span><span style="color:#ae81ff">10</span><span style="color:#111">:</span><span style="color:#ae81ff">.5</span><span style="color:#111">]</span>
+</span></span></code></pre></div><p>Next, define a y vector based on some model.  Note: you can use any of these models or add them together.  We scale the output in this example to eliminate the natural weighting of each of these functions over the given range.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#y = x</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">y</span> <span style="color:#f92672">=</span> <span style="color:#111">x</span><span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#y = x**3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#y = numpy.sin(x)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">y</span> <span style="color:#f92672">/=</span> <span style="color:#111">y</span><span style="color:#f92672">.</span><span style="color:#111">max</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p>Add some noise to y:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">rand</span> <span style="color:#f92672">=</span> <span style="color:#111">numpy</span><span style="color:#f92672">.</span><span style="color:#111">random</span><span style="color:#f92672">.</span><span style="color:#111">randn</span><span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">y</span><span style="color:#f92672">.</span><span style="color:#111">shape</span><span style="color:#111">)</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">y_rand</span> <span style="color:#f92672">=</span> <span style="color:#111">y</span> <span style="color:#f92672">+</span> <span style="color:#111">rand</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span><span style="color:#111">y</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span><span style="color:#111">y_rand</span><span style="color:#111">,</span><span style="color:#d88200">&#39;o&#39;</span><span style="color:#111">)</span>
+</span></span></code></pre></div><pre><code>[&lt;matplotlib.lines.Line2D at 0x7f860d882a30&gt;]
+</code></pre>
+<p><div class="text-center">
+  <a href="output_8_1.png"><img src="output_8_1.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Create an A matrix consisting of several different models</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">A</span> <span style="color:#f92672">=</span> <span style="color:#111">numpy</span><span style="color:#f92672">.</span><span style="color:#111">array</span><span style="color:#111">([(</span><span style="color:#111">x</span><span style="color:#111">),(</span><span style="color:#111">x</span><span style="color:#111">)</span><span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#111">,(</span><span style="color:#111">x</span><span style="color:#111">)</span><span style="color:#f92672">**</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#111">numpy</span><span style="color:#f92672">.</span><span style="color:#111">sin</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">)])</span><span style="color:#f92672">.</span><span style="color:#111">T</span>
+</span></span></code></pre></div><p>Now create a function that outputs the sum of squared error of each model applied to the given x.  In this case we are solving for the weighting coefficients, $k$, as in the linear least squares example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">myfunc</span><span style="color:#111">(</span><span style="color:#111">k</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># make sure our coefficients are in the form of a numpy array</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">k</span> <span style="color:#f92672">=</span> <span style="color:#111">numpy</span><span style="color:#f92672">.</span><span style="color:#111">array</span><span style="color:#111">(</span><span style="color:#111">k</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># generate y* = Ak^T</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">y_model</span> <span style="color:#f92672">=</span> <span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">dot</span><span style="color:#111">(</span><span style="color:#111">k</span><span style="color:#f92672">.</span><span style="color:#111">T</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># sum the square of the error of our model against the input data, y_rand</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">error</span> <span style="color:#f92672">=</span> <span style="color:#111">((</span><span style="color:#111">y_model</span><span style="color:#f92672">-</span><span style="color:#111">y_rand</span><span style="color:#111">)</span><span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#111">)</span><span style="color:#f92672">.</span><span style="color:#111">sum</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#return the error</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">error</span>
+</span></span></code></pre></div><p>Create an initial guess for each of the weights.  In this case we just give each coefficient the value of 1 as an initial guess</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">ini</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">]</span><span style="color:#f92672">*</span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">shape</span><span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">ini</span>
+</span></span></code></pre></div><pre><code>[1, 1, 1, 1]
+</code></pre>
+<p>Now, call the minimize function.  The first value should be the function you are trying to minimize, and the
+For more information see the optimization function <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html">page</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">sol</span> <span style="color:#f92672">=</span> <span style="color:#111">scipy</span><span style="color:#f92672">.</span><span style="color:#111">optimize</span><span style="color:#f92672">.</span><span style="color:#111">minimize</span><span style="color:#111">(</span><span style="color:#111">myfunc</span><span style="color:#111">,</span><span style="color:#111">ini</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">sol</span>
+</span></span></code></pre></div><pre><code>      fun: 0.29336548348717617
+ hess_inv: array([[ 2.35078351e-03, -1.23710160e-05, -3.31813423e-05,
+         4.86251949e-04],
+       [-1.23710160e-05,  6.46844761e-06,  3.00084328e-07,
+        -3.66529338e-05],
+       [-3.31813423e-05,  3.00084328e-07,  5.62458836e-07,
+        -1.91576150e-05],
+       [ 4.86251949e-04, -3.66529338e-05, -1.91576150e-05,
+         2.78470176e-02]])
+      jac: array([3.7252903e-09, 3.7252903e-09, 3.7252903e-09, 0.0000000e+00])
+  message: 'Optimization terminated successfully.'
+     nfev: 65
+      nit: 9
+     njev: 13
+   status: 0
+  success: True
+        x: array([-1.13654781e-03,  1.09398078e-02, -2.22292008e-05,  1.93916411e-02])
+</code></pre>
+<p><code>sol.x</code> contains the solution for $k$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">k_optimum</span> <span style="color:#f92672">=</span> <span style="color:#111">sol</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">k_optimum</span>
+</span></span></code></pre></div><pre><code>array([-1.13654781e-03,  1.09398078e-02, -2.22292008e-05,  1.93916411e-02])
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">xx</span> <span style="color:#f92672">=</span> <span style="color:#111">numpy</span><span style="color:#f92672">.</span><span style="color:#111">r_</span><span style="color:#111">[:</span><span style="color:#ae81ff">4</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">labels</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;$x$&#39;</span><span style="color:#111">,</span><span style="color:#d88200">&#39;$x^2$&#39;</span><span style="color:#111">,</span><span style="color:#d88200">&#39;$x^3$&#39;</span><span style="color:#111">,</span><span style="color:#d88200">&#39;$\sin(x)$&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">f</span> <span style="color:#f92672">=</span> <span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">figure</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">ax</span> <span style="color:#f92672">=</span> <span style="color:#111">f</span><span style="color:#f92672">.</span><span style="color:#111">add_subplot</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">ax</span><span style="color:#f92672">.</span><span style="color:#111">bar</span><span style="color:#111">(</span><span style="color:#111">xx</span><span style="color:#111">,</span><span style="color:#111">k_optimum</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">ax</span><span style="color:#f92672">.</span><span style="color:#111">set_xticks</span><span style="color:#111">(</span><span style="color:#111">xx</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">ax</span><span style="color:#f92672">.</span><span style="color:#111">set_xticklabels</span><span style="color:#111">(</span><span style="color:#111">labels</span><span style="color:#111">)</span>
+</span></span></code></pre></div><pre><code>[Text(0, 0, '$x$'),
+ Text(1, 0, '$x^2$'),
+ Text(2, 0, '$x^3$'),
+ Text(3, 0, '$\\sin(x)$')]
+</code></pre>
+<p><div class="text-center">
+  <a href="output_19_1.png"><img src="output_19_1.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Now generate $y^*$</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">y_model</span> <span style="color:#f92672">=</span> <span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">dot</span><span style="color:#111">(</span><span style="color:#111">k_optimum</span><span style="color:#f92672">.</span><span style="color:#111">T</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>Plot the model against the input data</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">fig</span> <span style="color:#f92672">=</span> <span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">figure</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">ax</span> <span style="color:#f92672">=</span> <span style="color:#111">fig</span><span style="color:#f92672">.</span><span style="color:#111">add_subplot</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">a</span> <span style="color:#f92672">=</span> <span style="color:#111">ax</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span><span style="color:#111">y_rand</span><span style="color:#111">,</span><span style="color:#d88200">&#39;.&#39;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">b</span> <span style="color:#f92672">=</span> <span style="color:#111">ax</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span><span style="color:#111">y_model</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">ax</span><span style="color:#f92672">.</span><span style="color:#111">legend</span><span style="color:#111">(</span><span style="color:#111">a</span><span style="color:#f92672">+</span><span style="color:#111">b</span><span style="color:#111">,[</span><span style="color:#d88200">&#39;data&#39;</span><span style="color:#111">,</span><span style="color:#d88200">&#39;model&#39;</span><span style="color:#111">])</span>
+</span></span></code></pre></div><pre><code>&lt;matplotlib.legend.Legend at 0x7f860ce494f0&gt;
+</code></pre>
+<p><div class="text-center">
+  <a href="output_23_1.png"><img src="output_23_1.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>And plot the residual as well</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">figure</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span><span style="color:#111">y_model</span><span style="color:#f92672">-</span><span style="color:#111">y_rand</span><span style="color:#111">)</span>
+</span></span></code></pre></div><pre><code>[&lt;matplotlib.lines.Line2D at 0x7f860cdb2d00&gt;]
+</code></pre>
+<p><div class="text-center">
+  <a href="output_25_1.png"><img src="output_25_1.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<p>Now try other models, higher resolution data, and different domains</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div>
+  </article>
+</main>
+
+
+    
+    <footer class="blog-footer">
+      <p>Copyright &copy; 2022 Daniel M. Aukes.  All rights reserved.</p>
+      <p><a href="#">Back to top</a></p>
+    </footer>
+    
+
+<script src="/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://foldable-robotics.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/fuse.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/jquery.mark.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/search.js"></script>
+
+  </body>
+</html>

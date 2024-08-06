@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Biomechanics &amp; Bio-inspiration on Foldable Robotics</title>
+    <link>https://foldable-robotics.github.io/modules/biomechanics/</link>
+    <description>Recent content in Biomechanics &amp; Bio-inspiration on Foldable Robotics</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="https://foldable-robotics.github.io/modules/biomechanics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Developing Specifications</title>
+      <link>https://foldable-robotics.github.io/modules/biomechanics/developing-specifications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/biomechanics/developing-specifications/</guid>
+      <description>Introduction Developing specifications for a novel robot is difficult, especially considering how wide-open the potential design space is.</description>
+    </item>
+  </channel>
+</rss>

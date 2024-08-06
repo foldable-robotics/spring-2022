@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Integration on Foldable Robotics</title>
+    <link>https://foldable-robotics.github.io/modules/integration/</link>
+    <description>Recent content in Integration on Foldable Robotics</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="https://foldable-robotics.github.io/modules/integration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arduino IDE and Pro Trinket Setup</title>
+      <link>https://foldable-robotics.github.io/modules/integration/arduino/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/integration/arduino/</guid>
+      <description>Refer to the website for all the documentation and files</description>
+    </item>
+    <item>
+      <title>Running Dynamixel X-Series Using Arduino IDE for OpenCM9.04</title>
+      <link>https://foldable-robotics.github.io/modules/integration/dynamixel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/integration/dynamixel/</guid>
+      <description>Install Arduino IDE and OpenCM9.04 Software Install OpenCM9.04 USB CDC driver - Driver Download</description>
+    </item>
+  </channel>
+</rss>

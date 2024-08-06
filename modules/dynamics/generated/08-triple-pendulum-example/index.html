@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>
+Triple Pendulum Example | Foldable Robotics
+</title>
+
+    <link href="/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+
+
+<link href="/css/blog.css" rel="stylesheet">
+<link href="/css/features.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/hugo-cite.css" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/manifest.json">
+
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <header class="blog-header py-3">
+  <div class="row flex-nowrap justify-content-between align-items-center">
+    <div class="col-2 pt-1">
+    </div>
+    <div class="col-8 text-center">
+      <a class="blog-header-logo text-dark" href="/">Foldable Robotics</a>
+    </div>
+    <div class="col-2 d-flex justify-content-end align-items-center">
+    </div>
+  </div>
+</header>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Course Topics
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/introduction/">Introduction</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/python/">Python</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/biomechanics/">Biomechanics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/project/">Project</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/kinematics/">Kinematics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/dynamics/">Dynamics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/optimization/">Optimization</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/compliance/">Mechanics and Compliance</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/manufacturing/">Prototyping &amp; Manufacturing</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/validation/">Experimental Validation</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/integration/">Integration</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/misc/">Misc</a>
+            
+          </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://foldable-robotics.github.io/assignments/">Assignments</a>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Documents
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/all-documents/">All Documents</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/syllabus/">Syllabus</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/submission-best-practices/">Submission Best Practices</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/software-list/">Software List</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/course-calendar/">Course Calendar</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/suggested-materials-list/">Suggested Materials List</a>
+            
+          </div>
+        </li>
+        
+        
+        
+      </ul>
+      <span class="navbar-text">
+        
+      </span>
+
+        <form action="https://foldable-robotics.github.io//search" class="d-flex">
+        <input class="form-control me-2"  id="search-query"  name="s" type="s" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary"  type="submit">Search</button>
+      </form>
+      
+    </div>
+  </div>
+</nav>
+
+
+    </div>
+
+    
+<main class="container">
+  <h1>Triple Pendulum Example</h1>
+  
+  
+
+
+
+
+
+<div class="text-center">
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+
+
+
+<li class="breadcrumb-item"><a href="/modules">modules</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/dynamics">dynamics</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/dynamics/generated">generated</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/dynamics/generated/08-triple-pendulum-example">08-triple-pendulum-example</a></li>
+
+
+
+
+<li class="breadcrumb-item active"  aria-current="page">index</li>
+
+  </ol>
+</nav>
+</div>
+
+  
+  <article>
+  <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">%</span><span style="color:#111">matplotlib</span> <span style="color:#111">inline</span>
+</span></span></code></pre></div><p>Try running with this variable set to true and to false and see the difference in the resulting equations of motion</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">use_constraints</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">False</span>
+</span></span></code></pre></div><p>Import all the necessary modules</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+</span></span><span style="display:flex;"><span><span style="color:#d88200">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">Written by Daniel M. Aukes
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">Email: danaukes&lt;at&gt;gmail.com
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">Please see LICENSE for full license.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">pynamics</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.frame</span> <span style="color:#f92672">import</span> <span style="color:#111">Frame</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.variable_types</span> <span style="color:#f92672">import</span> <span style="color:#111">Differentiable</span><span style="color:#111">,</span><span style="color:#111">Constant</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.system</span> <span style="color:#f92672">import</span> <span style="color:#111">System</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.body</span> <span style="color:#f92672">import</span> <span style="color:#111">Body</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.dyadic</span> <span style="color:#f92672">import</span> <span style="color:#111">Dyadic</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.output</span> <span style="color:#f92672">import</span> <span style="color:#111">Output</span><span style="color:#111">,</span><span style="color:#111">PointsOutput</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.particle</span> <span style="color:#f92672">import</span> <span style="color:#111">Particle</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">pynamics.constraint</span> <span style="color:#f92672">import</span> <span style="color:#111">AccelerationConstraint</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">pynamics.integration</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">numpy</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">sympy</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">matplotlib.pyplot</span> <span style="color:#00a8c8">as</span> <span style="color:#111">plt</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">ion</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">math</span> <span style="color:#f92672">import</span> <span style="color:#111">pi</span>
+</span></span></code></pre></div><p>The next two lines create a new system object and set that system as the global system within the module so that other variables can use and find it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">system</span> <span style="color:#f92672">=</span> <span style="color:#111">System</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pynamics</span><span style="color:#f92672">.</span><span style="color:#111">set_system</span><span style="color:#111">(</span><span style="color:#111">__name__</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span></code></pre></div><h2 id="parameterization">Parameterization</h2>
+<h3 id="constants">Constants</h3>
+<p>Declare constants and seed them with their default value.  This can be changed at integration time but is often a nice shortcut when you don&rsquo;t want the value to change but you want it to be represented symbolically in calculations</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">lA</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;lA&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">lB</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;lB&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">lC</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;lC&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">mA</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;mA&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">mB</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;mB&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">mC</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;mC&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">g</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">9.81</span><span style="color:#111">,</span><span style="color:#d88200">&#39;g&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">b</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1e1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;b&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">k</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1e1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;k&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">preload1</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#111">pi</span><span style="color:#f92672">/</span><span style="color:#ae81ff">180</span><span style="color:#111">,</span><span style="color:#d88200">&#39;preload1&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">preload2</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#111">pi</span><span style="color:#f92672">/</span><span style="color:#ae81ff">180</span><span style="color:#111">,</span><span style="color:#d88200">&#39;preload2&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">preload3</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#111">pi</span><span style="color:#f92672">/</span><span style="color:#ae81ff">180</span><span style="color:#111">,</span><span style="color:#d88200">&#39;preload3&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Ixx_A</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Ixx_A&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Iyy_A</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Iyy_A&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Izz_A</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Izz_A&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Ixx_B</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Ixx_B&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Iyy_B</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Iyy_B&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Izz_B</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Izz_B&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Ixx_C</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Ixx_C&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Iyy_C</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Iyy_C&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Izz_C</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#d88200">&#39;Izz_C&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">torque</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#d88200">&#39;torque&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">freq</span> <span style="color:#f92672">=</span> <span style="color:#111">Constant</span><span style="color:#111">(</span><span style="color:#ae81ff">3e0</span><span style="color:#111">,</span><span style="color:#d88200">&#39;freq&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span></code></pre></div><h3 id="differentiable-state-variables">Differentiable State Variables</h3>
+<p>Define your differentiable state variables that you will use to model the state of the system.  In this case $qA$, $qB$, and $qC$ are the rotation angles of a three-link mechanism</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">qA</span><span style="color:#111">,</span><span style="color:#111">qA_d</span><span style="color:#111">,</span><span style="color:#111">qA_dd</span> <span style="color:#f92672">=</span> <span style="color:#111">Differentiable</span><span style="color:#111">(</span><span style="color:#d88200">&#39;qA&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">qB</span><span style="color:#111">,</span><span style="color:#111">qB_d</span><span style="color:#111">,</span><span style="color:#111">qB_dd</span> <span style="color:#f92672">=</span> <span style="color:#111">Differentiable</span><span style="color:#111">(</span><span style="color:#d88200">&#39;qB&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">qC</span><span style="color:#111">,</span><span style="color:#111">qC_d</span><span style="color:#111">,</span><span style="color:#111">qC_dd</span> <span style="color:#f92672">=</span> <span style="color:#111">Differentiable</span><span style="color:#111">(</span><span style="color:#d88200">&#39;qC&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span></code></pre></div><h3 id="initial-values">Initial Values</h3>
+<p>Define a set of initial values for the position and velocity of each of your state variables.  It is necessary to define a known.  This code create a dictionary of initial values.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">initialvalues</span> <span style="color:#f92672">=</span> <span style="color:#111">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">qA</span><span style="color:#111">]</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#111">pi</span><span style="color:#f92672">/</span><span style="color:#ae81ff">180</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">qA_d</span><span style="color:#111">]</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#111">pi</span><span style="color:#f92672">/</span><span style="color:#ae81ff">180</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">qB</span><span style="color:#111">]</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#111">pi</span><span style="color:#f92672">/</span><span style="color:#ae81ff">180</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">qB_d</span><span style="color:#111">]</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#111">pi</span><span style="color:#f92672">/</span><span style="color:#ae81ff">180</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">qC</span><span style="color:#111">]</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#111">pi</span><span style="color:#f92672">/</span><span style="color:#ae81ff">180</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">qC_d</span><span style="color:#111">]</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#111">pi</span><span style="color:#f92672">/</span><span style="color:#ae81ff">180</span>
+</span></span></code></pre></div><p>These two lines of code order the initial values in a list in such a way that the integrator can use it in the same order that it expects the variables to be supplied</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">statevariables</span> <span style="color:#f92672">=</span> <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">get_state_variables</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">ini</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">initialvalues</span><span style="color:#111">[</span><span style="color:#111">item</span><span style="color:#111">]</span> <span style="color:#00a8c8">for</span> <span style="color:#111">item</span> <span style="color:#f92672">in</span> <span style="color:#111">statevariables</span><span style="color:#111">]</span>
+</span></span></code></pre></div><h2 id="kinematics">Kinematics</h2>
+<h3 id="frames">Frames</h3>
+<p>Define the reference frames of the system</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">N</span> <span style="color:#f92672">=</span> <span style="color:#111">Frame</span><span style="color:#111">(</span><span style="color:#d88200">&#39;N&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">A</span> <span style="color:#f92672">=</span> <span style="color:#111">Frame</span><span style="color:#111">(</span><span style="color:#d88200">&#39;A&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">B</span> <span style="color:#f92672">=</span> <span style="color:#111">Frame</span><span style="color:#111">(</span><span style="color:#d88200">&#39;B&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">C</span> <span style="color:#f92672">=</span> <span style="color:#111">Frame</span><span style="color:#111">(</span><span style="color:#d88200">&#39;C&#39;</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span></code></pre></div><h3 id="newtonian-frame">Newtonian Frame</h3>
+<p>It is important to define the Newtonian reference frame as a reference frame that is not accelerating, otherwise the dynamic equations will not be correct</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">set_newtonian</span><span style="color:#111">(</span><span style="color:#111">N</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>Rotate each successive frame by amount q<new> from the last.  This approach can produce more complex equations but is representationally simple (Minimal Representation)</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">rotate_fixed_axis</span><span style="color:#111">(</span><span style="color:#111">N</span><span style="color:#111">,[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span><span style="color:#111">qA</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">rotate_fixed_axis</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">,[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span><span style="color:#111">qB</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">C</span><span style="color:#f92672">.</span><span style="color:#111">rotate_fixed_axis</span><span style="color:#111">(</span><span style="color:#111">B</span><span style="color:#111">,[</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span><span style="color:#111">qC</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span></code></pre></div><h3 id="vectors">Vectors</h3>
+<p>Define the vectors that describe the kinematics of a series of connected lengths</p>
+<ul>
+<li>pNA - This is a vector with position at the origin.</li>
+<li>pAB - This vector is length $l_A$ away from the origin along the A.x unit vector</li>
+<li>pBC - This vector is length $l_B$ away from the pAB along the B.x unit vector</li>
+<li>pCtip - This vector is length $l_C$ away from the pBC along the C.x unit vector</li>
+</ul>
+<p>Define my rigid body kinematics</p>
+<p><div class="text-center">
+  <a href="/figures/kinematics/fourbar2.png"><img src="/figures/kinematics/fourbar2.png" alt=""  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div>
+<div class="text-center">
+  <a href="../../../../static/figures/kinematics/fourbar2.png"><img src="../../../../static/figures/kinematics/fourbar2.png" alt=""  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">pNA</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span><span style="color:#f92672">*</span><span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pAB</span><span style="color:#f92672">=</span><span style="color:#111">pNA</span><span style="color:#f92672">+</span><span style="color:#111">lA</span><span style="color:#f92672">*</span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pBC</span> <span style="color:#f92672">=</span> <span style="color:#111">pAB</span> <span style="color:#f92672">+</span> <span style="color:#111">lB</span><span style="color:#f92672">*</span><span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pCtip</span> <span style="color:#f92672">=</span> <span style="color:#111">pBC</span> <span style="color:#f92672">+</span> <span style="color:#111">lC</span><span style="color:#f92672">*</span><span style="color:#111">C</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span></code></pre></div><h2 id="centers-of-mass">Centers of Mass</h2>
+<p>It is important to define the centers of mass of each link.  In this case, the center of mass of link A, B, and C is halfway along the length of each</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">pAcm</span><span style="color:#f92672">=</span><span style="color:#111">pNA</span><span style="color:#f92672">+</span><span style="color:#111">lA</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pBcm</span><span style="color:#f92672">=</span><span style="color:#111">pAB</span><span style="color:#f92672">+</span><span style="color:#111">lB</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">pCcm</span><span style="color:#f92672">=</span><span style="color:#111">pBC</span><span style="color:#f92672">+</span><span style="color:#111">lC</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#111">C</span><span style="color:#f92672">.</span><span style="color:#111">x</span>
+</span></span></code></pre></div><h2 id="calculating-velocity">Calculating Velocity</h2>
+<p>The angular velocity between frames, and the time derivatives of vectors are extremely useful in calculating the equations of motion and for determining many of the forces that need to be applied to your system (damping, drag, etc).  Thus, it is useful, once kinematics have been defined, to take or find the derivatives of some of those vectors for calculating  linear or angular velocity vectors</p>
+<h3 id="angular-velocity">Angular Velocity</h3>
+<p>The following three lines of code computes and returns the angular velocity between frames N and A (${}^N\omega^A$), A and B (${}^A\omega^B$), and B and C (${}^B\omega^C$).  In other cases, if the derivative expression is complex or long,  you can supply pynamics with a given angular velocity between frames to speed up computation time.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">wNA</span> <span style="color:#f92672">=</span> <span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">get_w_to</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">wAB</span> <span style="color:#f92672">=</span> <span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">get_w_to</span><span style="color:#111">(</span><span style="color:#111">B</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">wBC</span> <span style="color:#f92672">=</span> <span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">get_w_to</span><span style="color:#111">(</span><span style="color:#111">C</span><span style="color:#111">)</span>
+</span></span></code></pre></div><h3 id="vector-derivatives">Vector derivatives</h3>
+<p>The time derivatives of vectors may also be</p>
+<p>vCtip = pCtip.time_derivative(N,system)</p>
+<h3 id="define-inertias-and-bodies">Define Inertias and Bodies</h3>
+<p>The next several lines compute the inertia dyadics of each body and define a rigid body on each frame.  In the case of frame C, we represent the mass as a particle located at point pCcm.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">IA</span> <span style="color:#f92672">=</span> <span style="color:#111">Dyadic</span><span style="color:#f92672">.</span><span style="color:#111">build</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">,</span><span style="color:#111">Ixx_A</span><span style="color:#111">,</span><span style="color:#111">Iyy_A</span><span style="color:#111">,</span><span style="color:#111">Izz_A</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">IB</span> <span style="color:#f92672">=</span> <span style="color:#111">Dyadic</span><span style="color:#f92672">.</span><span style="color:#111">build</span><span style="color:#111">(</span><span style="color:#111">B</span><span style="color:#111">,</span><span style="color:#111">Ixx_B</span><span style="color:#111">,</span><span style="color:#111">Iyy_B</span><span style="color:#111">,</span><span style="color:#111">Izz_B</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">IC</span> <span style="color:#f92672">=</span> <span style="color:#111">Dyadic</span><span style="color:#f92672">.</span><span style="color:#111">build</span><span style="color:#111">(</span><span style="color:#111">C</span><span style="color:#111">,</span><span style="color:#111">Ixx_C</span><span style="color:#111">,</span><span style="color:#111">Iyy_C</span><span style="color:#111">,</span><span style="color:#111">Izz_C</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">BodyA</span> <span style="color:#f92672">=</span> <span style="color:#111">Body</span><span style="color:#111">(</span><span style="color:#d88200">&#39;BodyA&#39;</span><span style="color:#111">,</span><span style="color:#111">A</span><span style="color:#111">,</span><span style="color:#111">pAcm</span><span style="color:#111">,</span><span style="color:#111">mA</span><span style="color:#111">,</span><span style="color:#111">IA</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">BodyB</span> <span style="color:#f92672">=</span> <span style="color:#111">Body</span><span style="color:#111">(</span><span style="color:#d88200">&#39;BodyB&#39;</span><span style="color:#111">,</span><span style="color:#111">B</span><span style="color:#111">,</span><span style="color:#111">pBcm</span><span style="color:#111">,</span><span style="color:#111">mB</span><span style="color:#111">,</span><span style="color:#111">IB</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">BodyC</span> <span style="color:#f92672">=</span> <span style="color:#111">Body</span><span style="color:#111">(</span><span style="color:#d88200">&#39;BodyC&#39;</span><span style="color:#111">,</span><span style="color:#111">C</span><span style="color:#111">,</span><span style="color:#111">pCcm</span><span style="color:#111">,</span><span style="color:#111">mC</span><span style="color:#111">,</span><span style="color:#111">IC</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#BodyC = Particle(pCcm,mC,&#39;ParticleC&#39;,system)</span>
+</span></span></code></pre></div><h2 id="forces-and-torques">Forces and Torques</h2>
+<p>Forces and torques are added to the system with the generic <code>addforce</code> method.  The first parameter supplied is a vector describing the force applied at a point or the torque applied along a given rotational axis.  The second parameter is the  vector describing the linear speed (for an applied force) or the angular velocity(for an applied torque)</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">addforce</span><span style="color:#111">(</span><span style="color:#111">torque</span><span style="color:#f92672">*</span><span style="color:#111">sympy</span><span style="color:#f92672">.</span><span style="color:#111">sin</span><span style="color:#111">(</span><span style="color:#111">freq</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#111">sympy</span><span style="color:#f92672">.</span><span style="color:#111">pi</span><span style="color:#f92672">*</span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">t</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">z</span><span style="color:#111">,</span><span style="color:#111">wNA</span><span style="color:#111">)</span>
+</span></span></code></pre></div><pre><code>&lt;pynamics.force.Force at 0x7fb36eb9f5e0&gt;
+</code></pre>
+<h3 id="damper">Damper</h3>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">addforce</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#111">b</span><span style="color:#f92672">*</span><span style="color:#111">wNA</span><span style="color:#111">,</span><span style="color:#111">wNA</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">addforce</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#111">b</span><span style="color:#f92672">*</span><span style="color:#111">wAB</span><span style="color:#111">,</span><span style="color:#111">wAB</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">addforce</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#111">b</span><span style="color:#f92672">*</span><span style="color:#111">wBC</span><span style="color:#111">,</span><span style="color:#111">wBC</span><span style="color:#111">)</span>
+</span></span></code></pre></div><pre><code>&lt;pynamics.force.Force at 0x7fb36eab5430&gt;
+</code></pre>
+<h3 id="spring-forces">Spring Forces</h3>
+<p>Spring forces are a special case because the energy stored in springs is conservative and should be considered when calculating the system&rsquo;s potential energy.  To do this, use the <code>add_spring_force</code> command.  In this method, the first value is the linear spring constant.  The second value is the &ldquo;stretch&rdquo; vector, indicating the amount of deflection from the neutral point of the spring.  The final parameter is, as above, the linear or angluar velocity vector (depending on whether your spring is a linear or torsional spring)</p>
+<p>In this case, the torques applied to each joint are dependent upon whether qA, qB, and qC are absolute or relative rotations, as defined above.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">add_spring_force1</span><span style="color:#111">(</span><span style="color:#111">k</span><span style="color:#111">,(</span><span style="color:#111">qA</span><span style="color:#f92672">-</span><span style="color:#111">preload1</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">z</span><span style="color:#111">,</span><span style="color:#111">wNA</span><span style="color:#111">)</span> 
+</span></span><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">add_spring_force1</span><span style="color:#111">(</span><span style="color:#111">k</span><span style="color:#111">,(</span><span style="color:#111">qB</span><span style="color:#f92672">-</span><span style="color:#111">preload2</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">A</span><span style="color:#f92672">.</span><span style="color:#111">z</span><span style="color:#111">,</span><span style="color:#111">wAB</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">add_spring_force1</span><span style="color:#111">(</span><span style="color:#111">k</span><span style="color:#111">,(</span><span style="color:#111">qC</span><span style="color:#f92672">-</span><span style="color:#111">preload3</span><span style="color:#111">)</span><span style="color:#f92672">*</span><span style="color:#111">B</span><span style="color:#f92672">.</span><span style="color:#111">z</span><span style="color:#111">,</span><span style="color:#111">wBC</span><span style="color:#111">)</span>
+</span></span></code></pre></div><pre><code>(&lt;pynamics.force.Force at 0x7fb36eabafd0&gt;,
+ &lt;pynamics.spring.Spring at 0x7fb36eabad90&gt;)
+</code></pre>
+<h3 id="gravity">Gravity</h3>
+<p>Again, like springs, the force of gravity is conservative and should be applied to all bodies.  To globally apply the force of gravity to all particles and bodies, you can use the special <code>addforcegravity</code> method, by supplying the acceleration due to gravity as a vector.  This will get applied to all bodies defined in your system.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">addforcegravity</span><span style="color:#111">(</span><span style="color:#f92672">-</span><span style="color:#111">g</span><span style="color:#f92672">*</span><span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">y</span><span style="color:#111">)</span>
+</span></span></code></pre></div><h2 id="constraints">Constraints</h2>
+<p>Constraints may be defined that prevent the motion of certain elements.  Try turning on the constraints flag at the top of the script to see what happens.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#111">use_constraints</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">eq</span> <span style="color:#f92672">=</span> <span style="color:#111">[]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">eq</span><span style="color:#f92672">.</span><span style="color:#111">append</span><span style="color:#111">(</span><span style="color:#111">pCtip</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">eq_d</span><span style="color:#f92672">=</span><span style="color:#111">[</span><span style="color:#111">item</span><span style="color:#f92672">.</span><span style="color:#111">time_derivative</span><span style="color:#111">()</span> <span style="color:#00a8c8">for</span> <span style="color:#111">item</span> <span style="color:#f92672">in</span> <span style="color:#111">eq</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">eq_dd</span><span style="color:#f92672">=</span><span style="color:#111">[</span><span style="color:#111">item</span><span style="color:#f92672">.</span><span style="color:#111">time_derivative</span><span style="color:#111">()</span> <span style="color:#00a8c8">for</span> <span style="color:#111">item</span> <span style="color:#f92672">in</span> <span style="color:#111">eq_d</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">eq_dd_scalar</span> <span style="color:#f92672">=</span> <span style="color:#111">[]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#eq_dd_scalar.append(eq_dd[0].dot(N.x))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">eq_dd_scalar</span><span style="color:#f92672">.</span><span style="color:#111">append</span><span style="color:#111">(</span><span style="color:#111">eq_dd</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">]</span><span style="color:#f92672">.</span><span style="color:#111">dot</span><span style="color:#111">(</span><span style="color:#111">N</span><span style="color:#f92672">.</span><span style="color:#111">x</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">constraint</span> <span style="color:#f92672">=</span> <span style="color:#111">AccelerationConstraint</span><span style="color:#111">(</span><span style="color:#111">eq_dd_scalar</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">add_constraint</span><span style="color:#111">(</span><span style="color:#111">constraint</span><span style="color:#111">)</span>
+</span></span></code></pre></div><h2 id="fma">F=ma</h2>
+<p>This is where the symbolic expressions for F and ma are calculated.  This must be done after all parts of the system have been defined.  The <code>getdynamics</code> function uses Kane&rsquo;s method to derive the equations of motion.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">f</span><span style="color:#111">,</span><span style="color:#111">ma</span> <span style="color:#f92672">=</span> <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">getdynamics</span><span style="color:#111">()</span>
+</span></span></code></pre></div><pre><code>2022-03-02 15:19:02,917 - pynamics.system - INFO - getting dynamic equations
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">f</span>
+</span></span></code></pre></div><pre><code>[-b*qA_d - g*lA*mA*cos(qA)/2 - g*lA*mB*cos(qA) - g*lA*mC*cos(qA) + g*lB*mB*sin(qA)*sin(qB)/2 - g*lB*mB*cos(qA)*cos(qB)/2 + g*lB*mC*sin(qA)*sin(qB) - g*lB*mC*cos(qA)*cos(qB) - g*lC*mC*(-sin(qB)*sin(qC) + cos(qB)*cos(qC))*cos(qA)/2 - g*lC*mC*(-sin(qB)*cos(qC) - sin(qC)*cos(qB))*sin(qA)/2 - k*(-preload1 + qA) + torque*sin(2*freq*pi*t), -b*qB_d + g*lB*mB*sin(qA)*sin(qB)/2 - g*lB*mB*cos(qA)*cos(qB)/2 + g*lB*mC*sin(qA)*sin(qB) - g*lB*mC*cos(qA)*cos(qB) - g*lC*mC*(-sin(qB)*sin(qC) + cos(qB)*cos(qC))*cos(qA)/2 - g*lC*mC*(-sin(qB)*cos(qC) - sin(qC)*cos(qB))*sin(qA)/2 - k*(-preload2 + qB), -b*qC_d - g*lC*mC*(-sin(qB)*sin(qC) + cos(qB)*cos(qC))*cos(qA)/2 - g*lC*mC*(-sin(qB)*cos(qC) - sin(qC)*cos(qB))*sin(qA)/2 - k*(-preload3 + qC)]
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">ma</span>
+</span></span></code></pre></div><pre><code>[Izz_A*qA_dd + Izz_B*(qA_dd + qB_dd) + Izz_C*(qA_dd + qB_dd + qC_dd) + lA**2*mA*qA_dd/4 + lA**2*mB*qA_dd + lA**2*mC*qA_dd + lA*lB*mB*qA_d**2*sin(qB)/2 + lA*lB*mB*qA_dd*cos(qB)/2 - lA*lB*mB*(qA_d + qB_d)**2*sin(qB)/2 + lA*lB*mC*qA_d**2*sin(qB) + lA*lB*mC*qA_dd*cos(qB) - lA*lB*mC*(qA_d + qB_d)**2*sin(qB) + lA*mB*(lB*qA_dd/2 + lB*qB_dd/2)*cos(qB) + lA*mC*(lB*qA_dd + lB*qB_dd)*cos(qB) + lA*(-lC*mC*(qA_d + qB_d + qC_d)**2*sin(qC)/2 + mC*(lC*qA_dd/2 + lC*qB_dd/2 + lC*qC_dd/2)*cos(qC))*cos(qB) + lA*(-lC*mC*(qA_d + qB_d + qC_d)**2*cos(qC)/2 - mC*(lC*qA_dd/2 + lC*qB_dd/2 + lC*qC_dd/2)*sin(qC))*sin(qB) + lB*lC*mC*(qA_d + qB_d)**2*sin(qC)/2 - lB*lC*mC*(qA_d + qB_d + qC_d)**2*sin(qC)/2 + lB*mB*(lB*qA_dd/2 + lB*qB_dd/2)/2 + lB*mC*(lB*qA_dd + lB*qB_dd) + lB*mC*(lC*qA_dd/2 + lC*qB_dd/2 + lC*qC_dd/2)*cos(qC) + lC*mC*(lB*qA_dd + lB*qB_dd)*cos(qC)/2 + lC*mC*(lC*qA_dd/2 + lC*qB_dd/2 + lC*qC_dd/2)/2 + lC*(lA*mC*qA_d**2*sin(qB) + lA*mC*qA_dd*cos(qB))*cos(qC)/2 - lC*(-lA*mC*qA_d**2*cos(qB) + lA*mC*qA_dd*sin(qB))*sin(qC)/2, Izz_B*(qA_dd + qB_dd) + Izz_C*(qA_dd + qB_dd + qC_dd) + lA*lB*mB*qA_d**2*sin(qB)/2 + lA*lB*mB*qA_dd*cos(qB)/2 + lA*lB*mC*qA_d**2*sin(qB) + lA*lB*mC*qA_dd*cos(qB) + lB*lC*mC*(qA_d + qB_d)**2*sin(qC)/2 - lB*lC*mC*(qA_d + qB_d + qC_d)**2*sin(qC)/2 + lB*mB*(lB*qA_dd/2 + lB*qB_dd/2)/2 + lB*mC*(lB*qA_dd + lB*qB_dd) + lB*mC*(lC*qA_dd/2 + lC*qB_dd/2 + lC*qC_dd/2)*cos(qC) + lC*mC*(lB*qA_dd + lB*qB_dd)*cos(qC)/2 + lC*mC*(lC*qA_dd/2 + lC*qB_dd/2 + lC*qC_dd/2)/2 + lC*(lA*mC*qA_d**2*sin(qB) + lA*mC*qA_dd*cos(qB))*cos(qC)/2 - lC*(-lA*mC*qA_d**2*cos(qB) + lA*mC*qA_dd*sin(qB))*sin(qC)/2, Izz_C*(qA_dd + qB_dd + qC_dd) + lB*lC*mC*(qA_d + qB_d)**2*sin(qC)/2 + lC*mC*(lB*qA_dd + lB*qB_dd)*cos(qC)/2 + lC*mC*(lC*qA_dd/2 + lC*qB_dd/2 + lC*qC_dd/2)/2 + lC*(lA*mC*qA_d**2*sin(qB) + lA*mC*qA_dd*cos(qB))*cos(qC)/2 - lC*(-lA*mC*qA_d**2*cos(qB) + lA*mC*qA_dd*sin(qB))*sin(qC)/2]
+</code></pre>
+<h2 id="solve-for-acceleration">Solve for Acceleration</h2>
+<p>The next line of code solves the system of equations F=ma plus any constraint equations that have been added above.  It returns one or two variables.  func1 is the function that computes the velocity and acceleration given a certain state, and lambda1(optional) supplies the function that computes the constraint forces as a function of the resulting states</p>
+<p>There are a few ways of solveing for a.  The below function inverts the mass matrix numerically every time step.  This can be slower because the matrix solution has to be solved for, but is sometimes more tractable than solving the highly nonlinear symbolic expressions that can be generated from the previous step.  The other options would be to use <code>state_space_pre_invert</code>, which pre-inverts the equations symbolically before generating a numerical function, or <code>state_space_post_invert2</code>, which adds Baumgarte&rsquo;s method for intermittent constraints.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">func1</span><span style="color:#111">,</span><span style="color:#111">lambda1</span> <span style="color:#f92672">=</span> <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">state_space_post_invert</span><span style="color:#111">(</span><span style="color:#111">f</span><span style="color:#111">,</span><span style="color:#111">ma</span><span style="color:#111">,</span><span style="color:#111">return_lambda</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">True</span><span style="color:#111">)</span>
+</span></span></code></pre></div><pre><code>2022-03-02 15:19:03,319 - pynamics.system - INFO - solving a = f/m and creating function
+2022-03-02 15:19:03,426 - pynamics.system - INFO - substituting constrained in Ma-f.
+2022-03-02 15:19:03,497 - pynamics.system - INFO - done solving a = f/m and creating function
+2022-03-02 15:19:03,497 - pynamics.system - INFO - calculating function for lambdas
+</code></pre>
+<h2 id="integration-tolerance">Integration Tolerance</h2>
+<p>Specify the precision of the integration</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">tol</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e-7</span>
+</span></span></code></pre></div><h3 id="time">Time</h3>
+<p>Define variables for time that can be used throughout the script.  These get used to create the t array, a list of every time value that is solved for during integration</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">tinitial</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">tfinal</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">fps</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">tstep</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#111">fps</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">t</span> <span style="color:#f92672">=</span> <span style="color:#111">numpy</span><span style="color:#f92672">.</span><span style="color:#111">r_</span><span style="color:#111">[</span><span style="color:#111">tinitial</span><span style="color:#111">:</span><span style="color:#111">tfinal</span><span style="color:#111">:</span><span style="color:#111">tstep</span><span style="color:#111">]</span>
+</span></span></code></pre></div><h2 id="integrate">Integrate</h2>
+<p>The next line of code integrates the function calculated</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">states</span><span style="color:#f92672">=</span><span style="color:#111">pynamics</span><span style="color:#f92672">.</span><span style="color:#111">integration</span><span style="color:#f92672">.</span><span style="color:#111">integrate</span><span style="color:#111">(</span><span style="color:#111">func1</span><span style="color:#111">,</span><span style="color:#111">ini</span><span style="color:#111">,</span><span style="color:#111">t</span><span style="color:#111">,</span><span style="color:#111">rtol</span><span style="color:#f92672">=</span><span style="color:#111">tol</span><span style="color:#111">,</span><span style="color:#111">atol</span><span style="color:#f92672">=</span><span style="color:#111">tol</span><span style="color:#111">,</span> <span style="color:#111">args</span><span style="color:#f92672">=</span><span style="color:#111">({</span><span style="color:#d88200">&#39;constants&#39;</span><span style="color:#111">:</span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">constant_values</span><span style="color:#111">},))</span>
+</span></span></code></pre></div><pre><code>2022-03-02 15:19:03,563 - pynamics.integration - INFO - beginning integration
+2022-03-02 15:19:03,565 - pynamics.system - INFO - integration at time 0000.00
+2022-03-02 15:19:03,772 - pynamics.integration - INFO - finished integration
+</code></pre>
+<h2 id="outputs">Outputs</h2>
+<p>The next section simply calculates and plots a variety of data from the previous simulation</p>
+<h3 id="states">States</h3>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">figure</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">artists</span> <span style="color:#f92672">=</span> <span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">(</span><span style="color:#111">t</span><span style="color:#111">,</span><span style="color:#111">states</span><span style="color:#111">[:,:</span><span style="color:#ae81ff">3</span><span style="color:#111">])</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">legend</span><span style="color:#111">(</span><span style="color:#111">artists</span><span style="color:#111">,[</span><span style="color:#d88200">&#39;qA&#39;</span><span style="color:#111">,</span><span style="color:#d88200">&#39;qB&#39;</span><span style="color:#111">,</span><span style="color:#d88200">&#39;qC&#39;</span><span style="color:#111">])</span>
+</span></span></code></pre></div><pre><code>&lt;matplotlib.legend.Legend at 0x7fb36eaa6430&gt;
+</code></pre>
+<p><div class="text-center">
+  <a href="output_56_1.png"><img src="output_56_1.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<h3 id="energy">Energy</h3>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">KE</span> <span style="color:#f92672">=</span> <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">get_KE</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">PE</span> <span style="color:#f92672">=</span> <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">getPEGravity</span><span style="color:#111">(</span><span style="color:#111">pNA</span><span style="color:#111">)</span> <span style="color:#f92672">-</span> <span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">getPESprings</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">energy_output</span> <span style="color:#f92672">=</span> <span style="color:#111">Output</span><span style="color:#111">([</span><span style="color:#111">KE</span><span style="color:#f92672">-</span><span style="color:#111">PE</span><span style="color:#111">],</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">energy_output</span><span style="color:#f92672">.</span><span style="color:#111">calc</span><span style="color:#111">(</span><span style="color:#111">states</span><span style="color:#111">,</span><span style="color:#111">t</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">energy_output</span><span style="color:#f92672">.</span><span style="color:#111">plot_time</span><span style="color:#111">()</span>
+</span></span></code></pre></div><pre><code>2022-03-02 15:19:04,061 - pynamics.output - INFO - calculating outputs
+2022-03-02 15:19:04,072 - pynamics.output - INFO - done calculating outputs
+</code></pre>
+<p><div class="text-center">
+  <a href="output_58_1.png"><img src="output_58_1.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<h3 id="constraint-forces">Constraint Forces</h3>
+<p>This line of code computes the constraint forces once the system&rsquo;s states have been solved for.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#111">use_constraints</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">lambda2</span> <span style="color:#f92672">=</span> <span style="color:#111">numpy</span><span style="color:#f92672">.</span><span style="color:#111">array</span><span style="color:#111">([</span><span style="color:#111">lambda1</span><span style="color:#111">(</span><span style="color:#111">item1</span><span style="color:#111">,</span><span style="color:#111">item2</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#f92672">.</span><span style="color:#111">constant_values</span><span style="color:#111">)</span> <span style="color:#00a8c8">for</span> <span style="color:#111">item1</span><span style="color:#111">,</span><span style="color:#111">item2</span> <span style="color:#f92672">in</span> <span style="color:#111">zip</span><span style="color:#111">(</span><span style="color:#111">t</span><span style="color:#111">,</span><span style="color:#111">states</span><span style="color:#111">)])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">figure</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">plot</span><span style="color:#111">(</span><span style="color:#111">t</span><span style="color:#111">,</span> <span style="color:#111">lambda2</span><span style="color:#111">)</span>
+</span></span></code></pre></div><h3 id="motion">Motion</h3>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">points</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">pNA</span><span style="color:#111">,</span><span style="color:#111">pAB</span><span style="color:#111">,</span><span style="color:#111">pBC</span><span style="color:#111">,</span><span style="color:#111">pCtip</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">points_output</span> <span style="color:#f92672">=</span> <span style="color:#111">PointsOutput</span><span style="color:#111">(</span><span style="color:#111">points</span><span style="color:#111">,</span><span style="color:#111">system</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">y</span> <span style="color:#f92672">=</span> <span style="color:#111">points_output</span><span style="color:#f92672">.</span><span style="color:#111">calc</span><span style="color:#111">(</span><span style="color:#111">states</span><span style="color:#111">,</span><span style="color:#111">t</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">points_output</span><span style="color:#f92672">.</span><span style="color:#111">plot_time</span><span style="color:#111">(</span><span style="color:#ae81ff">20</span><span style="color:#111">)</span>
+</span></span></code></pre></div><pre><code>2022-03-02 15:19:04,217 - pynamics.output - INFO - calculating outputs
+2022-03-02 15:19:04,232 - pynamics.output - INFO - done calculating outputs
+
+
+
+
+
+&lt;AxesSubplot:&gt;
+</code></pre>
+<p><div class="text-center">
+  <a href="output_62_2.png"><img src="output_62_2.png" alt="png"  style="max-width:80%; max-height:200px; width:auto; height: auto; text-align:center;"/></a>
+</div></p>
+<h4 id="motion-animation">Motion Animation</h4>
+<p>in normal Python the next lines of code produce an animation using matplotlib</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">points_output</span><span style="color:#f92672">.</span><span style="color:#111">animate</span><span style="color:#111">(</span><span style="color:#111">fps</span> <span style="color:#f92672">=</span> <span style="color:#111">fps</span><span style="color:#111">,</span><span style="color:#111">movie_name</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;triple_pendulum.mp4&#39;</span><span style="color:#111">,</span><span style="color:#111">lw</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#111">marker</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;o&#39;</span><span style="color:#111">,</span><span style="color:#111">color</span><span style="color:#f92672">=</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">),</span><span style="color:#111">linestyle</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;-&#39;</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>To plot the animation in jupyter you need a couple extra lines of code&hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">matplotlib</span> <span style="color:#f92672">import</span> <span style="color:#111">animation</span><span style="color:#111">,</span> <span style="color:#111">rc</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">IPython.display</span> <span style="color:#f92672">import</span> <span style="color:#111">HTML</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">HTML</span><span style="color:#111">(</span><span style="color:#111">points_output</span><span style="color:#f92672">.</span><span style="color:#111">anim</span><span style="color:#f92672">.</span><span style="color:#111">to_html5_video</span><span style="color:#111">())</span>
+</span></span></code></pre></div>
+  </article>
+</main>
+
+
+    
+    <footer class="blog-footer">
+      <p>Copyright &copy; 2022 Daniel M. Aukes.  All rights reserved.</p>
+      <p><a href="#">Back to top</a></p>
+    </footer>
+    
+
+<script src="/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://foldable-robotics.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/fuse.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/jquery.mark.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/search.js"></script>
+
+  </body>
+</html>

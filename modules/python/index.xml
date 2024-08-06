@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Foldable Robotics</title>
+    <link>https://foldable-robotics.github.io/modules/python/</link>
+    <description>Recent content in Python on Foldable Robotics</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="https://foldable-robotics.github.io/modules/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advanced Data Types</title>
+      <link>https://foldable-robotics.github.io/modules/python/generated/advanced-data-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/generated/advanced-data-types/</guid>
+      <description>There are a number of advanced data types native to Python.</description>
+    </item>
+    <item>
+      <title>Basic Data Types</title>
+      <link>https://foldable-robotics.github.io/modules/python/generated/basic-data-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/generated/basic-data-types/</guid>
+      <description>A &amp;ldquo;literal&amp;rdquo; value is one that is typed into code. Think &amp;ldquo;4.</description>
+    </item>
+    <item>
+      <title>Conditional Statements</title>
+      <link>https://foldable-robotics.github.io/modules/python/generated/conditionals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/generated/conditionals/</guid>
+      <description>Conditional Statements use the keywords if, then, and else to perform different logic depending on the statements that are evaluated.</description>
+    </item>
+    <item>
+      <title>Course-specific Python Packages</title>
+      <link>https://foldable-robotics.github.io/modules/python/course-specific-packages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/course-specific-packages/</guid>
+      <description>Install additional software packages. In Windows, go to the search bar and type &amp;ldquo;anaconda&amp;rdquo;.</description>
+    </item>
+    <item>
+      <title>Download and Link to Python Packages</title>
+      <link>https://foldable-robotics.github.io/modules/python/download-and-link-to-python-packages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/download-and-link-to-python-packages/</guid>
+      <description>Say you want to run a python package from source using a git repository.</description>
+    </item>
+    <item>
+      <title>functions and arguments</title>
+      <link>https://foldable-robotics.github.io/modules/python/generated/functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/generated/functions/</guid>
+      <description>Functions The structure of a function is:&#xA;def my_function_1(my_variable_1,my_variable_2): result = my_variable_1+my_variable_2 return result Where my_function_1 is the function, and my_variable_1 and my_variable_2 are the &amp;ldquo;arguments&amp;rdquo;.</description>
+    </item>
+    <item>
+      <title>Google Colab Documentation</title>
+      <link>https://foldable-robotics.github.io/modules/python/google-colab-tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/google-colab-tutorial/</guid>
+      <description>Resources Introduction to Colab and Python Getting Started with Google Colab External data: Local Files, Drive, Sheets, and Cloud Storage How to Connect Google Colab with Google Drive Embedding your image in google colab markdown What is Google Colab &amp;ldquo;Colaboratory is a free Jupyter notebook environment that requires no setup and runs entirely in the cloud.</description>
+    </item>
+    <item>
+      <title>Installing Anaconda</title>
+      <link>https://foldable-robotics.github.io/modules/python/installing-anaconda-python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/installing-anaconda-python/</guid>
+      <description>Introduction Anaconda is a distribution of Python that includes the ability to manage packages using the conda package manager as well as the ability to create and manage environments, or collections of packages that work together.</description>
+    </item>
+    <item>
+      <title>Intro to Jupyter Notebook and Pynamics</title>
+      <link>https://foldable-robotics.github.io/modules/python/generated/intro-to-jupyter-notebook-and-pynamics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/generated/intro-to-jupyter-notebook-and-pynamics/</guid>
+      <description>import pynamics from pynamics.system import System from pynamics.frame import Frame import sympy system = System() pynamics.</description>
+    </item>
+    <item>
+      <title>Intro to Python</title>
+      <link>https://foldable-robotics.github.io/modules/python/why-python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/why-python/</guid>
+      <description>One thing I really like about python is that it is based on good programming practice .</description>
+    </item>
+    <item>
+      <title>Loops</title>
+      <link>https://foldable-robotics.github.io/modules/python/generated/loops/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/generated/loops/</guid>
+      <description>Introduction Loops are used to repeat code over a fixed number of cycles, or indefinitely based on logic.</description>
+    </item>
+    <item>
+      <title>Operators &amp; Operations</title>
+      <link>https://foldable-robotics.github.io/modules/python/generated/operators-and-operations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/generated/operators-and-operations/</guid>
+      <description>Basic Operators Operators in Python are just symbols that &amp;ldquo;operate&amp;rdquo; on one or more values.</description>
+    </item>
+    <item>
+      <title>Packages in Python</title>
+      <link>https://foldable-robotics.github.io/modules/python/packages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/packages/</guid>
+      <description>Introduction The most important packages that I use when creating python code are those packages which make a python more Matlab-like.</description>
+    </item>
+    <item>
+      <title>Plotting in 3D</title>
+      <link>https://foldable-robotics.github.io/modules/python/generated/3d-plotting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/generated/3d-plotting/</guid>
+      <description>%matplotlib inline Visit this matplotlib tutorial on 3d Plotting Another useful reference import matplotlib.</description>
+    </item>
+    <item>
+      <title>Python Development</title>
+      <link>https://foldable-robotics.github.io/modules/python/python-development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/python-development/</guid>
+      <description>Now What? More Python Making your programs for others Releasing your code Licensing Collaborating Testing / Building Imports Imports should always be written at the top of the file, after any module comments and docstrings.</description>
+    </item>
+    <item>
+      <title>Sympy Example</title>
+      <link>https://foldable-robotics.github.io/modules/python/generated/sympy-example/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/generated/sympy-example/</guid>
+      <description>import sympy a = sympy.Symbol(&amp;#39;a&amp;#39;) b = sympy.Symbol(&amp;#39;b&amp;#39;) x = sympy.</description>
+    </item>
+    <item>
+      <title>Updating Python Packages</title>
+      <link>https://foldable-robotics.github.io/modules/python/updating-python-packages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/updating-python-packages/</guid>
+      <description>There are several Python packages that are in active development for the purposes of this class.</description>
+    </item>
+    <item>
+      <title>Using Jupyter Notebook</title>
+      <link>https://foldable-robotics.github.io/modules/python/using-jupyter-notebook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://foldable-robotics.github.io/modules/python/using-jupyter-notebook/</guid>
+      <description>About Jupyter Jupyter notebook is a useful browser-based IPython editor that provides inline documentation via markdown and inline plotting functionality for a one-stop-shop coding and documentation experience.</description>
+    </item>
+  </channel>
+</rss>

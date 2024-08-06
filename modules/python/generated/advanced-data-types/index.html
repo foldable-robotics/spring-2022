@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>
+Advanced Data Types | Foldable Robotics
+</title>
+
+    <link href="/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+
+
+<link href="/css/blog.css" rel="stylesheet">
+<link href="/css/features.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+
+    <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/hugo-cite.css" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/manifest.json">
+
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <header class="blog-header py-3">
+  <div class="row flex-nowrap justify-content-between align-items-center">
+    <div class="col-2 pt-1">
+    </div>
+    <div class="col-8 text-center">
+      <a class="blog-header-logo text-dark" href="/">Foldable Robotics</a>
+    </div>
+    <div class="col-2 d-flex justify-content-end align-items-center">
+    </div>
+  </div>
+</header>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Course Topics
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/introduction/">Introduction</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/python/">Python</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/biomechanics/">Biomechanics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/project/">Project</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/kinematics/">Kinematics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/dynamics/">Dynamics</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/optimization/">Optimization</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/compliance/">Mechanics and Compliance</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/manufacturing/">Prototyping &amp; Manufacturing</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/validation/">Experimental Validation</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/integration/">Integration</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/modules/misc/">Misc</a>
+            
+          </div>
+        </li>
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link" href="https://foldable-robotics.github.io/assignments/">Assignments</a>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Documents
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/all-documents/">All Documents</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/syllabus/">Syllabus</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/submission-best-practices/">Submission Best Practices</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/software-list/">Software List</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/course-calendar/">Course Calendar</a>
+            
+            <a class="dropdown-item" href="https://foldable-robotics.github.io/course-documents/suggested-materials-list/">Suggested Materials List</a>
+            
+          </div>
+        </li>
+        
+        
+        
+      </ul>
+      <span class="navbar-text">
+        
+      </span>
+
+        <form action="https://foldable-robotics.github.io//search" class="d-flex">
+        <input class="form-control me-2"  id="search-query"  name="s" type="s" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary"  type="submit">Search</button>
+      </form>
+      
+    </div>
+  </div>
+</nav>
+
+
+    </div>
+
+    
+<main class="container">
+  <h1>Advanced Data Types</h1>
+  
+  
+
+
+
+
+
+<div class="text-center">
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+
+
+
+<li class="breadcrumb-item"><a href="/modules">modules</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/python">python</a></li>
+
+
+
+
+<li class="breadcrumb-item"><a href="/modules/python/generated">generated</a></li>
+
+
+
+
+<li class="breadcrumb-item active"  aria-current="page">advanced-data-types</li>
+
+  </ol>
+</nav>
+</div>
+
+  
+  <article>
+  <p>There are a number of advanced data types native to Python.  These include</p>
+<ul>
+<li><code>tuple</code>s</li>
+<li><code>list</code>s</li>
+<li><code>set</code>s</li>
+<li><code>dict</code>s</li>
+</ul>
+<h2 id="tuples">Tuples</h2>
+<p>Tuples are an ordered, immutable, list of objects.  You cannot change the order of a tuple; neither can you add, or remove elements.  Tuples, therefore, are particularly useful when you want to pass around sets of things whose ordering doesn&rsquo;t change, like sets of x-y-z, coordinates.  Because they are static and immutable, tuples don&rsquo;t carry the same memory overhead as lists.</p>
+<p>tuples are defined using parentheses, as below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">tup1</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">tup1</span>
+</span></span></code></pre></div><pre><code>(0, 1)
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">tup2</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">tup2</span>
+</span></span></code></pre></div><pre><code>(3, -2)
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">tup3</span> <span style="color:#f92672">=</span> <span style="color:#111">tuple</span><span style="color:#111">(</span><span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">tup3</span>
+</span></span></code></pre></div><pre><code>(0, 1, 2, 3, 4)
+</code></pre>
+<p>tuple of tuples</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">tup4</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">tup2</span><span style="color:#111">,</span><span style="color:#111">tup1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">tup4</span>
+</span></span></code></pre></div><pre><code>((3, -2), (0, 1))
+</code></pre>
+<p>you can use the sorted method to create a sorted list of tuples</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">sorted</span><span style="color:#111">(</span><span style="color:#111">tup4</span><span style="color:#111">)</span>
+</span></span></code></pre></div><pre><code>[(0, 1), (3, -2)]
+</code></pre>
+<p>you can also pick how you sort based on a lambda method</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">sorted</span><span style="color:#111">(</span><span style="color:#111">tup4</span><span style="color:#111">,</span><span style="color:#111">key</span><span style="color:#f92672">=</span><span style="color:#00a8c8">lambda</span> <span style="color:#111">x</span><span style="color:#111">:</span><span style="color:#111">x</span><span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">])</span>
+</span></span></code></pre></div><pre><code>[(3, -2), (0, 1)]
+</code></pre>
+<p>accessing tuples</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">tup4</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">]</span>
+</span></span></code></pre></div><pre><code>(3, -2)
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">tup4</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">][</span><span style="color:#ae81ff">1</span><span style="color:#111">]</span>
+</span></span></code></pre></div><pre><code>-2
+</code></pre>
+<h2 id="lists">Lists</h2>
+<p>Lists are mutable, ordered, sets of objects.  You can add and remove elements from lists, which makes them handy for holding objects whose elements change, even if the list stays the same.</p>
+<p>Lists are defined using square brackets, as below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">list1</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">4</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">list1</span>
+</span></span></code></pre></div><pre><code>[-1, 1, 2, 3, 4]
+</code></pre>
+<p>List classes contain many more methods than tuples for organizing and sorting the elements.  Some can be seen below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">list1</span><span style="color:#f92672">.</span><span style="color:#111">append</span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">list1</span>
+</span></span></code></pre></div><pre><code>[-1, 1, 2, 3, 4, 5]
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">list1</span><span style="color:#f92672">.</span><span style="color:#111">extend</span><span style="color:#111">([</span><span style="color:#ae81ff">6</span><span style="color:#111">,</span><span style="color:#ae81ff">7</span><span style="color:#111">,</span><span style="color:#ae81ff">8</span><span style="color:#111">,</span><span style="color:#ae81ff">9</span><span style="color:#111">,</span><span style="color:#ae81ff">0b101101</span><span style="color:#111">,</span><span style="color:#ae81ff">11.0</span><span style="color:#111">])</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">list1</span>
+</span></span></code></pre></div><pre><code>[-1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 45, 11.0]
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">result</span> <span style="color:#f92672">=</span> <span style="color:#111">list1</span><span style="color:#f92672">.</span><span style="color:#111">pop</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">list1</span>
+</span></span></code></pre></div><pre><code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 45, 11.0]
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">list1</span><span style="color:#f92672">.</span><span style="color:#111">insert</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">14</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">list1</span>
+</span></span></code></pre></div><pre><code>[14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 45, 11.0]
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">ii</span> <span style="color:#f92672">=</span> <span style="color:#111">list1</span><span style="color:#f92672">.</span><span style="color:#111">count</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">ii</span>
+</span></span></code></pre></div><pre><code>1
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">ii</span><span style="color:#f92672">=</span><span style="color:#111">list1</span><span style="color:#f92672">.</span><span style="color:#111">index</span><span style="color:#111">(</span><span style="color:#ae81ff">7</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">ii</span>
+</span></span></code></pre></div><pre><code>7
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">list1</span><span style="color:#f92672">.</span><span style="color:#111">remove</span><span style="color:#111">(</span><span style="color:#ae81ff">7</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">list1</span>
+</span></span></code></pre></div><pre><code>[14, 1, 2, 3, 4, 5, 6, 8, 9, 45, 11.0]
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">sorted</span><span style="color:#111">(</span><span style="color:#111">list1</span><span style="color:#111">)</span>
+</span></span></code></pre></div><pre><code>[1, 2, 3, 4, 5, 6, 8, 9, 11.0, 14, 45]
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">list1</span>
+</span></span></code></pre></div><pre><code>[14, 1, 2, 3, 4, 5, 6, 8, 9, 45, 11.0]
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">list1</span><span style="color:#f92672">.</span><span style="color:#111">sort</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">list1</span>
+</span></span></code></pre></div><pre><code>[1, 2, 3, 4, 5, 6, 8, 9, 11.0, 14, 45]
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#list1.clear()</span>
+</span></span></code></pre></div><h3 id="indexing-and-slicing">Indexing and Slicing</h3>
+<p>Like tuples, you can select one or more elements from a list; the result of indexing a single element is the object itself.  The result of indexing multiple elements from a list is another list</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">list1</span>
+</span></span></code></pre></div><pre><code>[1, 2, 3, 4, 5, 6, 8, 9, 11.0, 14, 45]
+</code></pre>
+<p>You can select one element by indicating its number in the list in order to select it.  Of note is that Python uses zero-based indexing, which means that the first element of a list is accessed with</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">list1</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">]</span>
+</span></span></code></pre></div><pre><code>1
+</code></pre>
+<p>To select a range of elements (called slicing), you can provide two nubmers, separated by a colon.  Because of Python&rsquo;s zero-based indexing, using [2:4] selects, for example, a range of elements starting with the third element, <em>up to</em> (but not including) the fifth element.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">list1</span><span style="color:#111">[</span><span style="color:#ae81ff">2</span><span style="color:#111">:</span><span style="color:#ae81ff">4</span><span style="color:#111">]</span>
+</span></span></code></pre></div><pre><code>[3, 4]
+</code></pre>
+<p>Omitting the first element indicates you start at the beginning of the list</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">list1</span><span style="color:#111">[:</span><span style="color:#ae81ff">4</span><span style="color:#111">]</span>
+</span></span></code></pre></div><pre><code>[1, 2, 3, 4]
+</code></pre>
+<p>Omitting the second element indicates you go to the end of the list.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">list1</span><span style="color:#111">[</span><span style="color:#ae81ff">4</span><span style="color:#111">:]</span>
+</span></span></code></pre></div><pre><code>[5, 6, 8, 9, 11.0, 14, 45]
+</code></pre>
+<p>Adding an optional third elements indicates the &ldquo;step-size&rdquo;.  [::2], for example, means starting at the end of a list, going to the end, but selecting one of every two elements.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">list1</span><span style="color:#111">[::</span><span style="color:#ae81ff">2</span><span style="color:#111">]</span>
+</span></span></code></pre></div><pre><code>[1, 3, 5, 8, 11.0, 45]
+</code></pre>
+<p>Negative numbers indicate an element&rsquo;s position from the end of the list.  To slice all elements in reverse order, use</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">list1</span><span style="color:#111">[</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">::</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">]</span>
+</span></span></code></pre></div><pre><code>[45, 14, 11.0, 9, 8, 6, 5, 4, 3, 2, 1]
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#list1.clear()</span>
+</span></span></code></pre></div><p>understanding types</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">isinstance</span><span style="color:#111">(</span><span style="color:#111">list1</span><span style="color:#111">,</span><span style="color:#111">list</span><span style="color:#111">)</span>
+</span></span></code></pre></div><pre><code>True
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">list1</span>
+</span></span></code></pre></div><pre><code>[1, 2, 3, 4, 5, 6, 8, 9, 11.0, 14, 45]
+</code></pre>
+<h1 id="dicts">Dicts</h1>
+<p>A <code>dict</code> or dictionary, is an unorderd set of key:value pairs.  The key is unique, and can be used to obtain the value within a dictionary.  Dictionaries are useful when values are stored in an unordered fashion, but are accessible through a unique identifier.</p>
+<p><code>dict</code>s are defined using curly brackets.  You can index into dictionaries using square brackets, just like lists or tuples.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">dict1</span> <span style="color:#f92672">=</span> <span style="color:#111">{}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">dict1</span><span style="color:#111">[</span><span style="color:#d88200">&#39;key1&#39;</span><span style="color:#111">]</span><span style="color:#f92672">=</span><span style="color:#ae81ff">123.45</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">dict1</span><span style="color:#111">[</span><span style="color:#d88200">&#39;coordinate 1&#39;</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#111">tup1</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">dict1</span><span style="color:#111">[</span><span style="color:#d88200">&#39;coordinate 2&#39;</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#111">tup2</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">dict1</span><span style="color:#111">[</span><span style="color:#d88200">&#39;all_coordinates&#39;</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#111">list1</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">dict1</span>
+</span></span></code></pre></div><pre><code>{'key1': 123.45,
+ 'coordinate 1': (0, 1),
+ 'coordinate 2': (3, -2),
+ 'all_coordinates': [1, 2, 3, 4, 5, 6, 8, 9, 11.0, 14, 45]}
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">dict1</span><span style="color:#111">[</span><span style="color:#d88200">&#39;coordinate 1&#39;</span><span style="color:#111">]</span>
+</span></span></code></pre></div><pre><code>(0, 1)
+</code></pre>
+<h3 id="methods">Methods</h3>
+<p>You can obtain all key:value pairs using the <code>items()</code> method</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">dict1</span><span style="color:#f92672">.</span><span style="color:#111">items</span><span style="color:#111">()</span>
+</span></span></code></pre></div><pre><code>dict_items([('key1', 123.45), ('coordinate 1', (0, 1)), ('coordinate 2', (3, -2)), ('all_coordinates', [1, 2, 3, 4, 5, 6, 8, 9, 11.0, 14, 45])])
+</code></pre>
+<p>you can also obtain all the keys within a dictionary,</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">dict1</span><span style="color:#f92672">.</span><span style="color:#111">keys</span><span style="color:#111">()</span>
+</span></span></code></pre></div><pre><code>dict_keys(['key1', 'coordinate 1', 'coordinate 2', 'all_coordinates'])
+</code></pre>
+<p>or all the values</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">dict1</span><span style="color:#f92672">.</span><span style="color:#111">values</span><span style="color:#111">()</span>
+</span></span></code></pre></div><pre><code>dict_values([123.45, (0, 1), (3, -2), [1, 2, 3, 4, 5, 6, 8, 9, 11.0, 14, 45]])
+</code></pre>
+<h2 id="sets">Sets</h2>
+<p>A set is an unordered collection of unique values.  You can use sets to perform set math on collections of things in Python.  Sets also use curly brackets in their definition.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">a</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#111">a</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#111">type</span><span style="color:#111">(</span><span style="color:#111">a</span><span style="color:#111">))</span>
+</span></span></code></pre></div><pre><code>{1, 2, 3}
+&lt;class 'set'&gt;
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">b</span><span style="color:#f92672">=</span><span style="color:#111">{</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">4</span><span style="color:#111">,</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span><span style="color:#ae81ff">4</span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">b</span>
+</span></span></code></pre></div><pre><code>{2, 3, 4}
+</code></pre>
+<p>You can operate on sets using their methods (union, intersection, difference), or with shortcut operators, like <code>&amp;</code> (and/intersection) and <code>|</code>(or/union).</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">a</span><span style="color:#f92672">&amp;</span><span style="color:#111">b</span>
+</span></span></code></pre></div><pre><code>{2, 3}
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">a</span><span style="color:#f92672">|</span><span style="color:#111">b</span>
+</span></span></code></pre></div><pre><code>{1, 2, 3, 4}
+</code></pre>
+<h2 id="strings--formatting">Strings &amp; Formatting</h2>
+<p>Strings are ordered collections of characters, with many many methods.  See the official python documentation for more details.  One of my favorite methods, though, is the <code>format()</code> method.  This permits you to mix variables containing complex string or numerical data into a string at specficied locations.  See the example below</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#111">float1</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">12.345</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#d88200">&#39;the value of the first element is </span><span style="color:#d88200">{0:07.1f}</span><span style="color:#d88200">, as an int: </span><span style="color:#d88200">{1:07d}</span><span style="color:#d88200">&#39;</span><span style="color:#f92672">.</span><span style="color:#111">format</span><span style="color:#111">(</span><span style="color:#111">float1</span><span style="color:#111">,</span><span style="color:#111">int</span><span style="color:#111">(</span><span style="color:#111">float1</span><span style="color:#111">))</span>
+</span></span></code></pre></div><pre><code>'the value of the first element is 00012.3, as an int: 0000012'
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div>
+  </article>
+</main>
+
+
+    
+    <footer class="blog-footer">
+      <p>Copyright &copy; 2022 Daniel M. Aukes.  All rights reserved.</p>
+      <p><a href="#">Back to top</a></p>
+    </footer>
+    
+
+<script src="/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://foldable-robotics.github.io/js/jquery-3.3.1.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/fuse.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/jquery.mark.min.js"></script>
+<script src="https://foldable-robotics.github.io/js/search.js"></script>
+
+  </body>
+</html>
