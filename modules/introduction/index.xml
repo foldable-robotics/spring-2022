@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Introduction on Foldable Robotics</title>
-    <link>https://foldable-robotics.github.io/modules/introduction/</link>
+    <link>https://foldable-robotics.github.io/spring_2022/modules/introduction/</link>
     <description>Recent content in Introduction on Foldable Robotics</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://foldable-robotics.github.io/modules/introduction/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://foldable-robotics.github.io/spring_2022/modules/introduction/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Foldable Robotics Background</title>
-      <link>https://foldable-robotics.github.io/modules/introduction/01-foldable-background/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/introduction/01-foldable-background/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/introduction/01-foldable-background/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/introduction/01-foldable-background/</guid>
       <description>A short history of foldable robotics</description>
     </item>
     <item>
       <title>Foldable Robotics Timeline</title>
-      <link>https://foldable-robotics.github.io/modules/introduction/02-foldable-timeline/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/introduction/02-foldable-timeline/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/introduction/02-foldable-timeline/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/introduction/02-foldable-timeline/</guid>
       <description>A visual timeline of foldable robotics</description>
     </item>
     <item>
       <title>Robotics Domains</title>
-      <link>https://foldable-robotics.github.io/modules/introduction/robotics-domains/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/introduction/robotics-domains/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/introduction/robotics-domains/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/introduction/robotics-domains/</guid>
       <description>Robotics is multidisciplinary.  Foldable robotics draws from these fields</description>
     </item>
   </channel>

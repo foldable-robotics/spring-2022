@@ -2,100 +2,100 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kinematics on Foldable Robotics</title>
-    <link>https://foldable-robotics.github.io/modules/kinematics/</link>
+    <link>https://foldable-robotics.github.io/spring_2022/modules/kinematics/</link>
     <description>Recent content in Kinematics on Foldable Robotics</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://foldable-robotics.github.io/modules/kinematics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://foldable-robotics.github.io/spring_2022/modules/kinematics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Graphical Synthesis</title>
-      <link>https://foldable-robotics.github.io/modules/kinematics/graphical-synthesis/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/kinematics/graphical-synthesis/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/kinematics/graphical-synthesis/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/kinematics/graphical-synthesis/</guid>
       <description>A popular way of deriving the desired kinematics of a device graphically has also been employed for centures.</description>
     </item>
     <item>
       <title>Jacobians</title>
-      <link>https://foldable-robotics.github.io/modules/kinematics/jacobians/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/kinematics/jacobians/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/kinematics/jacobians/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/kinematics/jacobians/</guid>
       <description>A Jacobian is a matrix that collects the partial derivatives of rates of change between two vectors.</description>
     </item>
     <item>
       <title>Kinematics Introduction</title>
-      <link>https://foldable-robotics.github.io/modules/kinematics/introduction-to-kinematics/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/kinematics/introduction-to-kinematics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/kinematics/introduction-to-kinematics/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/kinematics/introduction-to-kinematics/</guid>
       <description>Prototyping in Paper A second step is to ideate, mock-up, and prototype candidate mechanisms in paper.</description>
     </item>
     <item>
       <title>Singularities and Solver Problems</title>
-      <link>https://foldable-robotics.github.io/modules/kinematics/singularities-and-solver-problems/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/kinematics/singularities-and-solver-problems/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/kinematics/singularities-and-solver-problems/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/kinematics/singularities-and-solver-problems/</guid>
       <description>Many of the devices you will prototype are highly nonlinear mechanisms which may have certain charactersitics which are hard to solve for in your typical CAD sketcher.</description>
     </item>
     <item>
       <title>Sketching 2D Kinematics in CAD</title>
-      <link>https://foldable-robotics.github.io/modules/kinematics/sketching-2d-kinematics-in-cad/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/kinematics/sketching-2d-kinematics-in-cad/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/kinematics/sketching-2d-kinematics-in-cad/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/kinematics/sketching-2d-kinematics-in-cad/</guid>
       <description>Introduction Steps Create a planar sketch Turn off the background color in Solidworks by changing the background to plain white in the options at the top of the viewport window.</description>
     </item>
     <item>
       <title>Solidworks Export Tutorial</title>
-      <link>https://foldable-robotics.github.io/modules/kinematics/solidworks-export-tutorial/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/kinematics/solidworks-export-tutorial/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/kinematics/solidworks-export-tutorial/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/kinematics/solidworks-export-tutorial/</guid>
       <description>Introduction This tutorial picks up from the Solidworks Kinematics Tutorial</description>
     </item>
     <item>
       <title>Solidworks Kinematics Tutorial</title>
-      <link>https://foldable-robotics.github.io/modules/kinematics/solidworks-kinematics-tutorial/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/kinematics/solidworks-kinematics-tutorial/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/kinematics/solidworks-kinematics-tutorial/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/kinematics/solidworks-kinematics-tutorial/</guid>
       <description>Solidworks is an attractive way to model popup devices because you can interact with the three-dimensional kinematics of your popup device.</description>
     </item>
     <item>
       <title>Solve Triangle</title>
-      <link>https://foldable-robotics.github.io/modules/kinematics/generated/find-triangle/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/kinematics/generated/find-triangle/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/kinematics/generated/find-triangle/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/kinematics/generated/find-triangle/</guid>
       <description>This example shows how to solve geometric constraints for a triangle of given length sides</description>
     </item>
     <item>
       <title>Solving Kinematics Numerically with Python</title>
-      <link>https://foldable-robotics.github.io/modules/kinematics/generated/solving-kinematics-with-python/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/kinematics/generated/solving-kinematics-with-python/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/kinematics/generated/solving-kinematics-with-python/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/kinematics/generated/solving-kinematics-with-python/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This module takes you through solving the motion of a device by using a numerical nonlinear solver to solve a complex system of constraint equations.  We will be using a number of Python packages to do this.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Solving Nonlinear Four-Bar Constraints</title>
-      <link>https://foldable-robotics.github.io/modules/kinematics/generated/solving-four-bar-constraints/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/kinematics/generated/solving-four-bar-constraints/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/kinematics/generated/solving-four-bar-constraints/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/kinematics/generated/solving-four-bar-constraints/</guid>
       <description>Turn on inline plotting&#xA;%matplotlib inline import required packages&#xA;import pynamics from pynamics.</description>
     </item>
     <item>
       <title>Symbolic Constraint Equations with Pynamics</title>
-      <link>https://foldable-robotics.github.io/modules/kinematics/generated/symbolic-constraint-equations-with-pynamics/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/kinematics/generated/symbolic-constraint-equations-with-pynamics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/kinematics/generated/symbolic-constraint-equations-with-pynamics/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/kinematics/generated/symbolic-constraint-equations-with-pynamics/</guid>
       <description>Import libraries&#xA;import pynamics from pynamics.system import System from pynamics.frame import Frame from pynamics.</description>
     </item>
     <item>
       <title>Vector Constraint Equations</title>
-      <link>https://foldable-robotics.github.io/modules/kinematics/vector-based-constraint-equations/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/kinematics/vector-based-constraint-equations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/kinematics/vector-based-constraint-equations/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/kinematics/vector-based-constraint-equations/</guid>
       <description>v,w perpendicular Here the intuition is that perpendicular lines have an angle of $\theta$ between them.</description>
     </item>
     <item>
       <title>Vectors and Vector Math</title>
-      <link>https://foldable-robotics.github.io/modules/kinematics/vectors-and-vector-math/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/kinematics/vectors-and-vector-math/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/kinematics/vectors-and-vector-math/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/kinematics/vectors-and-vector-math/</guid>
       <description>A $\vec{v}$ defines a magnitude and direction in $n$-dimensional space.</description>
     </item>
   </channel>

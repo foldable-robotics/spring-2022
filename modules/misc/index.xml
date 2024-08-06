@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Misc on Foldable Robotics</title>
-    <link>https://foldable-robotics.github.io/modules/misc/</link>
+    <link>https://foldable-robotics.github.io/spring_2022/modules/misc/</link>
     <description>Recent content in Misc on Foldable Robotics</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://foldable-robotics.github.io/modules/misc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://foldable-robotics.github.io/spring_2022/modules/misc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Add Folder to System Path</title>
-      <link>https://foldable-robotics.github.io/modules/misc/add-folder-to-system-path/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/misc/add-folder-to-system-path/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/misc/add-folder-to-system-path/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/misc/add-folder-to-system-path/</guid>
       <description>These are the Windows 10 instructions. Different operating systems, including older versions of Windows act slightly differently.</description>
     </item>
     <item>
       <title>convert excel spreadsheet to markdown table</title>
-      <link>https://foldable-robotics.github.io/modules/misc/excel-to-markdown/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/misc/excel-to-markdown/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/misc/excel-to-markdown/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/misc/excel-to-markdown/</guid>
       <description>Introduction Often you are working in excel and want to output to a markdown table.</description>
     </item>
     <item>
       <title>Installing Git</title>
-      <link>https://foldable-robotics.github.io/modules/misc/installing-git/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/misc/installing-git/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/misc/installing-git/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/misc/installing-git/</guid>
       <description>Windows Instructions These instructions are for installing Git along with Git Extensions, a nice GUI for working with repositories.</description>
     </item>
     <item>
       <title>Suggested Drawing and Modeling Software</title>
-      <link>https://foldable-robotics.github.io/modules/misc/software/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/misc/software/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/misc/software/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/misc/software/</guid>
       <description>Drawing Software Title Description Availability [Inkscape][[Inkscape]] Recommended. Open source, cross-platform drawing program that can produce vector drawings in many formats https://inkscape.</description>
     </item>
     <item>
       <title>Using the ASU Library Proxy</title>
-      <link>https://foldable-robotics.github.io/modules/misc/library-proxy/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/misc/library-proxy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/misc/library-proxy/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/misc/library-proxy/</guid>
       <description>Introduction Accessing journal and conference papers off-campus can be a chore, made more difficult by having to use VPN&amp;rsquo;s or navigate ASU Library&amp;rsquo;s search tool.</description>
     </item>
   </channel>

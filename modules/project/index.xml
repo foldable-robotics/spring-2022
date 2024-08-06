@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Project on Foldable Robotics</title>
-    <link>https://foldable-robotics.github.io/modules/project/</link>
+    <link>https://foldable-robotics.github.io/spring_2022/modules/project/</link>
     <description>Recent content in Project on Foldable Robotics</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://foldable-robotics.github.io/modules/project/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://foldable-robotics.github.io/spring_2022/modules/project/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Converting Powerpoint to .mp4</title>
-      <link>https://foldable-robotics.github.io/modules/project/powerpoint-to-mp4/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/project/powerpoint-to-mp4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/project/powerpoint-to-mp4/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/project/powerpoint-to-mp4/</guid>
       <description>Introduction This tutorial takes you step-by-step through creating a .mp4 version of a powerpoint presentation for posting to youtube or a personal website</description>
     </item>
     <item>
       <title>Developing a Research Question</title>
-      <link>https://foldable-robotics.github.io/modules/project/developing-a-research-question/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/project/developing-a-research-question/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/project/developing-a-research-question/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/project/developing-a-research-question/</guid>
       <description>Introduction Robotics as a field is highly multi-disciplinary. Even within that field, designing a robot requires knowledge and input from a variety of domains, including biology, materials, mechanics, mechanical design,dynamics, CAD, manufacturing, optimization, control, etc.</description>
     </item>
     <item>
       <title>Make a Bibliography</title>
-      <link>https://foldable-robotics.github.io/modules/project/make-a-bibliography/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/project/make-a-bibliography/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/project/make-a-bibliography/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/project/make-a-bibliography/</guid>
       <description>Introduction The purpose of this assignment is to make a bibliography page and to include it in your website</description>
     </item>
     <item>
       <title>Make a Project Repository and Website</title>
-      <link>https://foldable-robotics.github.io/modules/project/make-a-website/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/project/make-a-website/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/project/make-a-website/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/project/make-a-website/</guid>
       <description>Introduction The purpose of this post is to help you create a website to share your work.</description>
     </item>
     <item>
       <title>Working with Jupyter Notebooks in your website</title>
-      <link>https://foldable-robotics.github.io/modules/project/jupyter-notebooks-in-websites/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/modules/project/jupyter-notebooks-in-websites/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/modules/project/jupyter-notebooks-in-websites/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/modules/project/jupyter-notebooks-in-websites/</guid>
       <description>Introduction The point of this tutorial is to show you how to add a compiled jupyter notebook to your website in a way that it can be viewed.</description>
     </item>
   </channel>

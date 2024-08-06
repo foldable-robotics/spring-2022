@@ -2,65 +2,65 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Course Documents on Foldable Robotics</title>
-    <link>https://foldable-robotics.github.io/course-documents/</link>
+    <link>https://foldable-robotics.github.io/spring_2022/course-documents/</link>
     <description>Recent content in Course Documents on Foldable Robotics</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://foldable-robotics.github.io/course-documents/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://foldable-robotics.github.io/spring_2022/course-documents/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Course Calendar</title>
-      <link>https://foldable-robotics.github.io/course-documents/course-calendar-copy/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/course-documents/course-calendar-copy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/course-documents/course-calendar-copy/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/course-documents/course-calendar-copy/</guid>
       <description></description>
     </item>
     <item>
       <title>Course Calendar</title>
-      <link>https://foldable-robotics.github.io/course-documents/course-calendar/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/course-documents/course-calendar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/course-documents/course-calendar/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/course-documents/course-calendar/</guid>
       <description></description>
     </item>
     <item>
       <title>Course Documents</title>
-      <link>https://foldable-robotics.github.io/course-documents/all-documents/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/course-documents/all-documents/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/course-documents/all-documents/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/course-documents/all-documents/</guid>
       <description>Course Documents</description>
     </item>
     <item>
       <title>Parts List</title>
-      <link>https://foldable-robotics.github.io/course-documents/parts-list/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/course-documents/parts-list/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/course-documents/parts-list/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/course-documents/parts-list/</guid>
       <description>Classroom Purchases Item Link price 9&amp;quot;Laminator https://www.amazon.com/Scotch-Laminator-Technology-Automatically-TL906/dp/B00CLV8ZIU/ $52.99 13&amp;quot; Laminator https://www.</description>
     </item>
     <item>
       <title>Software List</title>
-      <link>https://foldable-robotics.github.io/course-documents/software-list/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/course-documents/software-list/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/course-documents/software-list/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/course-documents/software-list/</guid>
       <description>Windows Name URL Version Putty https://putty.org/ latest Inkscape https://inkscape.org/ latest 7-zip https://www.</description>
     </item>
     <item>
       <title>Submission Best Practices</title>
-      <link>https://foldable-robotics.github.io/course-documents/submission-best-practices/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/course-documents/submission-best-practices/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/course-documents/submission-best-practices/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/course-documents/submission-best-practices/</guid>
       <description>This page details how to prepare assignments for submission. The &amp;ldquo;Submission&amp;rdquo; section of your assignment should provide the details for what format and where to submit assignments.</description>
     </item>
     <item>
       <title>Suggested Materials List</title>
-      <link>https://foldable-robotics.github.io/course-documents/suggested-materials-list/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/course-documents/suggested-materials-list/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/course-documents/suggested-materials-list/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/course-documents/suggested-materials-list/</guid>
       <description>Suggested Materials List Prototyping Posterboard1 Cardstock Rubber Bands Stapler / Staples String or Twine Duct Tape Rivets Measurement Kitchen Scale Fish Scale Tape Measure SmartPhone Multimeter Electronics Microcontroller RC Servo IMU avoid common cardboard(chipboard).</description>
     </item>
     <item>
       <title>Syllabus for Foldable Robotics</title>
-      <link>https://foldable-robotics.github.io/course-documents/syllabus/</link>
+      <link>https://foldable-robotics.github.io/spring_2022/course-documents/syllabus/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/course-documents/syllabus/</guid>
+      <guid>https://foldable-robotics.github.io/spring_2022/course-documents/syllabus/</guid>
       <description>Overview Foldable Robotics is a course organized around new types of robots being developed in research labs and industry across the country.</description>
     </item>
   </channel>
