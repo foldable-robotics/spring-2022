@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Optimization on Foldable Robotics</title>
-    <link>https://foldable-robotics.github.io/spring_2022/modules/optimization/</link>
+    <link>https://foldable-robotics.github.io/spring-2022/modules/optimization/</link>
     <description>Recent content in Optimization on Foldable Robotics</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://foldable-robotics.github.io/spring_2022/modules/optimization/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://foldable-robotics.github.io/spring-2022/modules/optimization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fitting a Dynamic Model</title>
-      <link>https://foldable-robotics.github.io/spring_2022/modules/optimization/generated/04-fitting-a-dynamic-model/</link>
+      <link>https://foldable-robotics.github.io/spring-2022/modules/optimization/generated/04-fitting-a-dynamic-model/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/spring_2022/modules/optimization/generated/04-fitting-a-dynamic-model/</guid>
+      <guid>https://foldable-robotics.github.io/spring-2022/modules/optimization/generated/04-fitting-a-dynamic-model/</guid>
       <description>Introduction This example takes us through the beginning of the triple pendulum example again.</description>
     </item>
     <item>
       <title>Glider Optimization</title>
-      <link>https://foldable-robotics.github.io/spring_2022/modules/optimization/generated/05-glider-optimization/</link>
+      <link>https://foldable-robotics.github.io/spring-2022/modules/optimization/generated/05-glider-optimization/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/spring_2022/modules/optimization/generated/05-glider-optimization/</guid>
+      <guid>https://foldable-robotics.github.io/spring-2022/modules/optimization/generated/05-glider-optimization/</guid>
       <description>%matplotlib inline import pynamics from pynamics.frame import Frame from pynamics.variable_types import Differentiable,Constant from pynamics.</description>
     </item>
     <item>
       <title>Least Squares Optimization</title>
-      <link>https://foldable-robotics.github.io/spring_2022/modules/optimization/generated/01-least-squares-optimization/</link>
+      <link>https://foldable-robotics.github.io/spring-2022/modules/optimization/generated/01-least-squares-optimization/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/spring_2022/modules/optimization/generated/01-least-squares-optimization/</guid>
+      <guid>https://foldable-robotics.github.io/spring-2022/modules/optimization/generated/01-least-squares-optimization/</guid>
       <description>%matplotlib inline import numpy import numpy.random import matplotlib.pyplot as plt import numpy.</description>
     </item>
     <item>
       <title>Scipy Optimization Example</title>
-      <link>https://foldable-robotics.github.io/spring_2022/modules/optimization/generated/02-scipy-optimization-example/</link>
+      <link>https://foldable-robotics.github.io/spring-2022/modules/optimization/generated/02-scipy-optimization-example/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/spring_2022/modules/optimization/generated/02-scipy-optimization-example/</guid>
+      <guid>https://foldable-robotics.github.io/spring-2022/modules/optimization/generated/02-scipy-optimization-example/</guid>
       <description>This short example shows you how to use the scipy minimize function to identify model parameters.</description>
     </item>
     <item>
       <title>Solving Nonlinear Problems with Scipy Optimize and pyCMA</title>
-      <link>https://foldable-robotics.github.io/spring_2022/modules/optimization/generated/03-solving-nonlinear-problems/</link>
+      <link>https://foldable-robotics.github.io/spring-2022/modules/optimization/generated/03-solving-nonlinear-problems/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/spring_2022/modules/optimization/generated/03-solving-nonlinear-problems/</guid>
+      <guid>https://foldable-robotics.github.io/spring-2022/modules/optimization/generated/03-solving-nonlinear-problems/</guid>
       <description>Introduction Nonlinear solvers can suffer from the possibility of reaching local minima if the initial guess is too far away from the best minimum solution.</description>
     </item>
   </channel>

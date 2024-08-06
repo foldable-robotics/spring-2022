@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Foldable Robotics</title>
-    <link>https://foldable-robotics.github.io/spring_2022/tags/</link>
+    <link>https://foldable-robotics.github.io/spring-2022/tags/</link>
     <description>Recent content in Tags on Foldable Robotics</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://foldable-robotics.github.io/spring_2022/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://foldable-robotics.github.io/spring-2022/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kinematics</title>
-      <link>https://foldable-robotics.github.io/spring_2022/tags/kinematics/</link>
+      <link>https://foldable-robotics.github.io/spring-2022/tags/kinematics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/spring_2022/tags/kinematics/</guid>
+      <guid>https://foldable-robotics.github.io/spring-2022/tags/kinematics/</guid>
       <description></description>
     </item>
     <item>
       <title>Singularities</title>
-      <link>https://foldable-robotics.github.io/spring_2022/tags/singularities/</link>
+      <link>https://foldable-robotics.github.io/spring-2022/tags/singularities/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/spring_2022/tags/singularities/</guid>
+      <guid>https://foldable-robotics.github.io/spring-2022/tags/singularities/</guid>
       <description></description>
     </item>
     <item>
       <title>Solvers</title>
-      <link>https://foldable-robotics.github.io/spring_2022/tags/solvers/</link>
+      <link>https://foldable-robotics.github.io/spring-2022/tags/solvers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/spring_2022/tags/solvers/</guid>
+      <guid>https://foldable-robotics.github.io/spring-2022/tags/solvers/</guid>
       <description></description>
     </item>
   </channel>

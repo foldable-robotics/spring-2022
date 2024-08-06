@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mechanics and Compliance on Foldable Robotics</title>
-    <link>https://foldable-robotics.github.io/spring_2022/modules/compliance/</link>
+    <link>https://foldable-robotics.github.io/spring-2022/modules/compliance/</link>
     <description>Recent content in Mechanics and Compliance on Foldable Robotics</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://foldable-robotics.github.io/spring_2022/modules/compliance/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://foldable-robotics.github.io/spring-2022/modules/compliance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Approximating compliant beams with the pseudo-rigid-body model</title>
-      <link>https://foldable-robotics.github.io/spring_2022/modules/compliance/generated/prbm/</link>
+      <link>https://foldable-robotics.github.io/spring-2022/modules/compliance/generated/prbm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/spring_2022/modules/compliance/generated/prbm/</guid>
+      <guid>https://foldable-robotics.github.io/spring-2022/modules/compliance/generated/prbm/</guid>
       <description>import sympy q = sympy.Symbol(&amp;#39;q&amp;#39;) d = sympy.Symbol(&amp;#39;d&amp;#39;) L = sympy.</description>
     </item>
     <item>
       <title>Cantilever Beams</title>
-      <link>https://foldable-robotics.github.io/spring_2022/modules/compliance/cantilever-beams/</link>
+      <link>https://foldable-robotics.github.io/spring-2022/modules/compliance/cantilever-beams/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/spring_2022/modules/compliance/cantilever-beams/</guid>
+      <guid>https://foldable-robotics.github.io/spring-2022/modules/compliance/cantilever-beams/</guid>
       <description>Overview Compute the stiffness of a laminate beam&#xA;Summary of Steps Prepare 4 rectangular samples of the rigid material your team is using (cardboard, posterboard,fiberglass) in the dimensions of 25mm x 125mm.</description>
     </item>
     <item>
       <title>Euler-Bernoulli Beams</title>
-      <link>https://foldable-robotics.github.io/spring_2022/modules/compliance/generated/euler-bernoulli-beams/</link>
+      <link>https://foldable-robotics.github.io/spring-2022/modules/compliance/generated/euler-bernoulli-beams/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/spring_2022/modules/compliance/generated/euler-bernoulli-beams/</guid>
+      <guid>https://foldable-robotics.github.io/spring-2022/modules/compliance/generated/euler-bernoulli-beams/</guid>
       <description>The relationship between the bending moment and the radius of curvature($\rho$) for a beam of Young&amp;rsquo;s modulus $E$ and cross-sectional moment of inertia(second moment of area) $I$ is given by</description>
     </item>
     <item>
       <title>FEA Modeling</title>
-      <link>https://foldable-robotics.github.io/spring_2022/modules/compliance/laminate-fea/</link>
+      <link>https://foldable-robotics.github.io/spring-2022/modules/compliance/laminate-fea/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/spring_2022/modules/compliance/laminate-fea/</guid>
+      <guid>https://foldable-robotics.github.io/spring-2022/modules/compliance/laminate-fea/</guid>
       <description>Introduction The goal of this tutorial is to get you familiar computing the stiffness of a laminate using FEA.</description>
     </item>
     <item>
       <title>Solidworks FEA Tutorial</title>
-      <link>https://foldable-robotics.github.io/spring_2022/modules/compliance/solidworks-fea-tutorial/</link>
+      <link>https://foldable-robotics.github.io/spring-2022/modules/compliance/solidworks-fea-tutorial/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://foldable-robotics.github.io/spring_2022/modules/compliance/solidworks-fea-tutorial/</guid>
+      <guid>https://foldable-robotics.github.io/spring-2022/modules/compliance/solidworks-fea-tutorial/</guid>
       <description>Steps Create a new part&#xA;Select the Top Plane&#xA;Create a new Sketch</description>
     </item>
   </channel>
